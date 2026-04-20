@@ -4,6 +4,7 @@ import "./globals.css";
 import { Analytics } from "@/components/analytics";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
+import { PostHogProvider } from "@/components/posthog-provider";
 import { siteConfig } from "@/lib/site-config";
 
 const geistSans = Geist({
@@ -32,10 +33,12 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Nav />
-        <div className="flex-1">{children}</div>
-        <Footer />
-        <Analytics />
+        <PostHogProvider>
+          <Nav />
+          <div className="flex-1">{children}</div>
+          <Footer />
+          <Analytics />
+        </PostHogProvider>
       </body>
     </html>
   );
