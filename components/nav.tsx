@@ -1,7 +1,8 @@
 import Link from "next/link"
 import { Menu, Phone } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 import {
   Sheet,
   SheetContent,
@@ -30,24 +31,27 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button asChild size="sm" className="gap-2">
-            <a
-              href={siteConfig.phone.hrefTel}
-              aria-label={`Call ${siteConfig.phone.display}`}
-            >
-              <Phone className="size-4" />
-              <span className="hidden sm:inline">
-                Call {siteConfig.phone.display}
-              </span>
-              <span className="sm:hidden">Call</span>
-            </a>
-          </Button>
+          <a
+            href={siteConfig.phone.hrefTel}
+            aria-label={`Call ${siteConfig.phone.display}`}
+            className={cn(buttonVariants({ size: "sm" }), "gap-2")}
+          >
+            <Phone className="size-4" />
+            <span className="hidden sm:inline">
+              Call {siteConfig.phone.display}
+            </span>
+            <span className="sm:hidden">Call</span>
+          </a>
 
           <Sheet>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" aria-label="Open menu">
-                <Menu className="size-5" />
-              </Button>
+            <SheetTrigger
+              aria-label="Open menu"
+              className={cn(
+                buttonVariants({ variant: "ghost", size: "icon" }),
+                "md:hidden"
+              )}
+            >
+              <Menu className="size-5" />
             </SheetTrigger>
             <SheetContent side="right" className="w-72">
               <SheetTitle>Menu</SheetTitle>
