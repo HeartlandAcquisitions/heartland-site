@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# heartland-site
 
-## Getting Started
+Seller-facing marketing site for Heartland Acquisitions — `heartlandacquisitions.com`.
 
-First, run the development server:
+## Stack
+
+Next.js 16 · TypeScript · Tailwind 4 · shadcn/ui · Vercel · pnpm
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+nvm use           # activates Node 22
+pnpm install
+pnpm dev          # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `main` branch auto-deploys to production via Vercel.
+- PRs auto-deploy to preview URLs. Always preview before merging.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment variables
 
-## Learn More
+See `.env.example` for the required keys. Set them in Vercel at `Settings → Environment Variables`. Never commit real secrets.
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All architectural conventions are documented in `CLAUDE.md`. Read it before making structural changes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Related
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Spec: `../max-agent/docs/superpowers/specs/2026-04-20-heartland-site-v1-design.md`
+- CRM: Roman CRM (FastAPI) at `heartlandboys.com`
