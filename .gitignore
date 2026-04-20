@@ -123,3 +123,7 @@ vite.config.ts.timestamp-*
 .vercel
 # typescript
 next-env.d.ts
+# playwright
+test-results/
+playwright-report/
+playwright/.cache/
