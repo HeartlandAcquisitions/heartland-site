@@ -5,6 +5,7 @@ test("GA4 loads on homepage", async ({ page }) => {
   page.on("request", (req) => requests.push(req.url()))
   await page.goto("/")
   await page.waitForLoadState("networkidle")
+  await page.waitForTimeout(2000)
   const ga = requests.find(
     (u) =>
       u.includes("googletagmanager.com/gtag/js") ||
@@ -21,6 +22,7 @@ test("Meta Pixel loads on homepage", async ({ page }) => {
   page.on("request", (req) => requests.push(req.url()))
   await page.goto("/")
   await page.waitForLoadState("networkidle")
+  await page.waitForTimeout(2000)
   const fb = requests.find(
     (u) => u.includes("connect.facebook.net") || u.includes("facebook.com/tr")
   )
