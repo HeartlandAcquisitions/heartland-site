@@ -6,6 +6,7 @@ const PORT = 3099
 
 export default defineConfig({
   testDir: "./tests",
+  testMatch: /.*\.e2e\.spec\.ts$/,
   timeout: 30_000,
   use: {
     baseURL: process.env.PLAYWRIGHT_BASE_URL ?? `http://localhost:${PORT}`,
