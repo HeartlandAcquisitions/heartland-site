@@ -1,30 +1,28 @@
 import { expect, test } from "@playwright/test"
 
+// networkidle is unreliable on pages where Turnstile keeps a persistent
+// background connection. Wait for the specific analytics request instead.
+
 test("GA4 loads on homepage", async ({ page }) => {
-  const requests: string[] = []
-  page.on("request", (req) => requests.push(req.url()))
-  await page.goto("/")
-  await page.waitForLoadState("networkidle")
-  await page.waitForTimeout(2000)
-  const ga = requests.find(
-    (u) =>
-      u.includes("googletagmanager.com/gtag/js") ||
-      u.includes("google-analytics.com")
+  const ga4 = page.waitForRequest(
+    (req) =>
+      req.url().includes("googletagmanager.com/gtag/js") ||
+      req.url().includes("google-analytics.com"),
+    { timeout: 15_000 },
   )
-  expect(
-    ga,
-    `Expected a GA4/GTM request. Observed: ${requests.slice(0, 20).join("\n")}`
-  ).toBeTruthy()
+  await page.goto("/")
+  const req = await ga4
+  expect(req).toBeTruthy()
 })
 
 test("Meta Pixel loads on homepage", async ({ page }) => {
-  const requests: string[] = []
-  page.on("request", (req) => requests.push(req.url()))
-  await page.goto("/")
-  await page.waitForLoadState("networkidle")
-  await page.waitForTimeout(2000)
-  const fb = requests.find(
-    (u) => u.includes("connect.facebook.net") || u.includes("facebook.com/tr")
+  const fb = page.waitForRequest(
+    (req) =>
+      req.url().includes("connect.facebook.net") ||
+      req.url().includes("facebook.com/tr"),
+    { timeout: 15_000 },
   )
-  expect(fb, "Expected Meta Pixel request").toBeTruthy()
+  await page.goto("/")
+  const req = await fb
+  expect(req).toBeTruthy()
 })

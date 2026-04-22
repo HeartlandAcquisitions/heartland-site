@@ -1,4 +1,4 @@
-import { describe, expect, it, vi, beforeEach, afterEach } from "vitest"
+import { describe, expect, it, vi, beforeEach } from "vitest"
 
 // Mock external modules before importing the action
 vi.mock("@/lib/turnstile", () => ({
