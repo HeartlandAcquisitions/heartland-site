@@ -48,7 +48,8 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
 
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ""
 
-  // Render Turnstile once it's loaded
+  // Render Turnstile once the script loads + the container mounts.
+  // No polling timeout — keep trying until the widget is rendered.
   useEffect(() => {
     if (!siteKey) return
     const tryRender = () => {
@@ -63,11 +64,7 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
     }
     tryRender()
     const t = setInterval(tryRender, 300)
-    const stop = setTimeout(() => clearInterval(t), 10_000)
-    return () => {
-      clearInterval(t)
-      clearTimeout(stop)
-    }
+    return () => clearInterval(t)
   }, [siteKey])
 
   const onAddressContinue = (e: React.FormEvent) => {
@@ -89,10 +86,20 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
     }
 
     startTransition(async () => {
-      // Ask Turnstile for a token (invisible mode)
-      if (window.turnstile && turnstileWidgetId.current) {
-        window.turnstile.execute(turnstileWidgetId.current)
-        await new Promise((r) => setTimeout(r, 800))
+      // Ask Turnstile for a fresh token (invisible mode). If the widget isn't ready,
+      // wait up to 8s for it to register + solve. Poll for the callback-set token.
+      if (siteKey) {
+        tokenRef.current = ""
+        const deadline = Date.now() + 8000
+        while (Date.now() < deadline && !turnstileWidgetId.current) {
+          await new Promise((r) => setTimeout(r, 100))
+        }
+        if (window.turnstile && turnstileWidgetId.current) {
+          window.turnstile.execute(turnstileWidgetId.current)
+          while (Date.now() < deadline && !tokenRef.current) {
+            await new Promise((r) => setTimeout(r, 100))
+          }
+        }
       }
 
       const params = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams()
@@ -155,6 +162,11 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
           defer
         />
       ) : null}
+
+      {/* Turnstile container — always mounted so the widget can render before
+          the user reaches the contact step. Invisible mode has no visible UI. */}
+      <div ref={turnstileRef} />
+
 
       {step === "address" ? (
         <form onSubmit={onAddressContinue} className="flex flex-col gap-4">
@@ -223,8 +235,6 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-
-          <div ref={turnstileRef} />
 
           <Button type="submit" size="lg" disabled={isPending}>
             {isPending ? "Sending…" : "Get my cash offer"}
