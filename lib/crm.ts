@@ -1,24 +1,20 @@
-export interface CrmLeadPayload {
-  source: string
-  source_detail?: string
+export interface IntakePayload {
+  phone: string
+  property_address: string
   first_name?: string
   last_name?: string
-  phone?: string
-  phone_secondary?: string
   email?: string
-  property_address?: string
-  city?: string
-  state?: string
-  zip?: string
-  motivation_type?: string
-  motivation_score?: number
-  distress_signals?: Record<string, unknown>
-  property_data?: Record<string, unknown>
-  notes?: string
 }
 
-export type CrmPostResult =
-  | { ok: true; leadId: string; attempts: number }
+export type IntakeResult =
+  | {
+      ok: true
+      dealId: string
+      contactId: string
+      propertyId: string
+      contactCreated: boolean
+      attempts: number
+    }
   | { ok: false; status: number; error: string; attempts: number }
 
 interface PostOptions {
@@ -27,10 +23,10 @@ interface PostOptions {
   signal?: AbortSignal
 }
 
-export async function postLeadToCrm(
-  payload: CrmLeadPayload,
+export async function postIntakeToCrm(
+  payload: IntakePayload,
   options: PostOptions = {},
-): Promise<CrmPostResult> {
+): Promise<IntakeResult> {
   const { maxAttempts = 3, backoffMs = 500 } = options
   const url = process.env.CRM_API_URL
   const apiKey = process.env.CRM_API_KEY
@@ -53,19 +49,29 @@ export async function postLeadToCrm(
       })
 
       if (res.ok) {
-        const body = (await res.json()) as { id?: string }
-        return { ok: true, leadId: body.id ?? "unknown", attempts: attempt }
+        const body = (await res.json()) as {
+          deal_id?: string
+          contact_id?: string
+          property_id?: string
+          contact_created?: boolean
+        }
+        return {
+          ok: true,
+          dealId: body.deal_id ?? "unknown",
+          contactId: body.contact_id ?? "unknown",
+          propertyId: body.property_id ?? "unknown",
+          contactCreated: body.contact_created ?? false,
+          attempts: attempt,
+        }
       }
 
       lastStatus = res.status
       lastError = await safeText(res)
 
-      // 4xx = client error; don't retry
       if (res.status >= 400 && res.status < 500) {
         return { ok: false, status: res.status, error: lastError, attempts: attempt }
       }
 
-      // 5xx — retry with exponential backoff
       if (attempt < maxAttempts) {
         await sleep(backoffMs * Math.pow(2, attempt - 1))
       }
