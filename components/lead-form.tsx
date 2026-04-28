@@ -26,6 +26,11 @@ type TurnstileAPI = {
 declare global {
   interface Window {
     turnstile?: TurnstileAPI
+    fbq?: (...args: unknown[]) => void
+    gtag?: (...args: unknown[]) => void
+    posthog?: {
+      capture?: (event: string, props?: Record<string, unknown>) => void
+    }
   }
 }
 
@@ -37,6 +42,7 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
   const [step, setStep] = useState<Step>("address")
   const [address, setAddress] = useState("")
   const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
   const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
   const [error, setError] = useState<string | null>(null)
@@ -74,14 +80,30 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
       setError("Please enter your property address.")
       return
     }
+    // Fire retargeting signals — users who reach step 2 but abandon the form
+    // can still be re-targeted via Meta / Google ads. Optional-chained so
+    // missing scripts no-op cleanly. Plan 3.5 will pair these with a
+    // server-side `Lead` event on successful submit (deduped via event_id).
+    window.fbq?.("trackCustom", "AddressEntered", {
+      content_name: "lead_form_address_step",
+      value: 0,
+      currency: "USD",
+    })
+    window.gtag?.("event", "generate_lead", {
+      event_category: "form",
+      event_label: "address_entered",
+    })
+    window.posthog?.capture?.("address_entered", {
+      landing_page: typeof window !== "undefined" ? window.location.pathname : undefined,
+    })
     setStep("contact")
   }
 
   const onFinalSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setError(null)
-    if (!firstName.trim() || (!phone.trim() && !email.trim())) {
-      setError("Please add your name and a phone or email.")
+    if (!phone.trim()) {
+      setError("Please add your phone number.")
       return
     }
 
@@ -111,8 +133,9 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
 
       const input: SubmitLeadInput = {
         property_address: address,
-        first_name: firstName,
-        phone: phone || undefined,
+        phone,
+        first_name: firstName || undefined,
+        last_name: lastName || undefined,
         email: email || undefined,
         source_detail: landingPage,
         landing_page: typeof window !== "undefined" ? window.location.pathname : undefined,
@@ -207,10 +230,19 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
             <Input
               id="first_name"
               autoComplete="given-name"
-              placeholder="First name"
+              placeholder="First name (optional)"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="last_name" className="sr-only">Last name</Label>
+            <Input
+              id="last_name"
+              autoComplete="family-name"
+              placeholder="Last name (optional)"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
             />
           </div>
           <div>
@@ -219,9 +251,10 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
               id="phone"
               type="tel"
               autoComplete="tel"
-              placeholder="Phone (preferred)"
+              placeholder="Phone (required)"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
+              required
             />
           </div>
           <div>
