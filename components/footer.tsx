@@ -4,77 +4,46 @@ import { siteConfig } from "@/lib/site-config"
 export function Footer() {
   const year = new Date().getFullYear()
   return (
-    <footer className="mt-16 border-t bg-slate-50 py-12 text-sm text-slate-600">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 md:grid-cols-4 md:px-6">
+    <footer className="mt-auto bg-brand-bg-card border-t border-brand-border">
+      <div className="mx-auto max-w-7xl px-4 py-12 md:px-6 grid gap-10 md:grid-cols-4">
         <div>
-          <div className="text-base font-semibold text-slate-900">
-            {siteConfig.name}
-          </div>
-          <address className="mt-2 not-italic">
-            {siteConfig.address.street}
-            <br />
-            {siteConfig.address.city}, {siteConfig.address.state}{" "}
-            {siteConfig.address.zip}
-            <br />
-            <a
-              className="text-slate-900 underline"
-              href={siteConfig.phone.hrefTel}
-            >
-              Call {siteConfig.phone.display}
+          <h3 className="font-display text-lg font-bold text-brand-text">{siteConfig.name}</h3>
+          <address className="mt-3 not-italic text-sm text-brand-text-muted">
+            {siteConfig.address.street}<br />
+            {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}<br />
+            <a href={siteConfig.phone.hrefTel} className="mt-2 inline-block font-semibold text-brand-primary underline-offset-2 hover:underline">
+              {siteConfig.phone.display}
             </a>
           </address>
         </div>
 
         <div>
-          <div className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-900">
-            Company
-          </div>
-          <ul className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-wider text-brand-text-muted">Company</p>
+          <ul className="mt-3 space-y-2 text-sm text-brand-text">
             {siteConfig.nav.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="hover:text-slate-900">
-                  {item.label}
-                </Link>
-              </li>
+              <li key={item.href}><Link href={item.href} className="hover:text-brand-primary">{item.label}</Link></li>
             ))}
           </ul>
         </div>
 
         <div>
-          <div className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-900">
-            We Buy Houses For
-          </div>
-          <ul className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-wider text-brand-text-muted">We Buy Houses For</p>
+          <ul className="mt-3 space-y-2 text-sm text-brand-text">
             {siteConfig.verticals.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="hover:text-slate-900">
-                  {item.label}
-                </Link>
-              </li>
+              <li key={item.href}><Link href={item.href} className="hover:text-brand-primary">{item.label}</Link></li>
             ))}
           </ul>
         </div>
 
         <div>
-          <div className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-900">
-            Legal
-          </div>
-          <ul className="space-y-2">
-            <li>
-              <Link href="/privacy" className="hover:text-slate-900">
-                Privacy Policy
-              </Link>
-            </li>
-            <li>
-              <Link href="/terms" className="hover:text-slate-900">
-                Terms of Service
-              </Link>
-            </li>
+          <p className="text-xs font-semibold uppercase tracking-wider text-brand-text-muted">Legal</p>
+          <ul className="mt-3 space-y-2 text-sm text-brand-text">
+            <li><Link href="/privacy" className="hover:text-brand-primary">Privacy Policy</Link></li>
+            <li><Link href="/terms" className="hover:text-brand-primary">Terms of Service</Link></li>
           </ul>
         </div>
       </div>
-
-      <div className="mx-auto mt-8 max-w-6xl border-t pt-6 px-4 text-xs text-slate-500 md:px-6">
+      <div className="border-t border-brand-border bg-brand-bg-warm px-4 py-4 text-center text-xs text-brand-text-muted">
         © {year} {siteConfig.legalName}. All rights reserved.
       </div>
     </footer>
