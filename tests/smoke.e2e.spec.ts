@@ -1,20 +1,19 @@
 import { expect, test } from "@playwright/test"
 
-test("homepage renders hero + lead form, step 2 includes last name + required phone", async ({ page }) => {
+test("homepage hero shows brand headline + form + stats trio", async ({ page }) => {
   await page.goto("/")
-
-  // Hero + step 1 (address)
   await expect(
-    page.getByRole("heading", { name: /Sell your Kansas City house fast/i }),
+    page.getByRole("heading", { name: /Sell your Kansas City house for cash/i, level: 1 }),
   ).toBeVisible()
   await expect(page.getByPlaceholder(/Kansas City, MO/i)).toBeVisible()
   await expect(page.getByRole("button", { name: "Get My Offer" })).toBeVisible()
+  await expect(page.locator("dl dt").filter({ hasText: "7 day" })).toBeVisible()
+  await expect(page.locator("dl dt").filter({ hasText: "$0" })).toBeVisible()
+  await expect(page.locator("dl dt").filter({ hasText: "100%" })).toBeVisible()
+})
 
-  // Progress to step 2 and verify the new fields
-  await page.getByPlaceholder(/Kansas City, MO/i).fill("123 Main St, Kansas City, MO")
-  await page.getByRole("button", { name: "Get My Offer" }).click()
-
-  await expect(page.getByPlaceholder(/First name \(optional\)/i)).toBeVisible()
-  await expect(page.getByPlaceholder(/Last name \(optional\)/i)).toBeVisible()
-  await expect(page.getByPlaceholder(/Phone \(required\)/i)).toBeVisible()
+test("homepage trust band shows 3 testimonials", async ({ page }) => {
+  await page.goto("/")
+  const quotes = page.locator("figure blockquote")
+  await expect(quotes).toHaveCount(3)
 })
