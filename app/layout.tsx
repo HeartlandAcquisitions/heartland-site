@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@/components/analytics";
 import { Nav } from "@/components/nav";
@@ -7,19 +7,27 @@ import { Footer } from "@/components/footer";
 import { PostHogProvider } from "@/components/posthog-provider";
 import { siteConfig } from "@/lib/site-config";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
+  icons: {
+    icon: "/brand/favicon.ico",
+    apple: "/brand/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -30,9 +38,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${fraunces.variable}`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="bg-brand-bg-warm text-brand-text font-sans antialiased min-h-screen flex flex-col">
         <PostHogProvider>
           <Nav />
           <div className="flex-1">{children}</div>
