@@ -1,88 +1,80 @@
+"use client"
+
+import Image from "next/image"
 import Link from "next/link"
 import { Menu, Phone } from "lucide-react"
+import { useState } from "react"
 import { siteConfig } from "@/lib/site-config"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import {
-  Sheet,
-  SheetContent,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
 
 export function Nav() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
-        <Link href="/" className="text-lg font-bold tracking-tight">
-          {siteConfig.name}
+    <header className="sticky top-0 z-40 border-b border-brand-border bg-brand-surface">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-3 md:px-6">
+        <Link href="/" className="flex items-center gap-2 shrink-0">
+          <Image
+            src="/brand/logo.png"
+            alt={siteConfig.name}
+            width={36}
+            height={36}
+            priority
+            className="h-9 w-9"
+          />
+          <span className="hidden sm:inline font-display text-lg font-bold tracking-tight text-brand-text">
+            {siteConfig.name}
+          </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-brand-text">
           {siteConfig.nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
+            <Link key={item.href} href={item.href} className="hover:text-brand-primary">
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <a
             href={siteConfig.phone.hrefTel}
-            aria-label={`Call ${siteConfig.phone.display}`}
-            className={cn(buttonVariants({ size: "sm" }), "gap-2")}
+            className="hidden sm:flex items-center gap-2 text-sm font-semibold text-brand-primary"
           >
-            <Phone className="size-4" />
-            <span className="hidden sm:inline">
-              Call {siteConfig.phone.display}
-            </span>
-            <span className="sm:hidden">Call</span>
+            <Phone className="h-4 w-4" aria-hidden />
+            <span>{siteConfig.phone.display}</span>
           </a>
-
-          <Sheet>
-            <SheetTrigger
-              aria-label="Open menu"
-              className={cn(
-                buttonVariants({ variant: "ghost", size: "icon" }),
-                "md:hidden"
-              )}
-            >
-              <Menu className="size-5" />
-            </SheetTrigger>
-            <SheetContent side="right" className="w-72">
-              <SheetTitle>Menu</SheetTitle>
-              <nav className="mt-6 flex flex-col gap-4">
-                {siteConfig.nav.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-base font-medium"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                <div className="my-2 h-px bg-border" />
-                <div className="text-xs font-semibold uppercase text-muted-foreground">
-                  We Buy Houses For
-                </div>
-                {siteConfig.verticals.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-base text-muted-foreground"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </nav>
-            </SheetContent>
-          </Sheet>
+          <Link
+            href="/#get-offer"
+            className={cn(buttonVariants({ size: "lg" }), "bg-brand-primary hover:bg-brand-primary-soft text-white")}
+          >
+            Get Your Offer
+          </Link>
+          <button
+            type="button"
+            className="md:hidden p-2 text-brand-text"
+            aria-label="Toggle menu"
+            onClick={() => setMobileOpen((s) => !s)}
+          >
+            <Menu className="h-6 w-6" aria-hidden />
+          </button>
         </div>
       </div>
+
+      {mobileOpen ? (
+        <nav className="md:hidden border-t border-brand-border bg-brand-surface px-4 py-3 flex flex-col gap-3">
+          {siteConfig.nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-base font-medium text-brand-text hover:text-brand-primary"
+              onClick={() => setMobileOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      ) : null}
     </header>
   )
 }

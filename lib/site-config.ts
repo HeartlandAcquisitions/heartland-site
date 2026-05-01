@@ -20,8 +20,9 @@ export const siteConfig = {
   },
 
   nav: [
-    { label: "How It Works", href: "/how-it-works" },
-    { label: "Areas We Buy", href: "/areas-we-buy" },
+    { label: "Process", href: "/process" },
+    { label: "Why Us", href: "/why-us" },
+    { label: "Reviews", href: "/reviews" },
     { label: "FAQ", href: "/faq" },
     { label: "Blog", href: "/blog" },
   ],

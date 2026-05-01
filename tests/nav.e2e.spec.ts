@@ -1,23 +1,22 @@
 import { expect, test } from "@playwright/test"
 
-test("nav shows logo text and phone CTA on homepage", async ({ page }) => {
+test("nav shows logo + brand wordmark + phone CTA on homepage", async ({ page }) => {
   await page.goto("/")
   const header = page.getByRole("banner")
-  await expect(header.getByRole("link", { name: "Heartland Acquisitions" })).toBeVisible()
-  await expect(header.getByRole("link", { name: /Call/i })).toBeVisible()
+  await expect(header.getByRole("link", { name: /Heartland Acquisitions/i })).toBeVisible()
+  await expect(header.getByRole("link", { name: /\(816\) 973-5420/ })).toBeVisible()
 })
 
 test("nav phone link uses tel: protocol", async ({ page }) => {
   await page.goto("/")
   const header = page.getByRole("banner")
-  const phoneLink = header.getByRole("link", { name: /Call/i })
-  const href = await phoneLink.getAttribute("href")
-  expect(href).toMatch(/^tel:\+1/)
+  const phone = header.getByRole("link", { name: /\(816\) 973-5420/ })
+  await expect(phone).toHaveAttribute("href", "tel:+18169735420")
 })
 
-test("nav exposes links to nav pages", async ({ page }) => {
+test("nav exposes Process / Why Us / Reviews / FAQ / Blog", async ({ page }) => {
   await page.goto("/")
-  const header = page.getByRole("banner")
-  const howItWorks = header.getByRole("link", { name: "How It Works" }).first()
-  await expect(howItWorks).toBeAttached()
+  for (const label of ["Process", "Why Us", "Reviews", "FAQ", "Blog"]) {
+    await expect(page.getByRole("link", { name: new RegExp(label, "i") }).first()).toBeVisible()
+  }
 })
