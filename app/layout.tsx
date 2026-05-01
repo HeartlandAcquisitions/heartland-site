@@ -6,6 +6,7 @@ import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { PostHogProvider } from "@/components/posthog-provider";
 import { siteConfig } from "@/lib/site-config";
+import { MobileCallBar } from "@/components/chrome/mobile-call-bar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -43,8 +44,9 @@ export default function RootLayout({
       <body className="bg-brand-bg-warm text-brand-text font-sans antialiased min-h-screen flex flex-col">
         <PostHogProvider>
           <Nav />
-          <div className="flex-1">{children}</div>
+          <main className="flex-1 pb-20 md:pb-0">{children}</main>
           <Footer />
+          <MobileCallBar />
           <Analytics />
         </PostHogProvider>
       </body>
