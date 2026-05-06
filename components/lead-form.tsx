@@ -166,9 +166,9 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
 
   if (step === "success") {
     return (
-      <div className="rounded-xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-        <h3 className="text-2xl font-bold text-slate-900">Got it — we&apos;ll be in touch.</h3>
-        <p className="mt-2 text-slate-600">
+      <div className="text-center">
+        <h3 className="text-2xl font-bold text-brand-text">Got it — we&apos;ll be in touch.</h3>
+        <p className="mt-2 text-brand-text-muted">
           A member of our team will reach out within 24 hours with your offer.
         </p>
       </div>
@@ -176,7 +176,7 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
   }
 
   return (
-    <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+    <div>
       {siteKey ? (
         <Script
           src="https://challenges.cloudflare.com/turnstile/v0/api.js"
@@ -193,12 +193,9 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
 
       {step === "address" ? (
         <form onSubmit={onAddressContinue} className="flex flex-col gap-4">
-          <div>
-            <Label htmlFor="address" className="text-base font-semibold">
-              Get a cash offer on your home
-            </Label>
-            <p className="text-sm text-slate-500">Enter your property address to start.</p>
-          </div>
+          <Label htmlFor="address" className="sr-only">
+            Property address
+          </Label>
           <Input
             id="address"
             autoComplete="street-address"
