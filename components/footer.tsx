@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="mt-auto bg-brand-bg-card border-t border-brand-border">
       <div className="mx-auto max-w-7xl px-4 py-12 md:px-6 grid gap-10 md:grid-cols-4">
         <div>
-          <h3 className="font-display text-lg font-bold text-brand-text">{siteConfig.name}</h3>
+          <h3 className="font-sans text-lg font-bold text-brand-text">{siteConfig.name}</h3>
           <address className="mt-3 not-italic text-sm text-brand-text-muted">
             {siteConfig.address.street}<br />
             {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}<br />

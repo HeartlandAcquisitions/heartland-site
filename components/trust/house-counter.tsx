@@ -3,7 +3,7 @@ import { stats } from "@/content/stats"
 export function HouseCounter() {
   return (
     <div className="text-center">
-      <div className="font-display text-4xl font-bold text-brand-primary">
+      <div className="font-sans text-4xl font-extrabold text-brand-primary">
         {stats.housesBought.value}+
       </div>
       <div className="mt-1 text-sm text-brand-text-muted">

@@ -23,7 +23,7 @@ export function Nav() {
             priority
             className="h-9 w-9"
           />
-          <span className="hidden sm:inline font-display text-lg font-bold tracking-tight text-brand-text">
+          <span className="hidden sm:inline font-sans text-lg font-bold tracking-tight text-brand-text">
             {siteConfig.name}
           </span>
         </Link>
