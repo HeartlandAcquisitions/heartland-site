@@ -21,7 +21,7 @@ export function HomepageHero() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(rgba(249,249,247,0.55), rgba(249,249,247,0.78))",
+              "linear-gradient(rgba(249,249,247,0.72), rgba(249,249,247,0.88))",
           }}
         />
       </div>
@@ -42,11 +42,11 @@ export function HomepageHero() {
           <h2 className="font-sans text-2xl md:text-3xl font-extrabold tracking-tight text-brand-text leading-tight mb-2">
             A fair cash offer in <span className="text-brand-primary">24 hours.</span>
           </h2>
-          <p className="text-sm text-brand-text-muted mb-5">
+          <p className="text-sm text-brand-text mb-5">
             Address only to start. 30 seconds. No obligation.
           </p>
           <LeadForm landingPage="home" />
-          <p className="mt-4 text-xs text-brand-text-muted text-center">
+          <p className="mt-4 text-xs text-brand-text/80 text-center">
             No spam · No agents · Cancel anytime
           </p>
         </div>
@@ -62,7 +62,7 @@ export function HomepageHero() {
             Sell your home <span className="text-brand-primary">on your terms.</span>
           </h1>
 
-          <p className="text-base lg:text-lg text-brand-text-muted leading-relaxed mb-6 max-w-lg">
+          <p className="text-base lg:text-lg text-brand-text leading-relaxed mb-6 max-w-lg">
             No agents, no repairs, no showings. A fair offer from your Jackson County neighbors — and a closing date you choose.
           </p>
 

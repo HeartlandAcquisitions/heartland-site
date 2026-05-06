@@ -38,6 +38,9 @@ interface LeadFormProps {
   landingPage?: string
 }
 
+const FIELD_CLASS =
+  "h-12 border-brand-text/25 bg-white/85 text-base placeholder:text-brand-text/50 focus-visible:border-brand-primary"
+
 export function LeadForm({ landingPage = "home" }: LeadFormProps) {
   const [step, setStep] = useState<Step>("address")
   const [address, setAddress] = useState("")
@@ -203,12 +206,13 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             required
+            className={FIELD_CLASS}
           />
           <Button type="submit" size="lg" className="w-full">
             Get My Offer
           </Button>
           {error ? <p className="text-sm text-red-600">{error}</p> : null}
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-brand-text/70">
             By continuing you agree to our privacy policy. No obligation.
           </p>
         </form>
@@ -230,6 +234,7 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
               placeholder="First name (optional)"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
+              className={FIELD_CLASS}
             />
           </div>
           <div>
@@ -240,6 +245,7 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
               placeholder="Last name (optional)"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
+              className={FIELD_CLASS}
             />
           </div>
           <div>
@@ -252,6 +258,7 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               required
+              className={FIELD_CLASS}
             />
           </div>
           <div>
@@ -263,6 +270,7 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
               placeholder="Email (optional)"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className={FIELD_CLASS}
             />
           </div>
 
