@@ -5,10 +5,10 @@ export function HomepageHero() {
   return (
     <section
       id="offer"
-      className="relative min-h-[720px] flex items-center overflow-hidden bg-brand-bg-warm scroll-mt-20"
+      className="relative min-h-[720px] flex items-center overflow-hidden scroll-mt-20"
     >
       {/* Faded full-bleed photo */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0">
         <Image
           src="/brand/hero-house.jpg"
           alt=""
@@ -21,12 +21,12 @@ export function HomepageHero() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(rgba(249,249,247,0.78), rgba(249,249,247,0.92))",
+              "linear-gradient(rgba(249,249,247,0.55), rgba(249,249,247,0.78))",
           }}
         />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 md:px-8 w-full grid md:grid-cols-2 gap-10 md:gap-14 items-center py-16 md:py-24">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8 w-full grid md:grid-cols-2 gap-10 md:gap-14 items-center py-16 md:py-24">
 
         {/* LEFT — glass form card */}
         <div
@@ -53,7 +53,7 @@ export function HomepageHero() {
 
         {/* RIGHT — message column */}
         <div>
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-accent/30 text-brand-text text-[10px] font-bold tracking-[0.14em] uppercase mb-5">
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-accent/80 text-brand-text text-[10px] font-bold tracking-[0.14em] uppercase mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-primary-soft" aria-hidden />
             Trusted by Kansas City Homeowners
           </span>
