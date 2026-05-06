@@ -30,7 +30,7 @@ export function HomepageHero() {
 
         {/* LEFT — glass form card */}
         <div
-          className="rounded-3xl border border-white/85 bg-white/60 p-7 md:p-8 shadow-ambient"
+          className="rounded-3xl border border-white/85 bg-white/60 p-7 md:p-8 shadow-ambient text-center"
           style={{
             backdropFilter: "blur(14px) saturate(1.1)",
             WebkitBackdropFilter: "blur(14px) saturate(1.1)",
