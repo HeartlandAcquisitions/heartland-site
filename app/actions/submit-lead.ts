@@ -8,8 +8,8 @@ import { postIntakeToCrm, type IntakePayload } from "@/lib/crm"
 export type SubmitLeadInput = {
   property_address: string
   phone: string
-  first_name?: string
-  last_name?: string
+  first_name: string
+  last_name: string
   email?: string
   motivation_type?: string
   source_detail?: string

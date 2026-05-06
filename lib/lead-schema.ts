@@ -10,8 +10,8 @@ const optionalEmail = z
 export const leadInputSchema = z.object({
   property_address: z.string().trim().min(4, "Please enter an address"),
   phone: z.string().trim().min(7, "Phone is required"),
-  first_name: z.string().trim().optional(),
-  last_name: z.string().trim().optional(),
+  first_name: z.string().trim().min(1, "First name is required"),
+  last_name: z.string().trim().min(1, "Last name is required"),
   email: optionalEmail.optional(),
   motivation_type: z.string().optional(),
   source_detail: z.string().optional(),

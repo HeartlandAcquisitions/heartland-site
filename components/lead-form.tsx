@@ -105,6 +105,14 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
   const onFinalSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setError(null)
+    if (!firstName.trim()) {
+      setError("Please add your first name.")
+      return
+    }
+    if (!lastName.trim()) {
+      setError("Please add your last name.")
+      return
+    }
     if (!phone.trim()) {
       setError("Please add your phone number.")
       return
@@ -137,8 +145,8 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
       const input: SubmitLeadInput = {
         property_address: address,
         phone,
-        first_name: firstName || undefined,
-        last_name: lastName || undefined,
+        first_name: firstName,
+        last_name: lastName,
         email: email || undefined,
         source_detail: landingPage,
         landing_page: typeof window !== "undefined" ? window.location.pathname : undefined,
@@ -231,9 +239,10 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
             <Input
               id="first_name"
               autoComplete="given-name"
-              placeholder="First name (optional)"
+              placeholder="First name"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
+              required
               className={FIELD_CLASS}
             />
           </div>
@@ -242,9 +251,10 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
             <Input
               id="last_name"
               autoComplete="family-name"
-              placeholder="Last name (optional)"
+              placeholder="Last name"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
+              required
               className={FIELD_CLASS}
             />
           </div>
@@ -254,7 +264,7 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
               id="phone"
               type="tel"
               autoComplete="tel"
-              placeholder="Phone (required)"
+              placeholder="Phone number"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               required

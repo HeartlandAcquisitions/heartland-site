@@ -26,6 +26,8 @@ describe("submitLead server action", () => {
     vi.mocked(verifyTurnstileToken).mockResolvedValue(false)
     const res = await submitLead({
       property_address: "123 Main St",
+      first_name: "Jane",
+      last_name: "Doe",
       phone: "+18165551234",
       turnstile_token: "bad",
     })
@@ -38,6 +40,8 @@ describe("submitLead server action", () => {
     vi.mocked(verifyTurnstileToken).mockResolvedValue(true)
     const res = await submitLead({
       property_address: "123 Main St",
+      first_name: "Jane",
+      last_name: "Doe",
       // phone deliberately missing — schema now requires it
       // @ts-expect-error — testing runtime validation, not TS shape
       phone: undefined,
@@ -99,6 +103,7 @@ describe("submitLead server action", () => {
     const res = await submitLead({
       property_address: "123 Main St",
       first_name: "Jane",
+      last_name: "Doe",
       phone: "8165551234",
       utm_source: "fb",
       turnstile_token: "valid",

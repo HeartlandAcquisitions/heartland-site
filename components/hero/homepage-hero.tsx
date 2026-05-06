@@ -26,24 +26,24 @@ export function HomepageHero() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8 w-full grid md:grid-cols-2 gap-10 md:gap-14 items-center py-16 md:py-24">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8 w-full grid md:grid-cols-2 gap-10 md:gap-14 items-stretch py-16 md:py-24">
 
         {/* LEFT — glass form card */}
         <div
-          className="rounded-3xl border border-white/85 bg-white/60 p-7 md:p-8 shadow-ambient text-center"
+          className="rounded-3xl border border-white/85 bg-white/60 p-7 md:p-8 shadow-ambient text-center flex flex-col justify-center"
           style={{
             backdropFilter: "blur(14px) saturate(1.1)",
             WebkitBackdropFilter: "blur(14px) saturate(1.1)",
           }}
         >
-          <span className="inline-block px-3 py-1.5 rounded-full bg-brand-primary text-white text-[10px] font-bold tracking-[0.14em] uppercase mb-3">
+          <span className="inline-block self-center px-3 py-1.5 rounded-full bg-brand-primary text-white text-[10px] font-bold tracking-[0.14em] uppercase mb-3">
             Get Your Offer
           </span>
           <h2 className="font-sans text-2xl md:text-3xl font-extrabold tracking-tight text-brand-text leading-tight mb-2">
             A fair cash offer in <span className="text-brand-primary">24 hours.</span>
           </h2>
           <p className="text-sm text-brand-text mb-5">
-            Address only to start. 30 seconds. No obligation.
+            30 seconds. No obligation.
           </p>
           <LeadForm landingPage="home" />
           <p className="mt-4 text-xs text-brand-text/80 text-center">
@@ -53,11 +53,6 @@ export function HomepageHero() {
 
         {/* RIGHT — message column */}
         <div>
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-accent/80 text-brand-text text-[10px] font-bold tracking-[0.14em] uppercase mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-primary-soft" aria-hidden />
-            Trusted by Kansas City Homeowners
-          </span>
-
           <h1 className="font-sans text-5xl lg:text-7xl font-extrabold tracking-tight text-brand-text leading-[1.04] mb-5">
             Sell your home <span className="text-brand-primary">on your terms.</span>
           </h1>
