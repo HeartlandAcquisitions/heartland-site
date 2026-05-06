@@ -1,28 +1,32 @@
 import { expect, test } from "@playwright/test"
 
-test("homepage hero shows brand headline + 4-stat trio + CTAs", async ({ page }) => {
+test("homepage hero shows H1 + 3 promises + glass form", async ({ page }) => {
   await page.goto("/")
-  await expect(
-    page.getByRole("heading", { name: /Sell your home/i, level: 1 }),
-  ).toBeVisible()
-  await expect(page.getByRole("link", { name: /Get Your Offer in 24 Hours/i })).toBeVisible()
-  await expect(page.getByText(/Day Closings/i)).toBeVisible()
-  await expect(page.getByText(/5-Star Reviews/i)).toBeVisible()
-  await expect(page.getByText(/Offer Rate/i)).toBeVisible()
-})
 
-test("homepage scrolls to offer section + form is present", async ({ page }) => {
-  await page.goto("/")
-  await page.getByRole("link", { name: /Get Your Offer in 24 Hours/i }).first().click()
-  // Verify URL hash + that the form is in viewport
-  await expect(page).toHaveURL(/#offer/)
+  // H1 + tagline
+  await expect(
+    page.getByRole("heading", { name: /Sell your home on your terms/i, level: 1 }),
+  ).toBeVisible()
+
+  // The 3 locked promises
+  await expect(page.getByText(/Close on your timeline/i)).toBeVisible()
+  await expect(page.getByText(/Zero Fees, Zero Commissions/i)).toBeVisible()
+  await expect(page.getByText(/Any Condition, Any Situation/i)).toBeVisible()
+
+  // The form lives in the hero — address placeholder is visible immediately, no scroll
   await expect(page.getByPlaceholder(/Kansas City, MO/i)).toBeVisible()
 })
 
-test("homepage renders trust band with 3 testimonials", async ({ page }) => {
+test("homepage no longer renders the old stats trio or fake testimonials", async ({ page }) => {
   await page.goto("/")
-  // The hero overlay testimonial counts as 1 figure-with-blockquote, plus 3 in the band = 4
-  // But the band specifically uses 3 cards in a grid
-  const allBlockquotes = page.locator("blockquote")
-  expect(await allBlockquotes.count()).toBeGreaterThanOrEqual(3)
+
+  // Old CTA button is gone (form replaced it)
+  await expect(page.getByRole("link", { name: /Get Your Offer in 24 Hours/i })).toHaveCount(0)
+
+  // Old stat labels are gone
+  await expect(page.getByText(/Day Closings/i)).toHaveCount(0)
+  await expect(page.getByText(/5-Star Reviews/i)).toHaveCount(0)
+
+  // No trust-band testimonial blockquotes on the homepage
+  await expect(page.locator("blockquote")).toHaveCount(0)
 })
