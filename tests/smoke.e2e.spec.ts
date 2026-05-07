@@ -1,32 +1,41 @@
 import { expect, test } from "@playwright/test"
 
-test("homepage hero shows H1 + 3 promises + glass form", async ({ page }) => {
+test("homepage hero shows H1 + 4 stat pills + offer card form", async ({ page }) => {
   await page.goto("/")
 
-  // H1 + tagline
   await expect(
     page.getByRole("heading", { name: /Sell your home on your terms/i, level: 1 }),
   ).toBeVisible()
 
-  // The 3 locked promises
-  await expect(page.getByText(/Close on your timeline/i)).toBeVisible()
-  await expect(page.getByText(/Zero Fees, Zero Commissions/i)).toBeVisible()
-  await expect(page.getByText(/Any Condition, Any Situation/i)).toBeVisible()
+  // The 4 stat pills
+  await expect(page.getByText(/^No Fees$/i)).toBeVisible()
+  await expect(page.getByText(/^No Commissions$/i)).toBeVisible()
+  await expect(page.getByText(/^No Repairs$/i)).toBeVisible()
+  await expect(page.getByText(/^No Closing Costs$/i)).toBeVisible()
 
-  // The form lives in the hero — address placeholder is visible immediately, no scroll
+  // Offer card on the right
+  await expect(page.getByText(/Cash Offer Today/i)).toBeVisible()
+  await expect(page.getByText(/Property Address/i)).toBeVisible()
   await expect(page.getByPlaceholder(/Kansas City, MO/i)).toBeVisible()
+  await expect(page.getByText(/Call or text/i)).toBeVisible()
 })
 
-test("homepage no longer renders the old stats trio or fake testimonials", async ({ page }) => {
+test("homepage no longer renders prior glass-hero promises or fake testimonials", async ({ page }) => {
   await page.goto("/")
 
-  // Old CTA button is gone (form replaced it)
-  await expect(page.getByRole("link", { name: /Get Your Offer in 24 Hours/i })).toHaveCount(0)
+  // Old glass-hero promises copy is gone
+  await expect(page.getByText(/Close on your timeline/i)).toHaveCount(0)
+  await expect(page.getByText(/Zero Fees, Zero Commissions/i)).toHaveCount(0)
 
-  // Old stat labels are gone
-  await expect(page.getByText(/Day Closings/i)).toHaveCount(0)
-  await expect(page.getByText(/5-Star Reviews/i)).toHaveCount(0)
-
-  // No trust-band testimonial blockquotes on the homepage
+  // No fake-testimonial blockquotes on the homepage
   await expect(page.locator("blockquote")).toHaveCount(0)
+})
+
+test("homepage renders Process / Why Us / FAQ / CTA sections", async ({ page }) => {
+  await page.goto("/")
+
+  await expect(page.getByRole("heading", { name: /Three steps\.\s*That's it\./i, level: 2 })).toBeVisible()
+  await expect(page.getByRole("heading", { name: /Why us instead/i, level: 2 })).toBeVisible()
+  await expect(page.getByRole("heading", { name: /Things people\s*actually ask\./i, level: 2 })).toBeVisible()
+  await expect(page.getByRole("heading", { name: /Ready when\s*you are\./i, level: 2 })).toBeVisible()
 })
