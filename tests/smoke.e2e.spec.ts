@@ -7,17 +7,18 @@ test("homepage hero shows H1 + 4 stat pills + offer card form", async ({ page })
     page.getByRole("heading", { name: /Sell your home on your terms/i, level: 1 }),
   ).toBeVisible()
 
-  // The 4 stat pills
-  await expect(page.getByText(/^No Fees$/i)).toBeVisible()
-  await expect(page.getByText(/^No Commissions$/i)).toBeVisible()
-  await expect(page.getByText(/^No Repairs$/i)).toBeVisible()
-  await expect(page.getByText(/^No Closing Costs$/i)).toBeVisible()
+  // The 4 stat pills — scoped to hero section to avoid collision with Marquee duplicates
+  const hero = page.locator("#offer")
+  await expect(hero.getByText(/^No Fees$/i)).toBeVisible()
+  await expect(hero.getByText(/^No Commissions$/i)).toBeVisible()
+  await expect(hero.getByText(/^No Repairs$/i)).toBeVisible()
+  await expect(hero.getByText(/^No Closing Costs$/i)).toBeVisible()
 
-  // Offer card on the right
-  await expect(page.getByText(/Cash Offer Today/i)).toBeVisible()
-  await expect(page.getByText(/Property Address/i)).toBeVisible()
-  await expect(page.getByPlaceholder(/Kansas City, MO/i)).toBeVisible()
-  await expect(page.getByText(/Call or text/i)).toBeVisible()
+  // Offer card on the right — scoped to hero section
+  await expect(hero.getByText(/Cash Offer Today/i)).toBeVisible()
+  await expect(hero.getByText(/Property Address/i).first()).toBeVisible()
+  await expect(hero.getByPlaceholder(/Kansas City, MO/i)).toBeVisible()
+  await expect(hero.getByText(/Call or text/i)).toBeVisible()
 })
 
 test("homepage no longer renders prior glass-hero promises or fake testimonials", async ({ page }) => {

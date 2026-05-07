@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Analytics } from "@/components/analytics";
 import { Nav } from "@/components/nav";
@@ -22,6 +23,21 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
+const localBusinessJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Heartland Acquisitions",
+  description: "Cash home buyers serving the Kansas City metro. We buy houses as-is in any condition with no fees, no commissions, and no repairs.",
+  telephone: "+18169735420",
+  email: "hello@heartlandacq.com",
+  areaServed: [
+    "Kansas City, MO", "Independence, MO", "Lee's Summit, MO", "Blue Springs, MO",
+    "Raytown, MO", "Grandview, MO", "Liberty, MO", "Kansas City, KS",
+    "Overland Park, KS", "Olathe, KS", "Shawnee, KS", "Lenexa, KS",
+  ],
+  priceRange: "$$",
+})
+
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
@@ -42,6 +58,9 @@ export default function RootLayout({
       className={`${manrope.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-brand-bg-warm text-brand-text font-sans antialiased min-h-screen flex flex-col">
+        <Script id="ld-localbusiness" type="application/ld+json" strategy="beforeInteractive">
+          {localBusinessJsonLd}
+        </Script>
         <PostHogProvider>
           <Nav />
           <main className="flex-1 pb-20 md:pb-0">{children}</main>
