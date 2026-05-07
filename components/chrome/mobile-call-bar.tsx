@@ -19,7 +19,7 @@ export function MobileCallBar({ visible = true }: MobileCallBarProps) {
           Call Now
         </a>
         <Link
-          href="/#get-offer"
+          href="/#offer"
           className="flex items-center justify-center rounded-md bg-brand-primary text-white py-3 text-sm font-semibold"
         >
           Get My Offer
