@@ -1,80 +1,45 @@
-"use client"
-
-import Image from "next/image"
 import Link from "next/link"
-import { Menu, Phone } from "lucide-react"
-import { useState } from "react"
 import { siteConfig } from "@/lib/site-config"
-import { buttonVariants } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 
 export function Nav() {
-  const [mobileOpen, setMobileOpen] = useState(false)
-
   return (
-    <header className="sticky top-0 z-40 border-b border-brand-border bg-brand-surface">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-3 md:px-6">
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <Image
-            src="/brand/logo.png"
-            alt={siteConfig.name}
-            width={36}
-            height={36}
-            priority
-            className="h-9 w-9"
-          />
-          <span className="hidden sm:inline font-sans text-lg font-bold tracking-tight text-brand-text">
-            {siteConfig.name}
-          </span>
-        </Link>
-
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-brand-text">
-          {siteConfig.nav.map((item) => (
-            <Link key={item.href} href={item.href} className="hover:text-brand-primary">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-3">
-          <a
-            href={siteConfig.phone.hrefTel}
-            className="hidden sm:flex items-center gap-2 text-sm font-semibold text-brand-primary"
-          >
-            <Phone className="h-4 w-4" aria-hidden />
-            <span>{siteConfig.phone.display}</span>
-          </a>
-          <Link
-            href="/#get-offer"
-            className={cn(buttonVariants({ size: "lg" }), "bg-brand-primary hover:bg-brand-primary-soft text-white")}
-          >
-            Get Your Offer
+    <header className="sticky top-0 z-50 bg-brand-bg-warm border-b border-brand-border">
+      <div className="mx-auto max-w-[1280px] px-8">
+        <div className="flex items-center gap-12 h-[72px]">
+          <Link href="/" className="flex items-center gap-3 font-bold tracking-[-0.01em] text-[17px]">
+            <span
+              aria-hidden
+              className="w-[34px] h-[34px] rounded-lg bg-brand-primary text-brand-bg-warm grid place-items-center font-mono font-extrabold text-[18px]"
+            >
+              H
+            </span>
+            <span className="font-sans">{siteConfig.name}</span>
           </Link>
-          <button
-            type="button"
-            className="md:hidden p-2 text-brand-text"
-            aria-label="Toggle menu"
-            onClick={() => setMobileOpen((s) => !s)}
-          >
-            <Menu className="h-6 w-6" aria-hidden />
-          </button>
+
+          <nav className="hidden md:flex gap-9 ml-auto text-[15px] font-medium text-[#3a3d33]">
+            <Link href="#process" className="transition-colors hover:text-brand-primary">Process</Link>
+            <Link href="#why" className="transition-colors hover:text-brand-primary">Why Us</Link>
+            <Link href="#reviews" className="transition-colors hover:text-brand-primary">Reviews</Link>
+            <Link href="#faq" className="transition-colors hover:text-brand-primary">FAQ</Link>
+            <Link href="/blog" className="transition-colors hover:text-brand-primary">Blog</Link>
+          </nav>
+
+          <div className="flex items-center gap-5 md:ml-0 ml-auto">
+            <a href={siteConfig.phone.hrefTel} className="hidden sm:flex items-center gap-2 font-bold text-[15px]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-brand-primary" aria-hidden>
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+              </svg>
+              {siteConfig.phone.display}
+            </a>
+            <Link
+              href="#offer"
+              className="inline-flex items-center gap-2 px-[22px] py-3 rounded-[10px] bg-brand-ink text-brand-bg-warm font-semibold text-[15px] transition-all hover:bg-black hover:-translate-y-px"
+            >
+              Get Your Offer
+            </Link>
+          </div>
         </div>
       </div>
-
-      {mobileOpen ? (
-        <nav className="md:hidden border-t border-brand-border bg-brand-surface px-4 py-3 flex flex-col gap-3">
-          {siteConfig.nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-base font-medium text-brand-text hover:text-brand-primary"
-              onClick={() => setMobileOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-      ) : null}
     </header>
   )
 }
