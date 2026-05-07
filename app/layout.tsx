@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@/components/analytics";
 import { Nav } from "@/components/nav";
@@ -8,11 +8,18 @@ import { PostHogProvider } from "@/components/posthog-provider";
 import { siteConfig } from "@/lib/site-config";
 import { MobileCallBar } from "@/components/chrome/mobile-call-bar";
 
-const inter = Inter({
-  variable: "--font-inter",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -32,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={inter.variable}
+      className={`${manrope.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-brand-bg-warm text-brand-text font-sans antialiased min-h-screen flex flex-col">
         <PostHogProvider>

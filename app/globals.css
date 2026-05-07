@@ -8,8 +8,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-display: Georgia, serif;
-  --font-sans: var(--font-inter, "Inter", system-ui, sans-serif);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-manrope, "Manrope", system-ui, sans-serif);
+  --font-mono: var(--font-jetbrains-mono, "JetBrains Mono", ui-monospace, monospace);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -48,16 +48,19 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
-  /* Heartland brand tokens — extracted from production CSS */
-  --color-brand-primary: #596b4c;       /* forest green: primary CTA, links */
-  --color-brand-primary-soft: #7a9468;  /* hover */
-  --color-brand-accent: #d1baa6;        /* tan: testimonial avatars, accents */
-  --color-brand-bg-warm: #f9f9f7;       /* page background */
-  --color-brand-bg-card: #f4f4f2;       /* card / band background */
-  --color-brand-text: #1a1c1b;
-  --color-brand-text-muted: #75786f;
-  --color-brand-border: #e5e5e3;
-  --color-brand-surface: #ffffff;
+  /* Heartland brand tokens — Claude Design handoff palette (2026-05-07) */
+  --color-brand-primary: #3d4f2d;        /* olive: primary CTA, accents */
+  --color-brand-primary-soft: #5a7340;   /* olive-2: hover */
+  --color-brand-accent: #8aa66a;         /* olive-light: hero accent text, dark-section accents */
+  --color-brand-bg-warm: #f5f1e8;        /* cream: page bg, nav bg, dark-section text */
+  --color-brand-bg-card: #ebe6d8;        /* cream-2: Reviews bg */
+  --color-brand-ink: #0e0f0a;            /* ink: body text on cream, dark-section bg */
+  --color-brand-ink-soft: #1a1c14;       /* ink-soft: hero base layer */
+  --color-brand-text: #0e0f0a;           /* alias for ink — body text */
+  --color-brand-text-muted: #6b6f5e;     /* muted: secondary text */
+  --color-brand-border: rgba(14,15,10,0.10);    /* line: hairlines on cream */
+  --color-brand-border-strong: rgba(14,15,10,0.18);  /* line-strong: stronger hairlines, FAQ dividers */
+  --color-brand-surface: #ffffff;        /* paper: cards */
 
   /* Radii + shadows */
   --radius-brand-sm: 4px;
@@ -66,6 +69,8 @@
   --radius-brand-xl: 16px;
   --shadow-card: 0 8px 32px rgba(0,0,0,0.08);
   --shadow-ambient: 0 12px 40px rgba(89, 107, 76, 0.08);
+  --shadow-offer: 0 30px 60px -20px rgba(0,0,0,0.45), 0 8px 20px -10px rgba(0,0,0,0.3);
+  --shadow-card-lift: 0 24px 40px -24px rgba(0,0,0,0.18);
 }
 
 @keyframes marquee {
