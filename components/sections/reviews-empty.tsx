@@ -2,10 +2,10 @@ import Link from "next/link"
 
 export function ReviewsEmpty() {
   return (
-    <section id="reviews" className="bg-brand-bg-card py-[120px] scroll-mt-20">
+    <section id="reviews" aria-labelledby="reviews-heading" className="bg-brand-bg-card py-[120px] scroll-mt-20">
       <div className="mx-auto max-w-[1280px] px-8">
         <header className="flex flex-col items-center text-center gap-6 mb-16 max-w-[880px] mx-auto">
-          <h2 className="font-sans text-[44px] md:text-[64px] leading-none tracking-[-0.035em] font-extrabold text-brand-text">
+          <h2 id="reviews-heading" className="font-sans text-[44px] md:text-[64px] leading-none tracking-[-0.035em] font-extrabold text-brand-text">
             Neighbors who&apos;ve<br />
             <em className="not-italic text-brand-primary">been there.</em>
           </h2>

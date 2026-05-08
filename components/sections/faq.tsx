@@ -41,17 +41,19 @@ export function Faq(props: FaqProps = {}) {
     })),
   })
 
+  const headingId = `${id}-heading`
+
   return (
-    <section id={id} className="bg-brand-bg-warm py-[120px] scroll-mt-20">
+    <section id={id} aria-labelledby={headingId} className="bg-brand-bg-warm py-[120px] scroll-mt-20">
       {!props.skipJsonLd ? (
-        <Script id={jsonLdId} type="application/ld+json" strategy="beforeInteractive">
+        <Script id={jsonLdId} type="application/ld+json" strategy="afterInteractive">
           {faqJsonLd}
         </Script>
       ) : null}
 
       <div className="mx-auto max-w-[1280px] px-8">
         <header className="flex flex-col items-center text-center gap-6 mb-16 max-w-[880px] mx-auto">
-          <h2 className="font-sans text-[44px] md:text-[64px] leading-none tracking-[-0.035em] font-extrabold text-brand-text">
+          <h2 id={headingId} className="font-sans text-[44px] md:text-[64px] leading-none tracking-[-0.035em] font-extrabold text-brand-text">
             {headlinePre}<br />
             <em className="not-italic text-brand-primary">{headlineHighlight}</em>
           </h2>

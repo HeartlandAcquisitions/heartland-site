@@ -3,10 +3,10 @@ import { siteConfig } from "@/lib/site-config"
 
 export function CtaStrip() {
   return (
-    <section className="bg-brand-primary text-brand-bg-warm py-24 relative overflow-hidden">
+    <section aria-labelledby="cta-heading" className="bg-brand-primary text-brand-bg-warm py-24 relative overflow-hidden">
       <div className="mx-auto max-w-[1280px] px-8 grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
         <div>
-          <h2 className="font-sans text-[44px] md:text-[64px] leading-none tracking-[-0.035em] font-extrabold">
+          <h2 id="cta-heading" className="font-sans text-[44px] md:text-[64px] leading-none tracking-[-0.035em] font-extrabold">
             Ready when<br />you are.
           </h2>
           <p className="mt-[18px] text-lg text-brand-bg-warm/85 max-w-[480px]">

@@ -87,10 +87,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
-      <Script id={`ld-article-${post.slug}`} type="application/ld+json" strategy="beforeInteractive">
+      <Script id={`ld-article-${post.slug}`} type="application/ld+json" strategy="afterInteractive">
         {articleJsonLd}
       </Script>
-      <Script id={`ld-breadcrumb-${post.slug}`} type="application/ld+json" strategy="beforeInteractive">
+      <Script id={`ld-breadcrumb-${post.slug}`} type="application/ld+json" strategy="afterInteractive">
         {breadcrumbJsonLd}
       </Script>
 

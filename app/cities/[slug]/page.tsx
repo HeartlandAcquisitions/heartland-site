@@ -49,7 +49,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
 
   return (
     <>
-      <Script id={`ld-breadcrumb-${c.slug}`} type="application/ld+json" strategy="beforeInteractive">
+      <Script id={`ld-breadcrumb-${c.slug}`} type="application/ld+json" strategy="afterInteractive">
         {breadcrumbJsonLd}
       </Script>
 

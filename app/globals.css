@@ -77,6 +77,11 @@
 .animate-marquee {
   animation: marquee 25s linear infinite;
 }
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
 
 :root {
   --background: oklch(1 0 0);

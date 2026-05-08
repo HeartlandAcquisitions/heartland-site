@@ -82,11 +82,11 @@ export default async function VerticalPage({ params }: { params: Promise<{ slug:
       <Script
         id={`ld-breadcrumb-${v.slug}`}
         type="application/ld+json"
-        strategy="beforeInteractive"
+        strategy="afterInteractive"
       >
         {breadcrumbJsonLd}
       </Script>
-      <Script id={`ld-service-${v.slug}`} type="application/ld+json" strategy="beforeInteractive">
+      <Script id={`ld-service-${v.slug}`} type="application/ld+json" strategy="afterInteractive">
         {serviceJsonLd}
       </Script>
 

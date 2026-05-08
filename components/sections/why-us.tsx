@@ -28,10 +28,10 @@ const US: Array<{ pre?: string; rest: string }> = [
 
 export function WhyUs() {
   return (
-    <section id="why" className="bg-brand-ink text-brand-bg-warm py-[120px] scroll-mt-20">
+    <section id="why" aria-labelledby="why-heading" className="bg-brand-ink text-brand-bg-warm py-[120px] scroll-mt-20">
       <div className="mx-auto max-w-[1280px] px-8">
         <header className="flex flex-col items-center text-center gap-6 mb-16 max-w-[880px] mx-auto">
-          <h2 className="font-sans text-[44px] md:text-[64px] leading-none tracking-[-0.035em] font-extrabold text-brand-bg-warm">
+          <h2 id="why-heading" className="font-sans text-[44px] md:text-[64px] leading-none tracking-[-0.035em] font-extrabold text-brand-bg-warm">
             Why us instead<br />
             of <em className="not-italic text-brand-accent">using a realtor.</em>
           </h2>
