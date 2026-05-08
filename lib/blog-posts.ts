@@ -472,6 +472,465 @@ export const BLOG_POSTS: BlogPost[] = [
       },
     ],
   },
+
+  // -------------------------------------------------------------------------
+  // BATCH 2
+  // -------------------------------------------------------------------------
+  {
+    slug: "how-cash-offers-are-calculated-for-kansas-city-houses",
+    title: "How Cash Offers Are Calculated for Kansas City Houses (No Black Box)",
+    description:
+      "The actual formula cash buyers use to price Kansas City houses — ARV, renovation budget, holding costs, margin. Real example with numbers from an Independence sale.",
+    excerpt:
+      "Most cash buyers won't show you the math. Here's the formula we use to price every KC house we make an offer on, with real numbers from a recent Independence deal.",
+    author: CHASE_AUTHOR,
+    publishedAt: "2026-04-22",
+    readTimeMin: 8,
+    tags: ["pricing", "process", "transparency"],
+    relatedSituations: ["foreclosure", "inherited"],
+    relatedCities: ["kansas-city-mo", "independence-mo", "raytown-mo"],
+    body: [
+      {
+        type: "p",
+        text: "When I started buying houses in Kansas City, the most consistent feedback I got from sellers was: \"I don't understand how you came up with that number.\" That's a fair complaint. Most cash buyers treat their offer methodology like a trade secret, which is fine for them but bad for sellers trying to evaluate whether the offer is fair. So here's the actual formula. It's not magic, it's not unique to us, and once you see it, you can do this math yourself on any cash offer you receive in the KC metro.",
+      },
+      { type: "h2", text: "The formula in one line" },
+      {
+        type: "p",
+        text: "Offer = ARV × (some percentage) − Renovation Budget − Holding Costs − Closing Costs − Margin. That's it. Every cash buyer in Kansas City uses some version of this. The percentage and margin vary buyer-to-buyer, but the structure is the same. Let me walk through each piece.",
+      },
+      { type: "h2", text: "ARV: After-Repair Value" },
+      {
+        type: "p",
+        text: "ARV is what the house will be worth AFTER we renovate it to current market standards. Not what it's worth today. We pull comparable recent sales (last 3-6 months) within a tight geography (usually within 0.5 miles, same school district, same general housing era) and adjust for square footage, lot size, garage, and condition. The output is a range — say $235,000 to $260,000 — and we underwrite to the conservative end. ARV is the single biggest driver of the offer; getting it right matters more than any other piece of the math.",
+      },
+      { type: "h2", text: "Renovation Budget" },
+      {
+        type: "p",
+        text: "How much we'll spend bringing the house to ARV-comparable condition. We walk through during the offer phase and assess: kitchen (cabinets, counters, appliances), baths (typical full-renovation $8-15k each), HVAC, roof, electrical, plumbing, flooring, paint, exterior, landscaping. For older Kansas City houses (1950s-60s ranches), full renovations typically run $40k-$80k. For newer-build cosmetic refreshes, $15k-$30k. For total tear-and-rebuild on fire damage or hoarder houses, can exceed $100k. We pad the budget by 10-15% because there's always something hidden behind the walls.",
+      },
+      { type: "h2", text: "Holding Costs" },
+      {
+        type: "p",
+        text: "What we pay to own the house during renovation and resale: property taxes, insurance, utilities, lawn care, HOA dues, property management, and the cost of capital tied up. For a typical 4-month hold (closing → renovation → resale), holding costs run $4,000-$8,000 on a Kansas City house. Higher in Johnson County (taxes are higher), lower in some KCK pockets.",
+      },
+      { type: "h2", text: "Closing Costs" },
+      {
+        type: "p",
+        text: "Buyer-side closing costs we pay at the title company on the purchase plus seller-side closing costs we'll pay on the resale. Combined, this typically runs 2-4% of ARV. For a $250k ARV house, that's $5,000-$10,000 we factor into our number.",
+      },
+      { type: "h2", text: "Margin" },
+      {
+        type: "p",
+        text: "Our profit. This is what we'd refuse to share if we were trying to sound mysterious, but it's straightforward: cash home buyers in Kansas City typically target 12-18% margin on completed deals (margin = (ARV − all costs − purchase price) / ARV). On a $250k ARV house, that's $30k-$45k of margin we need to make for the deal to pencil. Less margin and the deal doesn't justify the capital risk; more margin and the seller is getting a number they shouldn't accept.",
+      },
+      { type: "h2", text: "A real Kansas City example with numbers" },
+      {
+        type: "p",
+        text: "Last quarter we bought a 1965 ranch in 64133 (Raytown). Walked through, ran the math:",
+      },
+      {
+        type: "ul",
+        items: [
+          "ARV (after typical renovation): $240,000 (based on 4 comparable sales within 0.4 mi)",
+          "Renovation budget: $52,000 (full kitchen, both bathrooms, HVAC replacement, paint, flooring, exterior touch-up)",
+          "Holding costs (4 months): $5,800",
+          "Closing costs (purchase + sale combined): $7,500",
+          "Margin target (15% of ARV): $36,000",
+        ],
+      },
+      {
+        type: "p",
+        text: "Offer = $240,000 − $52,000 − $5,800 − $7,500 − $36,000 = $138,700.",
+      },
+      {
+        type: "p",
+        text: "We rounded to $138,500 and the seller accepted. Closed in 11 days. That's how the sausage actually gets made.",
+      },
+      { type: "h2", text: "Why offers vary by neighborhood (a lot)" },
+      {
+        type: "p",
+        text: "The same 1,400 sq ft 3-bedroom house in different KC neighborhoods produces wildly different offers because ARV varies wildly. Examples:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Brookside (64113): ARV maybe $400k+. Cash offer in $290-340k range.",
+          "Waldo (64114): ARV $325-375k. Cash offer in $235-275k range.",
+          "Independence (64055): ARV $215-235k. Cash offer in $145-180k range.",
+          "Raytown (64133): ARV $200-220k. Cash offer in $135-165k range.",
+          "KCK Argentine (66103): ARV $100-130k. Cash offer in $55-85k range.",
+        ],
+      },
+      {
+        type: "p",
+        text: "These are illustrative ranges, not promises. Your specific house's offer depends on its specific condition, ARV, and our specific renovation scope. But this gives you a sense of why the same metro produces $50k offers and $300k offers from the same buyer.",
+      },
+      { type: "h2", text: "What doesn't (much) affect the offer" },
+      {
+        type: "ul",
+        items: [
+          "How clean the house is right now. We're renovating it; clean today doesn't matter.",
+          "Whether you have furniture or stuff to leave. We dispose of all of it.",
+          "How much you owe on the mortgage. Our offer is based on the house's value, not your debt situation. (Though the math has to work for both of us at closing.)",
+          "How attached you are to the house emotionally. We get it, but ARV doesn't care.",
+          "Recent personal-use upgrades that don't translate to retail comp adjustments (above-ground pool, custom paint colors, etc.).",
+        ],
+      },
+      { type: "h2", text: "Why we don't haggle from a low number" },
+      {
+        type: "p",
+        text: "Some cash buyers open with a deliberately low number expecting the seller to counter, then move up to where they actually want to buy. We don't operate that way — partly because it wastes everyone's time, partly because sellers in distressed situations don't have time for a 5-round negotiation. Our first offer is our actual number. If you counter, we'll consider whether we got the math wrong (sometimes we did — bad comp, missed a feature) or whether we just disagree on value. If we disagree on value, we'll wish you luck and won't keep coming back with marginally higher offers to try to wear you down.",
+      },
+      { type: "h2", text: "How to evaluate any cash offer" },
+      {
+        type: "ol",
+        items: [
+          "Pull 3-5 recent (last 6 months) sales of similar Kansas City houses in similar condition within 0.5 miles. Zillow's recently sold filter or Realtor.com works for this.",
+          "That's your ARV-after-renovation rough estimate.",
+          "Estimate renovation budget as 15-25% of ARV for a typical older Kansas City house (less for clean newer builds, more for distressed).",
+          "Subtract another 5-7% for holding + closing + margin combined.",
+          "What you have left should be in the same ballpark as a fair cash offer.",
+        ],
+      },
+      {
+        type: "p",
+        text: "If the offer you're holding is significantly below this rough math, the buyer is either making a bad offer or knows something about your house that you don't (lien, encroachment, foundation issue you weren't aware of). Push back, get a second opinion, or get one of us to look at it.",
+      },
+      { type: "h2", text: "Our offer process" },
+      {
+        type: "p",
+        text: "When you submit your address from our homepage, we run the comp pull and renovation walkthrough estimate within 1-4 hours. We send a written offer that states the gross price, the closing date, the title company we'll use, what we cover, and our earnest money deposit. We're happy to walk through the math line-by-line on a phone call — just ask. No mystery, no pressure.",
+      },
+    ],
+  },
+
+  // -------------------------------------------------------------------------
+  {
+    slug: "selling-a-hoarder-house-in-kansas-city",
+    title: "Selling a Hoarder House in Kansas City: What to Expect",
+    description:
+      "Practical guide to selling a hoarder house in Kansas City — the walkthrough, what 'leave everything' really means, biohazard considerations, multi-heir dynamics, and timeline.",
+    excerpt:
+      "Hoarder houses are one of the most stressful things to sell. Here's what actually happens when you sell one to a cash buyer in Kansas City — without judgment, without cleanup, without surprises.",
+    author: CHASE_AUTHOR,
+    publishedAt: "2026-04-28",
+    readTimeMin: 7,
+    tags: ["distressed", "inherited", "process"],
+    relatedSituations: ["inherited", "fire-damage"],
+    relatedCities: ["independence-mo", "raytown-mo", "kansas-city-mo"],
+    body: [
+      {
+        type: "p",
+        text: "Selling a hoarder house is one of the hardest situations a seller can face. There's almost always grief involved (these are usually inherited properties from a parent or sibling), there's often shame and embarrassment (sellers worry about being judged), and there's a real practical problem: the house is unsellable on the MLS in its current state, and cleaning it out can cost as much as the renovation work afterward. We buy hoarder houses in Kansas City regularly and the process is much more straightforward than most sellers expect. Here's what to actually expect.",
+      },
+      { type: "h2", text: "First: no judgment" },
+      {
+        type: "p",
+        text: "Hoarding is a recognized mental health condition, not a character flaw. The houses we walk into in this situation are almost never about the seller — they're inherited from parents or relatives whose hoarding accumulated over decades. Even when the seller is the original hoarder, this isn't something we comment on, document, or use against you in any way. Our job is to assess the property and make an offer. Yours is to decide whether to take it. That's the whole transaction.",
+      },
+      { type: "h2", text: "What makes a hoarder house different (for us)" },
+      {
+        type: "p",
+        text: "From a buyer's standpoint, three things change relative to a normal Kansas City house purchase:",
+      },
+      {
+        type: "ol",
+        items: [
+          "Cleanout cost is real and substantial. Removing the contents of a 1,400 sq ft hoarder house typically runs $3,000-$15,000 in disposal fees alone, depending on volume and biohazard considerations. We absorb that.",
+          "Renovation scope is harder to estimate during the walkthrough because we literally can't see floors, walls, or fixtures. We assume some level of damage exists underneath.",
+          "Health and safety considerations during cleanout — animal waste, mold, structural issues from years of weight on floors, occasionally biohazards (medical waste, expired chemicals). We use professional remediation companies, not a guy with a truck.",
+        ],
+      },
+      { type: "h2", text: "What 'leave everything' actually means" },
+      {
+        type: "p",
+        text: "When we say 'sell as-is, leave anything you don't want,' we mean it literally. You walk through the house, take whatever has sentimental or financial value to you (photos, documents, jewelry, anything specific you want), and we handle 100% of the rest. That includes: furniture (used or broken), appliances, clothing, books, papers, mail going back 40 years, food, garbage, kitchen contents, basement contents, garage contents, attic contents, and any belongings of the deceased. None of it needs to be sorted, boxed, or taken to a donation site. Walk in, take what you want, walk out, hand us the keys.",
+      },
+      { type: "h2", text: "What you should still do before closing" },
+      {
+        type: "p",
+        text: "There are a few specific things worth retrieving before signing the deed over to us, because they're hard or impossible to recover after:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Personal photo albums and photographs (we'll do our best, but in a typical hoarder cleanout, we can't reliably preserve everything)",
+          "Important documents — birth certificates, social security cards, military records, tax returns, deeds to other property",
+          "Jewelry, watches, and other small valuables (hoarder houses often have valuables hidden in unexpected places — mattresses, cookie jars, between book pages)",
+          "Family heirlooms and items with sentimental value to other family members",
+          "Anything the deceased specifically willed to a particular person",
+        ],
+      },
+      {
+        type: "callout",
+        text: "If you don't have time or capacity to walk through and retrieve items yourself, we can connect you with Kansas City sorting services that specialize in this — they go through the house systematically, photograph and catalog items, and let you decide what to keep. Most charge $50-100/hour.",
+      },
+      { type: "h2", text: "The walkthrough" },
+      {
+        type: "p",
+        text: "Our walkthrough on a hoarder house is shorter than a normal one (15-30 minutes typically) because we can't see most of what we'd normally inspect. We're really doing three things: assessing the structural envelope (foundation, framing, roof — visible from outside or in clear areas), confirming the rough floor plan and square footage, and estimating cleanout volume. We don't need you to be there during the walkthrough; many sellers prefer to give us the keys and meet up afterward. Out-of-state heirs often coordinate with a neighbor or local family member to give us access.",
+      },
+      { type: "h2", text: "Multi-heir dynamics" },
+      {
+        type: "p",
+        text: "Most hoarder houses we buy come through inherited estates with multiple heirs, and there's almost always emotional weight — siblings disagree about whether to sell, who's responsible for the cleanout, whether the house's condition reflects family failure. We stay out of those dynamics entirely. Our contract goes to the personal representative or all heirs jointly, signatures coordinate through your probate attorney, and proceeds split per the will or intestate succession at closing. We've watched siblings work out 30-year tensions over an inherited hoarder house; it's not our place to comment, and we don't.",
+      },
+      { type: "h2", text: "Timeline" },
+      {
+        type: "p",
+        text: "Standard 7-14 day close from accepted offer if title is clear and the property's not in probate. Probate adds 6-12 months unless the property was in a trust. Out-of-state heirs add a few days for notary coordination. The walkthrough-to-offer turnaround is the same as any other house: 1-2 days from address submission.",
+      },
+      { type: "h2", text: "What we won't do" },
+      {
+        type: "ul",
+        items: [
+          "Photograph the house's contents to share publicly. Ever.",
+          "Make assumptions or comments about the deceased or about you.",
+          "Negotiate the offer down based on cleanout cost surprises. Our offer accounts for what we see during the walkthrough.",
+          "Pressure you on a timeline. Take the offer to your attorney, family, or therapist before signing.",
+        ],
+      },
+      { type: "h2", text: "Common emotional dynamics" },
+      {
+        type: "p",
+        text: "I've watched a lot of sellers walk through a hoarder house for the first time after a parent's death and visibly struggle. A few things that have helped people:",
+      },
+      {
+        type: "ol",
+        items: [
+          "Bring someone with you. A sibling, a friend, even a hired sorter.",
+          "Plan a finite amount of time. Two hours, then leave. The house isn't going anywhere.",
+          "Don't try to assign meaning to everything. Most of what's in the house wasn't meaningful to the deceased either; it was the result of the condition.",
+          "It's okay to take photos and leave physical items. Most sellers who try to keep too much regret it later.",
+          "If you find money, jewelry, or important documents, retrieve them. If you find old mail, family photos, and decades-old receipts, the cleanout team will dispose of them respectfully.",
+        ],
+      },
+      { type: "h2", text: "Getting started" },
+      {
+        type: "p",
+        text: "Submit the address through our homepage and we'll respond within 24 hours with next steps. We'll arrange the walkthrough at a time that works for you (or a representative if you're out of state). Written offer goes to you the same day or next day. From there, the timeline is yours.",
+      },
+    ],
+  },
+
+  // -------------------------------------------------------------------------
+  {
+    slug: "selling-a-house-with-title-issues-jackson-county",
+    title: "Selling a House With Title Issues in Jackson County, MO",
+    description:
+      "Common title issues that show up on Jackson County houses — mechanic's liens, IRS liens, divorce-era clouds, missing heirs, undischarged mortgages — and how a cash buyer handles each.",
+    excerpt:
+      "If a title search came back ugly, you're not stuck. Most title issues on Kansas City houses can be resolved at closing. Here's the breakdown of what we see most and how each gets handled.",
+    author: CHASE_AUTHOR,
+    publishedAt: "2026-05-02",
+    readTimeMin: 8,
+    tags: ["title", "process", "missouri"],
+    relatedSituations: ["inherited", "foreclosure", "divorce"],
+    relatedCities: ["kansas-city-mo", "independence-mo", "lees-summit-mo"],
+    body: [
+      {
+        type: "p",
+        text: "If a title search on your Kansas City house came back with problems, the first thing to know is: title issues kill conventional sales but rarely kill cash sales. Banks won't lend on a house with title clouds; cash buyers like us will close as long as the math works after satisfying the encumbrances. This post walks through the title issues we see most often on Jackson County properties and how each one gets handled at closing.",
+      },
+      {
+        type: "callout",
+        text: "Disclaimer: title work is technical and state-specific. This is practical experience, not legal advice. Your specific situation deserves a Missouri real estate attorney or title officer's review before signing anything.",
+      },
+      { type: "h2", text: "What title work actually checks" },
+      {
+        type: "p",
+        text: "When you go under contract on a Kansas City house, the title company runs a search through Jackson County land records (or Clay/Cass/Platte if applicable) going back 40-60 years to confirm: who legally owns the property, what mortgages or liens are recorded against it, whether prior transfers were properly executed, and whether anyone else might have a legal claim. The output is a title commitment listing 'exceptions' — things that need to be resolved before the title insurer will issue a clean policy. Some exceptions are routine (utility easements, standard restrictions); others are the issues this post covers.",
+      },
+      { type: "h2", text: "Mechanic's liens" },
+      {
+        type: "p",
+        text: "Missouri allows contractors, subcontractors, and material suppliers to file a lien against a property if they weren't paid for work done. They have 6 months from the work completion date to file. We see these on Kansas City properties where the homeowner had remodeling, roofing, or HVAC work done and disputed the invoice (or the invoice slipped through during a rough financial period). To clear: the lien gets paid off at closing from gross proceeds before the seller is paid. If the lien amount is disputed, we coordinate with the lienholder to negotiate a payoff. If the lien exceeds gross sale proceeds, the deal restructures or falls apart — but that's rare.",
+      },
+      { type: "h2", text: "IRS tax liens" },
+      {
+        type: "p",
+        text: "If the seller (or a previous owner) has unpaid federal taxes, the IRS may have filed a Notice of Federal Tax Lien against the property. These are nondiscriminatory — the IRS doesn't care who lives there, just that there's a lien against the property. To clear: the IRS lien is paid at closing from gross proceeds, OR the IRS issues a Certificate of Discharge (used when sale proceeds don't cover the full lien amount but the IRS agrees to release the lien anyway because it's their best path to recovery). The discharge process takes 30-60 days, which can extend a normal closing timeline. We've worked through several IRS-lien sales in Jackson County; it's mechanical.",
+      },
+      { type: "h2", text: "Missouri state tax liens" },
+      {
+        type: "p",
+        text: "Same concept as IRS liens but for unpaid Missouri state income tax or Missouri sales tax. Cleared the same way: paid at closing or discharged. Missouri's Department of Revenue is generally faster than the IRS on discharge processing.",
+      },
+      { type: "h2", text: "Property tax delinquency" },
+      {
+        type: "p",
+        text: "Jackson County collects property taxes in two halves (December 31 first half, June 30 second half). If your Kansas City house is delinquent, the unpaid amount becomes a lien against the property. Long-running delinquency (3+ years) can lead to inclusion in Jackson County's annual tax sale (typically August). To clear: back taxes paid at closing as a deduction from gross proceeds. We've bought Jackson County tax-sale properties days before the sale was scheduled.",
+      },
+      { type: "h2", text: "Divorce-era title clouds" },
+      {
+        type: "p",
+        text: "If a Kansas City house was titled jointly during a marriage and the divorce decree didn't explicitly transfer title to one spouse (or didn't get recorded in Jackson County land records), title may still show both spouses as owners — even years later, even if one spouse has been deceased for years. To clear: a quitclaim deed from the non-titled spouse (or their estate) is needed before closing. If the ex-spouse is unreachable or non-cooperative, an attorney files a quiet-title action in Jackson County Circuit Court — adds 60-120 days but resolves it. We've waited out quiet-title actions; it's not glamorous but it works.",
+      },
+      { type: "h2", text: "Missing heirs / improperly closed estates" },
+      {
+        type: "p",
+        text: "When a previous owner died and the estate wasn't properly closed in probate, title may technically still vest in the estate or in heirs whose interests were never extinguished. We see this most often on inherited Kansas City houses where the deceased was 1-2 generations back and probate was handled informally (or not at all). To clear: a probate filing now establishes proper succession of title. For very old issues (heirs are themselves deceased), a quiet-title action substitutes. Adds time; doesn't kill the deal.",
+      },
+      { type: "h2", text: "Undischarged mortgages from prior owners" },
+      {
+        type: "p",
+        text: "Sometimes a previous owner paid off their mortgage but the lender never recorded a Release of Deed of Trust in Jackson County land records. Title shows the mortgage still active. To clear: title company contacts the prior lender and requests a release. If the lender no longer exists (merged, bought, dissolved), the title company can request a substitute trustee deed of release. This adds 1-3 weeks but is routine.",
+      },
+      { type: "h2", text: "HOA arrears" },
+      {
+        type: "p",
+        text: "Homeowner association unpaid dues create a lien against the property. We see these on Lee's Summit, Overland Park, and parts of Independence with HOAs. To clear: HOA dues are paid at closing from gross proceeds. The HOA management company provides a written certificate of compliance showing the exact amount owed.",
+      },
+      { type: "h2", text: "Encroachments and survey issues" },
+      {
+        type: "p",
+        text: "A neighbor's fence on your property, a shed straddling the property line, or a garage with a corner over the lot line. Most of these don't kill closings — they get noted as exceptions on the title policy and life goes on. Major encroachments (a substantial portion of a permanent structure on the wrong lot) can require a survey, a boundary line agreement, or in the worst case, removal of the structure. We've never had this kill a Kansas City deal.",
+      },
+      { type: "h2", text: "Mineral and oil/gas rights" },
+      {
+        type: "p",
+        text: "Some Kansas City and Jackson County properties have severed mineral rights — the surface owner doesn't own the rights to oil, gas, or minerals beneath. This rarely affects practical use but shows up on title commitments. We don't worry about it. Most cash buyers don't.",
+      },
+      { type: "h2", text: "When title issues actually kill a deal" },
+      {
+        type: "p",
+        text: "Three scenarios where the math stops working:",
+      },
+      {
+        type: "ol",
+        items: [
+          "Total liens exceed gross sale proceeds AND we can't negotiate payoff discounts. Rare but happens with multi-lien situations on lower-value properties.",
+          "Title issues require a partition action or other litigation that would take 12+ months. Most cash buyers won't tie up a contract that long; we'll close on something else and revisit later.",
+          "Fraud — title shows the seller doesn't actually own the property. We walk away immediately.",
+        ],
+      },
+      { type: "h2", text: "How to find out if your house has title issues before listing" },
+      {
+        type: "p",
+        text: "The easiest path: get a free preliminary title check. Most Jackson County title companies (Continental Title, Tradition Title, Kansas City Title) will pull a quick search on your property for $0 or $50, depending on the office. Tell them you're considering selling and want to know if there are encumbrances; they'll let you know. Alternatively, when you submit your address to us for a cash offer, our title work will surface any issues — and we'll tell you what they are even if you decide not to sell to us.",
+      },
+      { type: "h2", text: "Getting started" },
+      {
+        type: "p",
+        text: "If you suspect (or know) your Kansas City house has title issues and you're not sure whether selling is even possible, submit your address through our homepage. We'll order title work as part of the offer process and walk you through whatever shows up. Most title issues on Kansas City houses are mechanical to resolve at closing; we've handled almost every variant Jackson County has produced.",
+      },
+    ],
+  },
+
+  // -------------------------------------------------------------------------
+  {
+    slug: "what-closing-day-looks-like-kansas-city-title-company",
+    title: "What Closing Day Looks Like at a Kansas City Title Company",
+    description:
+      "A practical walkthrough of closing day at a Kansas City title company — what to bring, the documents you'll sign, common questions, when the wire actually hits, and what can delay things.",
+    excerpt:
+      "Most sellers have only closed a house once or twice in their lives. Here's a clear, no-pressure walkthrough of what closing day actually looks like in Kansas City — start to finish.",
+    author: CHASE_AUTHOR,
+    publishedAt: "2026-05-06",
+    readTimeMin: 7,
+    tags: ["closing", "process", "title"],
+    relatedSituations: ["foreclosure", "inherited", "divorce"],
+    relatedCities: ["kansas-city-mo", "independence-mo", "overland-park-ks"],
+    body: [
+      {
+        type: "p",
+        text: "Most sellers have only closed a house once or twice in their lives, and the process can feel mysterious. This post is the no-jargon version of what to expect on closing day at a Kansas City title company — what to bring, what you'll sign, how long it takes, and when the money actually shows up in your account.",
+      },
+      { type: "h2", text: "Where you actually go" },
+      {
+        type: "p",
+        text: "Closings on Kansas City houses happen at one of several established title companies in the metro: Continental Title (multiple Jackson County offices), Tradition Title (Liberty, KC), Kansas City Title (Plaza area), Capitol Title (KCK and Johnson County). Most cash buyers have a preferred title company they use repeatedly. The address will be in your closing instructions email a few days before the date. Almost all are office settings with a closing room, a notary on staff, and free coffee.",
+      },
+      { type: "h2", text: "What to bring" },
+      {
+        type: "ul",
+        items: [
+          "Government-issued photo ID (driver's license, passport, or state ID). Required for the notary's records.",
+          "Account information for where the wire should land. Routing number and account number from your bank. The title company will provide a wiring instruction form to fill out.",
+          "If multiple sellers are signing (joint owners, spouses), each person needs their own photo ID.",
+          "Anything specific the title company asked for in advance — they'll email you a checklist.",
+        ],
+      },
+      {
+        type: "callout",
+        text: "If you can't be at the closing in person — out of state, mobility issues, scheduling conflict — almost all Kansas City title companies offer mobile notary services. They send a notary to your location with the documents, you sign, the notary returns the signed documents to the title company, and the wire goes out per normal. Adds 24-48 hours to the timeline but works seamlessly.",
+      },
+      { type: "h2", text: "What you'll sign (the documents)" },
+      {
+        type: "p",
+        text: "A standard Kansas City closing has 6-12 documents the seller signs. The most important ones:",
+      },
+      {
+        type: "ol",
+        items: [
+          "Warranty Deed — the legal document transferring ownership from you to the buyer. This is the main one. Notarized.",
+          "Settlement Statement (CD or HUD-1 depending on transaction type) — itemized accounting of every dollar in the transaction. Confirms the gross sale price, every deduction (mortgage payoff, taxes, lien payoffs, title fees), and the net wire amount to you.",
+          "Affidavit of Title — sworn statement that you have authority to sell, that there are no undisclosed liens, that no construction work has been done in the past 6 months that could result in mechanic's liens, etc.",
+          "Bill of Sale — transfers any personal property included in the sale (appliances, etc.).",
+          "Notice of Federal Tax Withholding (FIRPTA) — only if you're a non-US resident; otherwise the affidavit waives it.",
+          "Borrower's authorization for mortgage payoff — if you have an existing mortgage, this authorizes the title company to send the payoff directly to your lender.",
+          "Various smaller affidavits and disclosures — Missouri-specific or buyer-specific paperwork.",
+        ],
+      },
+      { type: "h2", text: "How long it takes" },
+      {
+        type: "p",
+        text: "A normal seller-side closing in Kansas City takes 30-45 minutes from arrival to leaving. The title officer walks you through each document, explains what it is, points to where you sign, and answers any questions. There's no pressure to rush. Don't sign anything you don't understand — ask questions, take time to read. The title company isn't going anywhere.",
+      },
+      { type: "h2", text: "Common questions sellers ask during closing" },
+      {
+        type: "ul",
+        items: [
+          "\"Why is this number on the settlement statement?\" — Always ask. The title officer will walk through every line. Common surprises: pro-rated property taxes (you owe through closing date, even if next bill isn't due yet), HOA pro-rations, water/sewer pro-rations.",
+          "\"What if the wire doesn't show up?\" — Wires from Kansas City title companies typically land within 2-4 business hours after closing. Same-day if you close before noon. The title officer can tell you the expected ETA.",
+          "\"Do I need to do anything after closing?\" — Cancel home insurance (don't cancel before closing — keep coverage through the closing date itself), cancel utilities for the day after closing, change your address with the post office.",
+          "\"What about the keys and access?\" — Bring all keys, garage door openers, and any access codes (gate, alarm, mailbox key) to closing. The buyer takes possession the moment the deed is signed and recorded.",
+        ],
+      },
+      { type: "h2", text: "When the wire actually hits" },
+      {
+        type: "p",
+        text: "Closing happens. You sign documents. The title officer walks the deed to the Jackson County Recorder for recording (usually electronic — happens within minutes during business hours). Once recorded, the title company releases the wire. Most Kansas City sellers see the funds in their account within 2-4 business hours of leaving the closing if they closed before noon. Closing in the afternoon means the wire usually hits the next morning — Federal Reserve cutoff times affect same-day wire eligibility.",
+      },
+      { type: "h2", text: "What can delay closing day" },
+      {
+        type: "ul",
+        items: [
+          "Last-minute lien surprise — a creditor files a lien between title commitment and closing day. Rare but happens. Resolution: lien paid at closing, deal proceeds. Adds 1-2 hours.",
+          "Mortgage payoff number is wrong — your lender's payoff statement was off because they hadn't applied a recent payment. Title officer calls the lender for an updated payoff. Adds 30-60 minutes typically.",
+          "Wire instructions errors — wrong account number on the form. Title officer catches it (they verify accounts before sending wires). Re-fill the form, wire goes out next day. This is why double-checking account numbers matters.",
+          "Buyer-side delay — buyer's funds haven't hit the title company's escrow yet. Cash buyers like us pre-fund escrow days before closing, so this doesn't happen on our side. With financed buyers, it's a real risk.",
+          "Document errors — typo in the deed, wrong middle name on a signature line. Title officer corrects and you re-sign.",
+        ],
+      },
+      { type: "h2", text: "Things sellers wish they'd asked" },
+      {
+        type: "ol",
+        items: [
+          "Confirm the wire timing in advance, especially if you need the funds for a specific purpose (buying your next house, paying off bills, depositing for a move).",
+          "Ask about pro-ration calculations — property taxes, HOA dues, water bills. These can shift hundreds of dollars and they're usually settled at closing.",
+          "Confirm what the buyer is getting beyond the house itself — appliances, light fixtures, blinds, window treatments. Most cash sales include 'personal property included with the house in current condition' but verify what's listed.",
+          "Get copies of every document you signed. Title company will email digital copies but ask for paper copies if you prefer.",
+        ],
+      },
+      { type: "h2", text: "After closing" },
+      {
+        type: "p",
+        text: "The title company sends recorded copies of the deed to both parties within a few weeks. Your wire should land same-day or next-business-day. The title insurance policy comes by mail in 2-4 weeks. From the seller's standpoint, you're done — no further action needed.",
+      },
+      { type: "h2", text: "How our closings differ from financed-buyer closings" },
+      {
+        type: "p",
+        text: "When you sell to us at Heartland Acquisitions: no buyer financing contingency (we wire cash, period), no appraisal (we already valued the house ourselves), no inspection clause delaying things (we inspected during the offer phase), and no last-minute lender objections. Our closings are notably smoother than typical financed sales because there's no third-party (the bank) to wait on. The title company runs lien searches, prepares documents, we wire funds 24-48 hours before closing date, you show up, sign, and walk out with the wire pending.",
+      },
+      { type: "h2", text: "Submitting your address" },
+      {
+        type: "p",
+        text: "If you want a fair cash offer that comes with this kind of clean, predictable closing process, submit your address from our homepage. Offer in 24 hours, walkthrough scheduled at your convenience, written offer follows, and if you accept, we open title at one of the Kansas City title companies above and close on the date you choose.",
+      },
+    ],
+  },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
