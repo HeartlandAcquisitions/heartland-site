@@ -1446,6 +1446,452 @@ export const BLOG_POSTS: BlogPost[] = [
       },
     ],
   },
+
+  // -------------------------------------------------------------------------
+  // BATCH 4
+  // -------------------------------------------------------------------------
+  {
+    slug: "tax-implications-selling-house-cash-kansas-city-2026",
+    title: "Tax Implications of Selling a House for Cash in Kansas City (2026)",
+    description:
+      "Plain-English guide to the federal and state taxes that apply when you sell a Kansas City house — primary residence exclusion, capital gains, inherited step-up basis, Missouri vs Kansas, and what your CPA will need.",
+    excerpt:
+      "Cash sale, financed sale — the IRS treats them the same. Here's what actually triggers tax, what the primary residence exclusion does, and what your KC CPA needs to know.",
+    author: CHASE_AUTHOR,
+    publishedAt: "2026-04-24",
+    readTimeMin: 8,
+    tags: ["taxes", "process", "missouri", "kansas"],
+    relatedSituations: ["inherited", "rental-with-tenants"],
+    relatedCities: ["kansas-city-mo", "overland-park-ks"],
+    body: [
+      {
+        type: "p",
+        text: "One of the first questions I get from Kansas City sellers considering a cash offer: \"Do I owe tax on this?\" The short answer for most owner-occupied sellers: probably not. The longer answer depends on whether the house was your primary residence, an investment property, or inherited; how long you've owned it; and what state side of the metro it sits on. This post is the plain-English version of how cash home sale taxes work in 2026 for Kansas City sellers.",
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        text: "I'm not a CPA or tax attorney. This is general information based on federal and Missouri/Kansas tax rules as of 2026. Your specific situation deserves a qualified tax professional. The cost of an hour with a Kansas City CPA is nothing compared to a botched tax position on a six-figure sale.",
+      },
+      { type: "h2", text: "Cash sale vs financed sale: same tax treatment" },
+      {
+        type: "p",
+        text: "First, the easy part: the IRS doesn't care whether the buyer paid cash or got a mortgage. The taxable event is the sale itself, calculated as: sale price minus your cost basis minus selling expenses = gain (or loss). The form of payment is irrelevant. So whatever applies to a traditional Kansas City sale applies to a cash sale at the same dollar level.",
+      },
+      { type: "h2", text: "The primary residence exclusion (the big one)" },
+      {
+        type: "p",
+        text: "Federal tax law allows single filers to exclude up to $250,000 of gain on the sale of a primary residence; married filers filing jointly can exclude up to $500,000. To qualify, you must have owned AND used the home as your primary residence for at least 2 of the last 5 years before the sale. The 2-year periods don't have to be the same 2 years and don't have to be continuous.",
+      },
+      {
+        type: "p",
+        text: "For most Kansas City homeowners selling their primary residence, this exclusion absorbs the entire gain. Example: bought your house for $180,000 in 2010, selling for $260,000 in 2026 — that's an $80,000 gain, fully excluded under the $250k single / $500k married limit. Zero federal tax owed.",
+      },
+      { type: "h2", text: "Calculating your cost basis" },
+      {
+        type: "p",
+        text: "Cost basis isn't just the purchase price. It's: original purchase price + closing costs at acquisition + capital improvements over time. Capital improvements (roof replacement, HVAC, additions, kitchen renovation) increase basis; routine maintenance and repairs (paint, light fixtures, lawn care) do not. Most Kansas City sellers underestimate their basis because they didn't track improvements over the years. If you've owned the house for 15+ years, you've likely made substantial capital improvements that pad your basis. Pull together receipts before tax season; even rough records help.",
+      },
+      { type: "h2", text: "When the primary residence exclusion doesn't fully cover the gain" },
+      {
+        type: "p",
+        text: "If your gain exceeds the $250k/$500k threshold (rare in Kansas City but possible on long-held high-end homes in Brookside, Plaza, southern OP), the excess is taxed as long-term capital gains at federal rates (0%, 15%, or 20% depending on your total income). For 2026, most Kansas City sellers fall in the 15% bracket — meaning excess gain is taxed at 15% federally.",
+      },
+      { type: "h2", text: "Investment property and rentals (no exclusion)" },
+      {
+        type: "p",
+        text: "Rental properties don't get the primary residence exclusion. The full gain is taxable as long-term capital gains (15-20% federal for most KC sellers) plus depreciation recapture (up to 25% federal on the depreciation taken over the years). For a Kansas City landlord who's owned a rental 15+ years, depreciation recapture often exceeds the actual capital gain — it's the surprise on the tax bill nobody warned you about.",
+      },
+      { type: "h2", text: "1031 exchange (defer, don't avoid)" },
+      {
+        type: "p",
+        text: "If you're selling an investment property and rolling proceeds into another investment property, a 1031 exchange defers the tax. You don't pay tax now; instead, your cost basis carries over to the new property. Strict timeline: identify the replacement property within 45 days of selling, close on it within 180 days. Requires a qualified intermediary (Kansas City has several — most title companies can refer one). Cash sales work fine for 1031s as long as proceeds go through the intermediary, not directly to you.",
+      },
+      { type: "h2", text: "Inherited property: the step-up in basis" },
+      {
+        type: "p",
+        text: "If you inherited a Kansas City house, your cost basis is the fair market value on the date of the deceased's death — not what they originally paid. This 'step-up in basis' often eliminates capital gains entirely on inherited sales. Example: your grandmother bought her Independence house in 1972 for $25,000. She died in 2025, when the house was worth $200,000. You sell for $205,000 in 2026. Your taxable gain is $5,000 (sale price minus stepped-up basis), not $180,000. Most inherited-house sellers in Kansas City owe little to no federal capital gains as a result.",
+      },
+      { type: "h2", text: "Missouri state tax (KC, MO sellers)" },
+      {
+        type: "p",
+        text: "Missouri taxes capital gains as ordinary income at state income tax rates (graduated up to ~4.95% for 2026). Missouri does NOT have a separate primary residence exclusion. However, the state generally follows the federal exclusion in practice — if you don't have federally taxable gain (because the federal exclusion covered it), you typically don't have Missouri-taxable gain either. Confirm with your CPA.",
+      },
+      { type: "h2", text: "Kansas state tax (KCK / Johnson County sellers)" },
+      {
+        type: "p",
+        text: "Kansas similarly taxes capital gains as ordinary income at state rates (3.10%-5.70% for 2026). Same federal-conformity logic generally applies. If your Kansas City house straddles or is near the state line, the relevant state is wherever the property is physically located, not where you live.",
+      },
+      { type: "h2", text: "1099-S forms" },
+      {
+        type: "p",
+        text: "After closing, the title company issues a Form 1099-S reporting the gross sale proceeds to the IRS. You'll need this for your tax return. The 1099-S reports gross proceeds, not gain — your CPA calculates the actual taxable gain after applying basis, exclusions, and expenses.",
+      },
+      { type: "h2", text: "Timing the sale for tax reasons" },
+      {
+        type: "p",
+        text: "If you're approaching the 2-year primary residence ownership/use requirement, consider whether waiting a few months changes your tax outcome significantly. Same logic applies if you've owned the rental for slightly less than 1 year (long-term capital gains require 1+ year holding period; otherwise it's short-term and taxed at ordinary income rates, often double the long-term rate). For most Kansas City sellers facing other pressures (foreclosure, divorce, relocation), tax timing is secondary to the urgent reason for selling — but worth a 30-minute consult with a CPA before you sign.",
+      },
+      { type: "h2", text: "What to bring to your CPA after the sale" },
+      {
+        type: "ol",
+        items: [
+          "Closing disclosure or HUD-1 from your sale (issued at closing)",
+          "1099-S form from the title company",
+          "Original purchase closing disclosure (helps establish original basis)",
+          "Records of capital improvements made over the years (receipts, invoices)",
+          "Mortgage payoff records (relevant for some calculations)",
+          "If inherited: appraisal at the date of death",
+          "If rental property: depreciation schedules from prior tax years",
+          "If 1031 exchange: the qualified intermediary's documentation",
+        ],
+      },
+      { type: "h2", text: "Getting an offer that fits your tax timing" },
+      {
+        type: "p",
+        text: "We've structured Kansas City closings to land in specific tax years (December vs January closings) for sellers timing the gain into a particular year. We've also coordinated 1031 exchanges and probate sales where the basis question affected the math. Before you sign, talk to a CPA. After you've talked to the CPA, submit your address through our homepage and we'll work with whatever timing your tax situation calls for.",
+      },
+    ],
+  },
+
+  // -------------------------------------------------------------------------
+  {
+    slug: "should-i-renovate-before-selling-kansas-city",
+    title: "Should I Renovate My Kansas City House Before Selling? The ROI Math",
+    description:
+      "Honest breakdown of which renovations actually pay back when selling a Kansas City house — kitchen, bath, roof, HVAC, paint — with realistic ROI percentages and the time cost most sellers ignore.",
+    excerpt:
+      "Realtors will tell you to renovate before listing. Sometimes that's right; usually it costs more than it returns. Here's the actual ROI math on the renovations Kansas City sellers consider.",
+    author: CHASE_AUTHOR,
+    publishedAt: "2026-04-27",
+    readTimeMin: 7,
+    tags: ["pricing", "renovation", "comparison"],
+    relatedSituations: ["inherited", "rental-with-tenants"],
+    relatedCities: ["kansas-city-mo", "independence-mo", "lees-summit-mo"],
+    body: [
+      {
+        type: "p",
+        text: "Walk into any Kansas City realtor's listing presentation and one of the first slides will be a list of renovations they recommend before listing. Sometimes that's good advice. Often it's not. The truth is: very few residential renovations recoup more than 70-80% of their cost at sale, even fewer recoup 100%, and the time + stress + risk of doing renovations under time pressure rarely makes the math work for sellers in distressed situations. This post walks through which renovations actually pay back in the Kansas City market, which don't, and how to think about whether to renovate at all.",
+      },
+      { type: "h2", text: "The honest ROI of renovations" },
+      {
+        type: "p",
+        text: "Remodeling magazine's annual Cost vs Value report tracks national renovation ROI. The numbers haven't fundamentally changed in 20 years: most renovations recoup 50-75% of cost at resale. The exceptions (door replacement, garage door, exterior paint) recoup higher because they're cheap relative to the curb-appeal effect. Big-ticket renovations (kitchens, bathroom additions) consistently recoup less than they cost.",
+      },
+      { type: "h2", text: "Renovations that DO pay back in KC" },
+      {
+        type: "ul",
+        items: [
+          "Exterior paint — typical cost $3,000-$6,000 in KC, recoups ~80-100%. The single highest-ROI renovation on most KC houses, especially older 1950s-60s ranches with dated trim. Strong curb appeal moves listings faster.",
+          "Garage door replacement — $1,000-$2,500, recoups ~90-100%. Newer doors look immediately better and signal modern condition.",
+          "Front door / entry — $500-$1,500, recoups 75-100%. Cheap fix with outsized first-impression effect.",
+          "Roof replacement (when needed) — $8,000-$15,000 on a typical KC ranch, recoups ~60-70%. Doesn't add value beyond what buyers expect, but a failing roof KILLS appraisals and FHA financing.",
+          "Minor kitchen update — paint cabinets ($500-$1,500), new hardware ($200), updated lighting ($300-$600), recoups ~70-90%. Cosmetic-only, not a full reno.",
+          "Curb-appeal landscaping — $500-$2,000, recoups variable but moves listings faster.",
+        ],
+      },
+      { type: "h2", text: "Renovations that DON'T pay back in KC" },
+      {
+        type: "ul",
+        items: [
+          "Full kitchen renovation — $25,000-$60,000, recoups ~50-65%. The best ROI is on cosmetic-only updates, not gut renovations. Full kitchens are an investment in the property's long-term enjoyment, not a sales tactic.",
+          "Bathroom additions — $25,000+, recoups ~50-60%. Doesn't add as much value as it costs unless the house is below the neighborhood norm for bathroom count.",
+          "Master bedroom suite addition — $50,000+, recoups ~50-65%. Major project, marginal ROI.",
+          "Backyard landscaping — $5,000-$20,000, recoups ~30-50%. Pretty but not what KC buyers pay extra for.",
+          "Pool installation — $30,000-$80,000, recoups ~10-30% (often net-negative because of insurance, maintenance, and limited buyer pool). Almost always a bad idea before selling.",
+          "Custom built-ins — $5,000-$15,000, recoups ~30-50%. Buyer-specific tastes don't generalize.",
+          "Sunroom additions — $20,000+, recoups ~30-50%.",
+        ],
+      },
+      { type: "h2", text: "The time and stress cost (rarely calculated)" },
+      {
+        type: "p",
+        text: "Renovation projects in Kansas City typically run 2-3 months for a kitchen, 4-6 weeks for a bathroom, 1-2 weeks for paint and minor updates. That's all time the house isn't on the market, time you're managing contractors and inspections and decisions, and time mortgage payments are still due. For a typical seller juggling a job, kids, and life, the stress cost of a renovation under deadline pressure is real and usually underestimated.",
+      },
+      {
+        type: "p",
+        text: "Add common renovation horror stories: contractor flakes mid-project (very common in KC over the past few years), permit delays at the city, hidden conditions discovered behind walls, materials lead times. A 'quick' kitchen renovation can easily turn into 4 months of half-done.",
+      },
+      { type: "h2", text: "When renovation makes sense" },
+      {
+        type: "ol",
+        items: [
+          "You're not in a hurry. 90+ days of timeline before you need to be out.",
+          "The house is in a hot KC neighborhood (Brookside, Waldo, Plaza, parts of OP) where retail buyers will pay premium for retail finishes.",
+          "The renovations are minor cosmetic (paint, hardware, cleanup). Stuff under $5,000.",
+          "There's a SPECIFIC defect killing the house's salability (failing roof, broken HVAC, code violation). Fix that defect; don't renovate broadly.",
+          "You enjoy renovation projects and have done them before.",
+        ],
+      },
+      { type: "h2", text: "When renovation doesn't make sense" },
+      {
+        type: "ol",
+        items: [
+          "Foreclosure or financial pressure — renovation requires cash you don't have, and the timeline doesn't allow it anyway.",
+          "Inherited property — heirs rarely want to take on a renovation; the math also rarely works because the basis step-up captures the un-renovated value.",
+          "Out-of-state seller — managing a renovation remotely is brutal.",
+          "Older house with major systemic issues (foundation, plumbing) — fixing one thing exposes the next thing.",
+          "Distressed market segment (parts of east KC, KCK) where retail demand is thin regardless of finish quality.",
+        ],
+      },
+      { type: "h2", text: "The math on a real KC house" },
+      {
+        type: "p",
+        text: "Take an Independence ranch, 1965 build, current as-is value $180,000 (cash buyer offer), retail value after $40,000 renovation $260,000.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Renovate path: Spend $40k. Sell at $260k. Subtract realtor 6% ($15.6k), holding costs over 4-month renovation ($3.5k), repair list at inspection ($2k), closing costs ($1.5k). Net: $260k - $40k - $15.6k - $3.5k - $2k - $1.5k = $197,400.",
+          "Cash sale path: Sell at $180k cash. Net: $180,000.",
+        ],
+      },
+      {
+        type: "p",
+        text: "The renovate path nets $17,400 more — real money, but: you fronted $40k of cash, took 4-5 months instead of 2 weeks, managed contractors, and absorbed all the renovation risk. Whether $17k extra is worth that to you depends on your situation. For a seller who's calm, has cash, and time, it's worth it. For someone in distress, it's almost never worth it.",
+      },
+      { type: "h2", text: "What we look for when buying as-is" },
+      {
+        type: "p",
+        text: "When you sell us a house in current condition, we don't penalize you for not renovating. We assume the kitchen needs cosmetic work, the bathrooms are dated, the HVAC is older than ideal. We've baked all of that into the offer. What we DO factor in: structural issues that materially affect renovation cost (foundation, framing, major plumbing/electrical issues). If you tell us up front about issues, we won't be surprised at closing; if you hide them, we'll find them in title or inspection and the offer adjusts.",
+      },
+      { type: "h2", text: "The simplest decision framework" },
+      {
+        type: "p",
+        text: "Get a cash offer (free, 24 hours). Get a comparative market analysis from a Kansas City realtor (free). Get a renovation contractor's estimate for the renovations you're considering (free, most contractors do free estimates). Run the math: net to you on the cash sale vs net on the renovate-then-list path including the cost of renovation, time, and risk. Pick whichever wins for your situation. Most sellers are surprised by how close the numbers are.",
+      },
+      { type: "h2", text: "Getting started" },
+      {
+        type: "p",
+        text: "Submit your address through the homepage for a no-obligation cash offer in 24 hours. We'll tell you what we'd pay as-is. From there, you decide whether to renovate, list, or take our offer. We'll be honest about which one likely wins for your specific house.",
+      },
+    ],
+  },
+
+  // -------------------------------------------------------------------------
+  {
+    slug: "selling-duplex-small-multi-family-kansas-city",
+    title: "Selling a Duplex or Small Multi-Family in Kansas City",
+    description:
+      "Practical guide to selling a Kansas City duplex, triplex, or fourplex — investor pricing math (cap rates, NOI), occupied vs vacant trade-offs, common KC multi-family neighborhoods, and timeline.",
+    excerpt:
+      "Multi-family sells differently than single-family. Cap rates, tenant transitions, and investor-pool dynamics all matter. Here's what tired KC landlords need to know about selling their duplex or fourplex.",
+    author: CHASE_AUTHOR,
+    publishedAt: "2026-04-29",
+    readTimeMin: 7,
+    tags: ["multi-family", "rental", "process"],
+    relatedSituations: ["rental-with-tenants"],
+    relatedCities: ["kansas-city-mo", "kansas-city-ks", "raytown-mo", "independence-mo"],
+    body: [
+      {
+        type: "p",
+        text: "Selling a small multi-family property in Kansas City — duplex, triplex, fourplex — is a different transaction than selling a single-family. The buyer pool is investors, not homeowners. Pricing is based on income, not comparable sales. Tenants in place complicate (or sometimes simplify) the deal. And the financing landscape for multi-family buyers is its own beast. This post walks through what KC landlords need to know about selling small multi-family, especially if you're the kind of seller we work with most often: a tired-landlord exiting a portfolio of 1-5 small rentals.",
+      },
+      { type: "h2", text: "Tired landlords, the dominant seller profile" },
+      {
+        type: "p",
+        text: "Most multi-family sellers we work with in Kansas City fall into one of these patterns:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Single-property landlord who inherited a duplex from a parent and never wanted to be a landlord. Now 5+ years in and ready to be done.",
+          "Small portfolio landlord (3-10 KC rentals) cleaning up the portfolio — selling the worst-performing or highest-headache properties first.",
+          "Out-of-state landlord who bought KC properties for cash flow during 2018-2022 and is now exiting the metro entirely.",
+          "Aging landlord (60+) who inherited or accumulated rentals over decades and is consolidating for retirement or estate planning.",
+          "Landlord facing a problem tenant who's been in the unit for years and wants to exit cleanly without fighting an eviction.",
+        ],
+      },
+      { type: "h2", text: "Why multi-family is harder to sell traditionally" },
+      {
+        type: "p",
+        text: "Listing a Kansas City duplex on the MLS is technically possible but produces poor results for several reasons. First, fewer buyers — multi-family buyers are investors, not homeowners, and the buyer pool for any specific KC duplex is maybe 5-20 active investors, not the 100+ retail buyers a single-family attracts. Second, tenant access — showings on a 2-unit property require coordinating with tenants who often have no incentive to keep the place clean or accessible. Third, financing — investor loans for small multi-family have stricter underwriting than residential loans, and contracts fall through more often. Fourth, condition — most landlord-owned KC properties have deferred maintenance that hurts retail showings.",
+      },
+      { type: "h2", text: "How investors actually price multi-family" },
+      {
+        type: "p",
+        text: "Investors don't use comparable sales the way homeowners do. They use Net Operating Income (NOI) and cap rate. The math:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Gross Annual Rent: total rent collected per year across all units",
+          "Less Operating Expenses: property tax, insurance, maintenance reserves, vacancy allowance (typically 5-10%), property management (8-10%), utilities the landlord covers",
+          "= Net Operating Income (NOI)",
+          "Property Value = NOI ÷ Cap Rate",
+        ],
+      },
+      {
+        type: "p",
+        text: "Cap rates in Kansas City for small multi-family in 2026 are typically 7-10% (varies by neighborhood and condition; safer areas like KCMO Northside trade lower, riskier areas trade higher). On a duplex generating $24,000 gross rent annually, with $9,000 in operating expenses, NOI is $15,000. At an 8% cap rate, the investor's offer math suggests $187,500. At 10%, $150,000. The exact cap rate depends on the property's condition, location, and rent stability.",
+      },
+      { type: "h2", text: "Selling occupied vs vacant" },
+      {
+        type: "p",
+        text: "Most cash investors prefer occupied multi-family because it's already producing cash flow on day one. Vacant multi-family creates a 'value-add' situation that some investors prefer (more renovation freedom, can re-tenant at market rent) but priced lower because of the holding cost. For a typical KC duplex:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Both units occupied, tenants paying on time, leases in place: highest investor offer",
+          "Both units occupied, tenants below market rent on long leases: investor offer reflects 'rent loss' until leases turn",
+          "One unit occupied, one vacant: middle ground; vacant unit can be renovated and re-rented at market",
+          "Both units vacant, ready for renovation: lower offer because of holding cost during stabilization",
+          "Both units occupied with non-paying or problem tenants: lower offer because of eviction risk and management cost",
+        ],
+      },
+      { type: "h2", text: "What we look for in KC duplexes" },
+      {
+        type: "p",
+        text: "When we underwrite a small multi-family in Kansas City, we look at: rent vs market (are leases under-rented or at market?), tenant quality (length of tenancy, payment history, lease terms), unit condition (kitchens, baths, mechanicals), lot/zoning compliance, and exit strategy (long-term hold vs reposition vs eventual conversion to single-family). Our offer reflects the math; we don't penalize landlords for tenant situations they inherited.",
+      },
+      { type: "h2", text: "Kansas City multi-family neighborhoods" },
+      {
+        type: "p",
+        text: "Heavy multi-family concentration in: KCMO west of Troost (64111, 64108, 64109 — older 1900-1940 duplexes and small multi-family), KCMO Northland 64116-64119 (newer 1980s-2000s small multi-family), KCK Argentine and Turner districts (older 1900-1950 duplexes), Independence pockets along Crysler Street and the I-70 corridor. These are the areas where we make the most multi-family offers and where the investor pool is most active.",
+      },
+      { type: "h2", text: "Selling timeline" },
+      {
+        type: "p",
+        text: "Cash offer multi-family closings in Kansas City typically run 14-21 days from accepted offer (slightly longer than single-family because the investor wants to verify rent rolls, lease documents, security deposits, and conduct a more thorough walkthrough). Sellers don't need to do much; we coordinate everything with the title company. Tenant security deposits transfer at closing as a credit on the settlement statement. Pro-rated rent calculates to closing day.",
+      },
+      { type: "h2", text: "Tax considerations for multi-family" },
+      {
+        type: "p",
+        text: "Multi-family tax treatment is more complex than primary residence sales. Depreciation recapture on rental properties is significant (up to 25% federal on the depreciation taken). Long-term capital gains apply to any appreciation beyond depreciation. 1031 exchange is common for multi-family sellers who want to defer the tax — we coordinate with qualified intermediaries routinely. See our separate post on cash-sale tax implications for the broader framework, and absolutely talk to a Kansas City CPA before closing.",
+      },
+      { type: "h2", text: "Common landlord questions" },
+      {
+        type: "ul",
+        items: [
+          "\"Do I need to evict the bad tenants before selling?\" No. We buy with tenants in place; eviction (if needed) is our problem, not yours.",
+          "\"What happens to security deposits?\" Transfer at closing as a credit on the settlement statement. The tenant's deposit accounting stays clean.",
+          "\"Will you buy if my tenants haven't paid in months?\" Yes. We factor non-payment into the offer.",
+          "\"Do I need to provide leases and rent rolls?\" Yes — the title company collects them as part of due diligence. If documentation is incomplete (common with longtime landlords), we work with what you have.",
+          "\"Can you handle Section 8 tenants?\" Yes. We've taken over Section 8 leases routinely.",
+        ],
+      },
+      { type: "h2", text: "Getting an offer" },
+      {
+        type: "p",
+        text: "Submit your duplex/multi-family address through our homepage. In the form notes, include: number of units, current monthly rent per unit, occupancy status, and any known issues. We'll respond within 24 hours with an offer or follow-up questions. We've bought enough KC small multi-family properties that the process is straightforward — and you're done being a landlord.",
+      },
+    ],
+  },
+
+  // -------------------------------------------------------------------------
+  {
+    slug: "best-time-to-sell-kansas-city-house-monthly",
+    title: "The Best Time to Sell a Kansas City House (Month-by-Month Guide)",
+    description:
+      "When does the Kansas City market favor sellers? Month-by-month breakdown of buyer demand, days on market, and price trends — plus how cash sales differ from MLS seasonality.",
+    excerpt:
+      "There's a real seasonal rhythm to the Kansas City housing market. Here's the month-by-month breakdown of when listings move fastest, when prices are strongest, and when cash sales are the smarter play.",
+    author: CHASE_AUTHOR,
+    publishedAt: "2026-05-03",
+    readTimeMin: 7,
+    tags: ["timing", "kansas-city", "market"],
+    relatedSituations: [],
+    relatedCities: ["kansas-city-mo", "overland-park-ks", "lees-summit-mo"],
+    body: [
+      {
+        type: "p",
+        text: "There's a real seasonal pattern in the Kansas City housing market — buyer demand isn't constant year-round, listings move at different speeds depending on the month, and the right strategy varies based on when you're selling. This isn't earth-shattering insight; it's just the reality of how home buying behavior cycles in the KC metro. This post walks through the month-by-month dynamics so you can decide whether timing your sale is worth the wait.",
+      },
+      { type: "h2", text: "The big picture: spring is peak season" },
+      {
+        type: "p",
+        text: "If you only remember one thing from this post: spring is the strongest seller's market in Kansas City. The combination of post-winter cabin fever, families wanting to be moved before the next school year starts, and tax refunds hitting bank accounts creates the highest concentration of motivated buyers. Mid-March through mid-June is when KC listings typically receive the most showings, sell fastest, and command the strongest prices relative to listing.",
+      },
+      { type: "h2", text: "January: the new-year reset" },
+      {
+        type: "p",
+        text: "Inventory is at the year's lowest. Buyers are mostly people who couldn't time their purchase to anything better — relocations, sudden life changes, investors hunting for off-season deals. Days on market trend higher than spring averages. Sellers in this window often have urgent reasons (year-end timing, divorce settlements timed to calendar year). For non-urgent sellers, January is generally a 'wait if you can' month.",
+      },
+      { type: "h2", text: "February: the warm-up" },
+      {
+        type: "p",
+        text: "Activity picks up by late February as buyers return after the holidays. Listings going up in late February are positioned to capture the spring surge. Smart sellers preparing for a March or April listing date use February for pre-listing prep: paint, professional photos, decluttering. Closings in February still skew slow.",
+      },
+      { type: "h2", text: "March: spring market kicks off" },
+      {
+        type: "p",
+        text: "By mid-March, the market is in full spring mode. Showings increase, inventory grows but demand grows faster, and price points stay strong. New listings hitting in March often see 5-10 showings within the first week and accept offers within 2 weeks. This is the strongest month for MLS sellers in Kansas City after April.",
+      },
+      { type: "h2", text: "April: peak season" },
+      {
+        type: "p",
+        text: "April is consistently the strongest seller's month in Kansas City. Buyers feel the school-year clock ticking, mortgage applications are at peak, and competition for desirable listings produces the highest list-to-sale ratios of the year. If you have flexibility on timing and your house is in good condition, listing in early April typically produces the best result.",
+      },
+      { type: "h2", text: "May: still strong, slightly less competitive" },
+      {
+        type: "p",
+        text: "May continues spring momentum. Inventory has expanded somewhat (more sellers listing), so individual listings see slightly less competition than in April, but demand is still strong. Closings in May land before the summer move-in window and let families settle before fall.",
+      },
+      { type: "h2", text: "June: spring market closing out" },
+      {
+        type: "p",
+        text: "June sees the school-year-driven buyer urgency peak in the first half, then taper. Buyers who haven't bought by mid-June often pause and resume after the summer. Listings in early June still perform well; listings in late June face a quieter market through July.",
+      },
+      { type: "h2", text: "July: the summer slowdown" },
+      {
+        type: "p",
+        text: "Activity drops noticeably. Buyer interest is split between vacations and the disappointment of having missed the spring market. Days on market extend, list-to-sale ratios drop, and many sellers who listed in April-June and haven't sold start reducing prices. Not the worst month to sell — but not the best either.",
+      },
+      { type: "h2", text: "August: relocation push" },
+      {
+        type: "p",
+        text: "Activity recovers in August as corporate relocations move people for fall start dates and last-minute school-year buyers make their final attempts. Specific KC employers (Cerner/Oracle, Garmin, T-Mobile) drive a real relocation buyer pool in August. Listings priced right and positioned correctly can capture this audience effectively.",
+      },
+      { type: "h2", text: "September: second wind" },
+      {
+        type: "p",
+        text: "September is the year's second-strongest selling month after April. Buyers who paused over summer return with renewed urgency before winter. Inventory is somewhat thinner than spring (fewer sellers list in fall), so individual listings see less competition. A well-priced fall listing can sell as fast as a strong spring listing.",
+      },
+      { type: "h2", text: "October: fall market closing" },
+      {
+        type: "p",
+        text: "October starts strong but tapers through the month as buyers who haven't found something start delaying to spring. Holiday season looms. Listings hitting in early October have time; late October listings often carry into the winter-quiet window.",
+      },
+      { type: "h2", text: "November: pre-holiday quiet" },
+      {
+        type: "p",
+        text: "Activity falls. Most buyers focused on Thanksgiving and holidays. The buyers who ARE in the market in November are often very motivated (relocations with hard deadlines, divorce-driven sales, new-year-tax-driven sales). Listings that succeed in November tend to be priced aggressively or in extremely strong neighborhoods.",
+      },
+      { type: "h2", text: "December: the slowest month" },
+      {
+        type: "p",
+        text: "Counterintuitively, December's serious buyers are often more motivated than other months — they're not just looking, they're doing this for a reason. Sellers who can list during December and tolerate the lower volume may find better-converted buyers per showing. But fewer overall showings, longer days on market, and weaker price negotiation. Most non-urgent sellers wait until January or February.",
+      },
+      { type: "h2", text: "How cash sales differ" },
+      {
+        type: "p",
+        text: "Cash sales like ours are largely insulated from seasonal patterns. We're buying based on the property's investment math, not on whether retail buyers are competing for it. Our offer in January for the same house is essentially the same as our offer in April. This is why cash sales make sense for sellers who can't time their sale — foreclosure pressure, divorce settlement dates, inheritance situations, relocations. The MLS market punishes off-season sellers; cash buyers don't.",
+      },
+      { type: "h2", text: "The right strategy by situation" },
+      {
+        type: "ul",
+        items: [
+          "House is in great shape, no time pressure, want maximum price → wait for March-April listing window with a Kansas City realtor",
+          "House needs work, no time pressure → consider whether to renovate (see our separate post on this) or take a cash offer now",
+          "Time pressure (foreclosure, relocation, divorce, illness) → cash sale, regardless of season",
+          "Inherited or out-of-state seller → cash sale, regardless of season (the holding costs of waiting for spring usually outweigh the small price premium)",
+          "Strong KC neighborhood (Brookside, Waldo, OP), house is retail-ready → MLS in spring or early fall",
+          "Older house in average condition, no urgent reason to sell → list with realtor in spring; if it doesn't sell within 60 days, consider cash buyer",
+        ],
+      },
+      { type: "h2", text: "Bottom line" },
+      {
+        type: "p",
+        text: "If you have flexibility, timing the Kansas City market gets you 3-5% more on price by listing in April vs January. That's real money. If you don't have flexibility — most distressed or relocating sellers don't — the seasonal premium gets dwarfed by the cost of waiting (holding costs, mortgage payments, deferred life decisions). Cash sales work in any month for any reason.",
+      },
+      { type: "h2", text: "Getting started" },
+      {
+        type: "p",
+        text: "Whatever month you're reading this, submit your address through our homepage for a no-obligation cash offer in 24 hours. If timing the market is right for your situation, we'll tell you (we're not in the business of pressuring sellers who'd net more by waiting for spring). If cash is right for your situation, we'll close on whatever timeline works.",
+      },
+    ],
+  },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
