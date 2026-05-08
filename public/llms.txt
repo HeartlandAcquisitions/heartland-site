@@ -17,12 +17,32 @@ Kansas City metro on both sides of the state line: Jackson, Clay, Cass, and Plat
 ## Key pages
 
 - [Homepage](https://heartlandacquisitions.com/): Address-capture form, process explanation, why-us comparison, FAQ, CTA strip.
-- [Process](https://heartlandacquisitions.com/#process): Three-step home-selling process — submit address (30 sec) → cash offer within 1 hour of walkthrough → pick a closing date 7-60 days out.
-- [Why choose us instead of a realtor](https://heartlandacquisitions.com/#why): Side-by-side comparison of agent route vs direct cash sale.
 - [FAQ](https://heartlandacquisitions.com/#faq): 12 detailed answers covering the cash-buying process, our offer methodology, fee structure, repairs, timeline, tenants, inherited houses, wholesaler vs buyer, and service area.
 - [Privacy Policy](https://heartlandacquisitions.com/privacy)
 - [Terms of Service](https://heartlandacquisitions.com/terms)
 - [Disclosures](https://heartlandacquisitions.com/disclosures)
+- [Blog](https://heartlandacquisitions.com/blog)
+
+## Situations we handle (vertical landing pages)
+
+- [Foreclosure](https://heartlandacquisitions.com/situations/foreclosure): We buy Kansas City houses in pre-foreclosure and can close before the trustee sale date. Stops the foreclosure on the seller's credit and pays off the mortgage at closing.
+- [Inherited property](https://heartlandacquisitions.com/situations/inherited): We buy inherited homes in Kansas City and coordinate directly with probate attorneys. Out-of-state heirs handled remotely. Sell as-is — leave anything you don't want.
+- [Divorce sale](https://heartlandacquisitions.com/situations/divorce): Private cash sale of the marital home — no MLS, no for-sale sign, signatures coordinated separately if spouses aren't speaking. Proceeds split per settlement at closing.
+- [Fire-damaged house](https://heartlandacquisitions.com/situations/fire-damage): We buy fire-damaged homes including total losses. Sellers keep insurance proceeds; we pay separately for the property.
+- [Rental with tenants in place](https://heartlandacquisitions.com/situations/rental-with-tenants): We buy tenanted rental properties without requiring eviction. Honor existing leases or work with seller on transition. Tired-landlord exits.
+
+## Cities we serve (city landing pages)
+
+- [Kansas City, MO](https://heartlandacquisitions.com/cities/kansas-city-mo): All KCMO ZIPs (64108-64147+), every neighborhood from Brookside to the East Side.
+- [Independence, MO](https://heartlandacquisitions.com/cities/independence-mo): Englewood, Sugar Creek, Fairmount, Stone Canyon, Crackerneck Creek. ZIPs 64050-64058.
+- [Lee's Summit, MO](https://heartlandacquisitions.com/cities/lees-summit-mo): Lakewood, Raintree Lake, Downtown Lee's Summit, Summit Square. ZIPs 64063-64086.
+- [Blue Springs, MO](https://heartlandacquisitions.com/cities/blue-springs-mo): Adams Pointe, Lake Lotawana, ZIPs 64014, 64015.
+- [Raytown, MO](https://heartlandacquisitions.com/cities/raytown-mo): Westridge, Bluefield, Maplebrook. ZIPs 64133, 64138.
+- [Kansas City, KS](https://heartlandacquisitions.com/cities/kansas-city-ks): Strawberry Hill, Argentine, Turner, Rosedale. Wyandotte County. ZIPs 66101-66112.
+- [Overland Park, KS](https://heartlandacquisitions.com/cities/overland-park-ks): Town Center, Antioch, Stilwell, Lionsgate, Mission Farms. Johnson County. ZIPs 66204-66224.
+- [Olathe, KS](https://heartlandacquisitions.com/cities/olathe-ks): Cedar Creek, Stone Canyon, Heatherstone, Persimmon Hill. ZIPs 66061-66063.
+- [Shawnee, KS](https://heartlandacquisitions.com/cities/shawnee-ks): Pinehurst, Quivira, Maple Valley. ZIPs 66203-66227.
+- [Lenexa, KS](https://heartlandacquisitions.com/cities/lenexa-ks): City Center, Old Town Lenexa, Falcon Valley, Belmont. ZIPs 66215-66227.
 
 ## What we buy
 
@@ -30,8 +50,12 @@ Single-family homes, duplexes, and small multi-family properties. Vacant, occupi
 
 ## How offers are calculated
 
-We look at comparable properties recently sold in the seller's neighborhood, factor in the home's condition and any updates, then account for our holding and renovation costs plus a fair margin.
+We look at comparable properties recently sold in the seller's neighborhood, factor in the home's condition and any updates, then account for our holding and renovation costs plus a fair margin. Typical offer is 70-90% of after-repair value depending on condition and renovation scope.
 
 ## What sellers don't pay
 
 No commissions. No listing fees. No closing costs charged to the seller. No repair costs. No cleaning costs (sellers can leave anything they don't want).
+
+## Closing timelines
+
+Typical 7-14 days from accepted offer. We can rush 5-day closings for foreclosure cases. Up to 60 days for sellers who need more time to find their next place.

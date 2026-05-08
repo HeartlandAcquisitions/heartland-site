@@ -1,36 +1,65 @@
 import Script from "next/script"
 import { FAQS } from "@/lib/faqs"
 
-const faqJsonLd = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQS.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-})
+export type FaqEntry = { q: string; a: string }
 
-export function Faq() {
+export type FaqProps = {
+  /** ID for the section anchor; defaults to "faq" */
+  id?: string
+  /** FAQs to render; defaults to homepage FAQS */
+  faqs?: FaqEntry[]
+  /** Headline first half (e.g. "Things people"); defaults to homepage copy */
+  headlinePre?: string
+  /** Highlighted second half (e.g. "actually ask."); defaults to homepage copy */
+  headlineHighlight?: string
+  /** Subheading copy; defaults to homepage copy */
+  sub?: string
+  /** Optional unique JSON-LD script id (must be unique if multiple FAQ blocks ever render on the same page) */
+  jsonLdId?: string
+  /** Skip emitting FAQPage JSON-LD (e.g. when the page has its own custom schema) */
+  skipJsonLd?: boolean
+}
+
+const DEFAULT_SUB =
+  "Everything you need to know about selling your Kansas City home for cash. Don't see your question? Call or text us at (816) 973-5420."
+
+export function Faq(props: FaqProps = {}) {
+  const id = props.id ?? "faq"
+  const faqs = props.faqs ?? FAQS
+  const headlinePre = props.headlinePre ?? "Things people"
+  const headlineHighlight = props.headlineHighlight ?? "actually ask."
+  const sub = props.sub ?? DEFAULT_SUB
+  const jsonLdId = props.jsonLdId ?? "ld-faq"
+
+  const faqJsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  })
+
   return (
-    <section id="faq" className="bg-brand-bg-warm py-[120px] scroll-mt-20">
-      <Script id="ld-faq" type="application/ld+json" strategy="beforeInteractive">
-        {faqJsonLd}
-      </Script>
+    <section id={id} className="bg-brand-bg-warm py-[120px] scroll-mt-20">
+      {!props.skipJsonLd ? (
+        <Script id={jsonLdId} type="application/ld+json" strategy="beforeInteractive">
+          {faqJsonLd}
+        </Script>
+      ) : null}
 
       <div className="mx-auto max-w-[1280px] px-8">
         <header className="flex flex-col items-center text-center gap-6 mb-16 max-w-[880px] mx-auto">
           <h2 className="font-sans text-[44px] md:text-[64px] leading-none tracking-[-0.035em] font-extrabold text-brand-text">
-            Things people<br />
-            <em className="not-italic text-brand-primary">actually ask.</em>
+            {headlinePre}<br />
+            <em className="not-italic text-brand-primary">{headlineHighlight}</em>
           </h2>
-          <p className="text-lg text-[#3a3d33] leading-[1.5] max-w-[680px]">
-            Everything you need to know about selling your Kansas City home for cash. Don&apos;t see your question? Call or text us at (816) 973-5420.
-          </p>
+          <p className="text-lg text-[#3a3d33] leading-[1.5] max-w-[680px]">{sub}</p>
         </header>
 
         <div className="border-t border-brand-border-strong">
-          {FAQS.map((f, i) => (
+          {faqs.map((f, i) => (
             <details
               key={f.q}
               open={i === 0}
