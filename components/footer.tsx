@@ -53,7 +53,13 @@ export function Footer() {
 
         <div className="flex flex-col sm:flex-row sm:justify-between gap-2 mt-16 pt-6 border-t border-brand-bg-warm/10 text-[13px] text-brand-bg-warm/50">
           <span>© 2026 Ivarix Capital LLC DBA Heartland Acquisitions. All rights reserved.</span>
-          <span>Privacy · Terms · Disclosures</span>
+          <span className="flex gap-3">
+            <Link href="/privacy" className="hover:text-brand-bg-warm">Privacy</Link>
+            <span aria-hidden>·</span>
+            <Link href="/terms" className="hover:text-brand-bg-warm">Terms</Link>
+            <span aria-hidden>·</span>
+            <Link href="/disclosures" className="hover:text-brand-bg-warm">Disclosures</Link>
+          </span>
         </div>
       </div>
     </footer>
