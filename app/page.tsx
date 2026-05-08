@@ -4,6 +4,7 @@ import { Process } from "@/components/sections/process"
 import { WhyUs } from "@/components/sections/why-us"
 import { ReviewsEmpty } from "@/components/sections/reviews-empty"
 import { Faq } from "@/components/sections/faq"
+import { CoverageGrid } from "@/components/sections/coverage-grid"
 import { CtaStrip } from "@/components/sections/cta-strip"
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <WhyUs />
       <ReviewsEmpty />
       <Faq />
+      <CoverageGrid />
       <CtaStrip />
     </>
   )

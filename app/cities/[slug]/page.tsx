@@ -6,6 +6,7 @@ import { Marquee } from "@/components/marquee"
 import { Process } from "@/components/sections/process"
 import { WhyUs } from "@/components/sections/why-us"
 import { Faq } from "@/components/sections/faq"
+import { CoverageGrid } from "@/components/sections/coverage-grid"
 import { CtaStrip } from "@/components/sections/cta-strip"
 import { CITIES, getCityBySlug } from "@/lib/cities"
 import { siteConfig } from "@/lib/site-config"
@@ -114,6 +115,12 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         headlineHighlight={`${c.name}.`}
         sub={`Specific questions ${c.name} sellers ask us. Don't see yours? Call or text ${siteConfig.phone.display}.`}
         jsonLdId={`ld-faq-${c.slug}`}
+      />
+
+      <CoverageGrid
+        hideCities
+        headline={`Selling in ${c.name}? We handle every situation.`}
+        sub={`Whatever's behind the sale — foreclosure, divorce, inherited, fire damage, tenants in place — we make a fair cash offer in 24 hours.`}
       />
 
       <CtaStrip />

@@ -39,11 +39,37 @@ const localBusinessJsonLd = JSON.stringify({
 })
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} — Sell Your Kansas City House Fast for Cash`,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: siteConfig.description,
   icons: {
     icon: "/brand/favicon.ico",
     apple: "/brand/apple-touch-icon.png",
+  },
+  openGraph: {
+    title: `${siteConfig.name} — Sell Your Kansas City House Fast for Cash`,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Heartland Acquisitions — Sell your KC home for cash. 24-hour offer. 7-day close.",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} — Sell Your Kansas City House Fast for Cash`,
+    description: siteConfig.description,
+    images: ["/og.png"],
   },
 };
 

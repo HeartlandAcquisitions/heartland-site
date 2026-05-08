@@ -7,17 +7,22 @@ test("footer displays brand mark and company description", async ({ page }) => {
   await expect(footer.getByText(/A family-owned home-buying company serving/)).toBeVisible()
 })
 
-test("footer has company nav and service area sections", async ({ page }) => {
+test("footer has company nav, situations, and cities sections with real links", async ({ page }) => {
   await page.goto("/")
   const footer = page.getByRole("contentinfo")
   await expect(footer.getByRole("heading", { name: "Company" })).toBeVisible()
-  await expect(footer.getByRole("heading", { name: "Service area" })).toBeVisible()
+  await expect(footer.getByRole("heading", { name: "Situations" })).toBeVisible()
+  await expect(footer.getByRole("heading", { name: "Cities" })).toBeVisible()
   await expect(footer.getByRole("link", { name: "Our process" })).toBeVisible()
   await expect(footer.getByRole("link", { name: "Why us" })).toBeVisible()
   await expect(footer.getByRole("link", { name: "Reviews" })).toBeVisible()
   await expect(footer.getByRole("link", { name: "Blog" })).toBeVisible()
-  await expect(footer.getByText("Kansas City, MO")).toBeVisible()
-  await expect(footer.getByText("Overland Park, KS")).toBeVisible()
+  // Situation links
+  await expect(footer.getByRole("link", { name: /FORECLOSURE/i })).toBeVisible()
+  await expect(footer.getByRole("link", { name: /INHERITED/i })).toBeVisible()
+  // City links (real, navigable)
+  await expect(footer.getByRole("link", { name: /Kansas City, MO/ })).toBeVisible()
+  await expect(footer.getByRole("link", { name: /Overland Park, KS/ })).toBeVisible()
 })
 
 test("footer displays contact info and legal text", async ({ page }) => {

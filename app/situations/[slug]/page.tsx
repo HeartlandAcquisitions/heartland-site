@@ -6,6 +6,7 @@ import { Marquee } from "@/components/marquee"
 import { Process } from "@/components/sections/process"
 import { WhyUs } from "@/components/sections/why-us"
 import { Faq } from "@/components/sections/faq"
+import { CoverageGrid } from "@/components/sections/coverage-grid"
 import { CtaStrip } from "@/components/sections/cta-strip"
 import { VERTICALS, getVerticalBySlug } from "@/lib/verticals"
 import { siteConfig } from "@/lib/site-config"
@@ -46,6 +47,34 @@ export default async function VerticalPage({ params }: { params: Promise<{ slug:
     ],
   })
 
+  const serviceJsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Cash home buying",
+    name: v.metaTitle.split(" | ")[0],
+    description: v.metaDescription,
+    url: `${siteConfig.url}/situations/${v.slug}`,
+    provider: {
+      "@type": "LocalBusiness",
+      name: siteConfig.name,
+      telephone: siteConfig.phone.e164,
+      url: siteConfig.url,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: siteConfig.address.street,
+        addressLocality: siteConfig.address.city,
+        addressRegion: siteConfig.address.state,
+        postalCode: siteConfig.address.zip,
+        addressCountry: "US",
+      },
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Kansas City",
+      containedInPlace: { "@type": "AdministrativeArea", name: "Kansas City Metro" },
+    },
+  })
+
   const cardHeadlineParts = splitCtaHeadline(v.ctaHeadline)
 
   return (
@@ -56,6 +85,9 @@ export default async function VerticalPage({ params }: { params: Promise<{ slug:
         strategy="beforeInteractive"
       >
         {breadcrumbJsonLd}
+      </Script>
+      <Script id={`ld-service-${v.slug}`} type="application/ld+json" strategy="beforeInteractive">
+        {serviceJsonLd}
       </Script>
 
       <LandingHero
@@ -123,6 +155,12 @@ export default async function VerticalPage({ params }: { params: Promise<{ slug:
         headlineHighlight={`${v.eyebrow.toLowerCase().replace(/_/g, " ")} sales.`}
         sub={`Specific questions sellers ask us when they're ${v.h1Pre.toLowerCase()} ${v.h1Highlight.toLowerCase()} Don't see yours? Call or text ${siteConfig.phone.display}.`}
         jsonLdId={`ld-faq-${v.slug}`}
+      />
+
+      <CoverageGrid
+        hideSituations
+        headline="We buy in every KC metro city."
+        sub="Submit your address from any of these areas and we'll have a fair cash offer to you within 24 hours."
       />
 
       <CtaStrip />
