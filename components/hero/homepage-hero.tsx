@@ -10,7 +10,7 @@ export function HomepageHero() {
       {/* Background photo with dark left-to-right gradient */}
       <div className="absolute inset-0">
         <Image
-          src="/brand/hero-house-v2.png"
+          src="/brand/hero-house-v2.webp"
           alt=""
           fill
           priority
