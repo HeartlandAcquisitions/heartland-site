@@ -57,14 +57,24 @@ export async function submitLead(
   // 3) Normalize (phone → E.164, email → lowercase)
   const normalized = normalizeLeadInput(parsed.data)
 
-  // 4) Build minimal CRM payload — attribution fields stripped (Plan 3.5 wires
-  //    them server-side via Meta CAPI + Google Enhanced Conversions instead).
+  // 4) Build CRM payload. Attribution flows through to Lead.attribution JSONB
+  //    on the CRM side (Lead-first workflow — see lib/crm.ts).
   const payload: IntakePayload = {
     phone: normalized.phone!,
     property_address: normalized.property_address,
     first_name: normalized.first_name,
     last_name: normalized.last_name,
     email: normalized.email,
+    source_detail: normalized.source_detail,
+    utm_source: normalized.utm_source,
+    utm_medium: normalized.utm_medium,
+    utm_campaign: normalized.utm_campaign,
+    utm_content: normalized.utm_content,
+    utm_term: normalized.utm_term,
+    referrer: normalized.referrer,
+    landing_page: normalized.landing_page,
+    session_id: normalized.session_id,
+    device: normalized.device,
   }
 
   // 5) POST to /api/v1/intake/ with retry
@@ -95,5 +105,5 @@ export async function submitLead(
     return { ok: true, leadId: "pending-recovery" }
   }
 
-  return { ok: true, leadId: result.dealId }
+  return { ok: true, leadId: result.leadId }
 }

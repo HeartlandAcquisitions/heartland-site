@@ -1,18 +1,36 @@
+/**
+ * Posts to Roman CRM's /api/v1/intake/ endpoint, which creates a Lead row
+ * (not Contact + Property + Deal — those are created later by Chase clicking
+ * "Create Deal" in the CRM Leads tab, which calls /api/v1/leads/{id}/promote).
+ *
+ * Why Lead-first: Chase qualifies leads via phone before they enter the
+ * deal pipeline. Auto-promoting every form submission to a Deal polluted
+ * the pipeline with junk that had to be manually closed.
+ */
+
 export interface IntakePayload {
   phone: string
   property_address: string
-  first_name?: string
-  last_name?: string
+  first_name: string
+  last_name: string
   email?: string
+  source_detail?: string
+  utm_source?: string
+  utm_medium?: string
+  utm_campaign?: string
+  utm_content?: string
+  utm_term?: string
+  referrer?: string
+  landing_page?: string
+  session_id?: string
+  device?: string
 }
 
 export type IntakeResult =
   | {
       ok: true
-      dealId: string
-      contactId: string
-      propertyId: string
-      contactCreated: boolean
+      leadId: string
+      status: string
       attempts: number
     }
   | { ok: false; status: number; error: string; attempts: number }
@@ -50,17 +68,13 @@ export async function postIntakeToCrm(
 
       if (res.ok) {
         const body = (await res.json()) as {
-          deal_id?: string
-          contact_id?: string
-          property_id?: string
-          contact_created?: boolean
+          lead_id?: string
+          status?: string
         }
         return {
           ok: true,
-          dealId: body.deal_id ?? "unknown",
-          contactId: body.contact_id ?? "unknown",
-          propertyId: body.property_id ?? "unknown",
-          contactCreated: body.contact_created ?? false,
+          leadId: body.lead_id ?? "unknown",
+          status: body.status ?? "new",
           attempts: attempt,
         }
       }

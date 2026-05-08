@@ -51,14 +51,12 @@ describe("submitLead server action", () => {
     if (!res.ok) expect(res.reason).toBe("validation_failed")
   })
 
-  it("posts intake payload with normalized phone, lowercased email, last_name; strips UTM fields", async () => {
+  it("posts intake payload with normalized phone, lowercased email, and full attribution context", async () => {
     vi.mocked(verifyTurnstileToken).mockResolvedValue(true)
     vi.mocked(postIntakeToCrm).mockResolvedValue({
       ok: true,
-      dealId: "deal-42",
-      contactId: "contact-42",
-      propertyId: "prop-42",
-      contactCreated: true,
+      leadId: "lead-42",
+      status: "new",
       attempts: 1,
     })
     const res = await submitLead({
@@ -73,7 +71,7 @@ describe("submitLead server action", () => {
       turnstile_token: "valid",
     })
     expect(res.ok).toBe(true)
-    if (res.ok) expect(res.leadId).toBe("deal-42")
+    if (res.ok) expect(res.leadId).toBe("lead-42")
 
     const call = vi.mocked(postIntakeToCrm).mock.calls[0]!
     expect(call[0].phone).toBe("+18165551234")
@@ -82,14 +80,10 @@ describe("submitLead server action", () => {
     expect(call[0].last_name).toBe("Doe")
     expect(call[0].property_address).toBe("123 Main St, KC")
 
-    // Attribution fields MUST NOT be in the CRM payload
-    const payloadAsRecord = call[0] as unknown as Record<string, unknown>
-    expect(payloadAsRecord.utm_source).toBeUndefined()
-    expect(payloadAsRecord.utm_campaign).toBeUndefined()
-    expect(payloadAsRecord.referrer).toBeUndefined()
-    expect(payloadAsRecord.source).toBeUndefined()
-    expect(payloadAsRecord.source_detail).toBeUndefined()
-    expect(payloadAsRecord.property_data).toBeUndefined()
+    // Attribution fields ARE now passed through to the CRM (Lead-first workflow)
+    expect(call[0].utm_source).toBe("google")
+    expect(call[0].utm_campaign).toBe("kc-cash")
+    expect(call[0].referrer).toBe("https://google.com")
   })
 
   it("returns ok + paging Sentry when CRM fails (preserves attribution in Sentry extras)", async () => {

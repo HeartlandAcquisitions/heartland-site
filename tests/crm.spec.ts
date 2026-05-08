@@ -12,17 +12,14 @@ describe("postIntakeToCrm", () => {
     vi.useRealTimers()
   })
 
-  it("POSTs with X-API-Key + intake payload, returns dealId/contactId/contactCreated", async () => {
+  it("POSTs with X-API-Key + intake payload, returns leadId + status (Lead-first workflow)", async () => {
     const calls: Array<{ url: string; init: RequestInit }> = []
     global.fetch = vi.fn(async (url, init) => {
       calls.push({ url: String(url), init: init as RequestInit })
       return new Response(
         JSON.stringify({
-          deal_id: "deal-1",
-          contact_id: "contact-1",
-          property_id: "prop-1",
-          contact_created: true,
-          stage: "new",
+          lead_id: "lead-1",
+          status: "new",
         }),
         { status: 201 },
       )
@@ -38,10 +35,8 @@ describe("postIntakeToCrm", () => {
 
     expect(result.ok).toBe(true)
     if (result.ok) {
-      expect(result.dealId).toBe("deal-1")
-      expect(result.contactId).toBe("contact-1")
-      expect(result.propertyId).toBe("prop-1")
-      expect(result.contactCreated).toBe(true)
+      expect(result.leadId).toBe("lead-1")
+      expect(result.status).toBe("new")
     }
     expect(calls).toHaveLength(1)
     const call = calls[0]!
@@ -55,25 +50,41 @@ describe("postIntakeToCrm", () => {
     expect(body.email).toBe("jane@example.com")
   })
 
+  it("forwards attribution fields (utm_*, referrer, landing_page) through to the CRM", async () => {
+    const calls: Array<{ init: RequestInit }> = []
+    global.fetch = vi.fn(async (_url, init) => {
+      calls.push({ init: init as RequestInit })
+      return new Response(JSON.stringify({ lead_id: "lead-2", status: "new" }), { status: 201 })
+    }) as unknown as typeof fetch
+
+    await postIntakeToCrm({
+      phone: "+18165550000",
+      property_address: "x",
+      first_name: "Jane",
+      last_name: "Doe",
+      utm_source: "google",
+      utm_campaign: "kc-cash",
+      referrer: "https://google.com",
+      landing_page: "/situations/foreclosure",
+    })
+
+    const body = JSON.parse(calls[0]!.init.body as string)
+    expect(body.utm_source).toBe("google")
+    expect(body.utm_campaign).toBe("kc-cash")
+    expect(body.referrer).toBe("https://google.com")
+    expect(body.landing_page).toBe("/situations/foreclosure")
+  })
+
   it("retries on 5xx, succeeds on 3rd try", async () => {
     let calls = 0
     global.fetch = vi.fn(async () => {
       calls += 1
       if (calls < 3) return new Response("server err", { status: 502 })
-      return new Response(
-        JSON.stringify({
-          deal_id: "deal-ok",
-          contact_id: "c-ok",
-          property_id: "p-ok",
-          contact_created: false,
-          stage: "new",
-        }),
-        { status: 201 },
-      )
+      return new Response(JSON.stringify({ lead_id: "lead-ok", status: "new" }), { status: 201 })
     }) as unknown as typeof fetch
 
     const result = await postIntakeToCrm(
-      { phone: "+18165550000", property_address: "x" },
+      { phone: "+18165550000", property_address: "x", first_name: "J", last_name: "D" },
       { maxAttempts: 3, backoffMs: 1 },
     )
     expect(result.ok).toBe(true)
@@ -83,7 +94,7 @@ describe("postIntakeToCrm", () => {
   it("returns failure after max attempts exhausted", async () => {
     global.fetch = vi.fn(async () => new Response("down", { status: 503 })) as unknown as typeof fetch
     const result = await postIntakeToCrm(
-      { phone: "+18165550000", property_address: "x" },
+      { phone: "+18165550000", property_address: "x", first_name: "J", last_name: "D" },
       { maxAttempts: 2, backoffMs: 1 },
     )
     expect(result.ok).toBe(false)
@@ -100,7 +111,7 @@ describe("postIntakeToCrm", () => {
       return new Response("bad", { status: 400 })
     }) as unknown as typeof fetch
     const result = await postIntakeToCrm(
-      { phone: "+18165550000", property_address: "x" },
+      { phone: "+18165550000", property_address: "x", first_name: "J", last_name: "D" },
       { maxAttempts: 3, backoffMs: 1 },
     )
     expect(result.ok).toBe(false)
