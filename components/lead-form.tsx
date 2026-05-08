@@ -9,7 +9,11 @@ import { Label } from "@/components/ui/label"
 
 type Step = "address" | "contact" | "success" | "error"
 
-// Cloudflare Turnstile types injected by the script
+// Cloudflare Turnstile types — invisibility is configured on the site key
+// in the Cloudflare dashboard (Managed / Invisible / Non-interactive mode),
+// NOT via the JS render params. Valid `size` values per Cloudflare's current
+// API are "normal" | "flexible" | "compact". Passing "invisible" produces
+// a runtime parameter-validation error.
 type TurnstileAPI = {
   render: (
     el: HTMLElement,
@@ -17,7 +21,8 @@ type TurnstileAPI = {
       sitekey: string
       callback: (token: string) => void
       "error-callback"?: () => void
-      size?: "invisible" | "normal"
+      size?: "normal" | "flexible" | "compact"
+      appearance?: "always" | "execute" | "interaction-only"
     },
   ) => string
   execute: (id: string) => void
@@ -65,7 +70,12 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
       if (!window.turnstile || !turnstileRef.current || turnstileWidgetId.current) return
       turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
         sitekey: siteKey,
-        size: "invisible",
+        // Invisibility is configured on the site key itself in the Cloudflare
+        // dashboard (Widget mode → Invisible). The JS render call should NOT
+        // pass size="invisible" — that throws a parameter-validation error.
+        // We hide the widget container via CSS instead and rely on
+        // appearance="execute" so the challenge only runs when we call execute().
+        appearance: "execute",
         callback: (token) => {
           tokenRef.current = token
         },
