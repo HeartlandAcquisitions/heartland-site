@@ -931,6 +931,521 @@ export const BLOG_POSTS: BlogPost[] = [
       },
     ],
   },
+
+  // -------------------------------------------------------------------------
+  // BATCH 3
+  // -------------------------------------------------------------------------
+  {
+    slug: "hidden-costs-of-selling-fsbo-kansas-city",
+    title: "The Hidden Costs of Selling FSBO (For Sale By Owner) in Kansas City",
+    description:
+      "What you'll actually pay to sell your Kansas City house yourself — buyer agent commission, marketing, attorney fees, time, and the contingency-management costs nobody mentions.",
+    excerpt:
+      "FSBO seems like the cheapest path. Then you start adding up what you're actually responsible for. Here's the real cost breakdown for selling your KC house yourself in 2026.",
+    author: CHASE_AUTHOR,
+    publishedAt: "2026-04-23",
+    readTimeMin: 7,
+    tags: ["fsbo", "comparison", "kansas-city"],
+    relatedSituations: ["divorce", "rental-with-tenants"],
+    relatedCities: ["kansas-city-mo", "lees-summit-mo"],
+    body: [
+      {
+        type: "p",
+        text: "Selling your Kansas City house yourself — for sale by owner, FSBO — sounds like the obvious way to keep the 6% you'd pay a realtor. The math seems clean: list it, find a buyer, save the commission. Reality is more expensive than that. After working with dozens of KC sellers who tried FSBO before reaching out to us, here's the breakdown of what FSBO actually costs in this market.",
+      },
+      { type: "h2", text: "The 6% commission isn't fully yours to keep" },
+      {
+        type: "p",
+        text: "Here's the part most FSBO calculators leave out: about 80% of homebuyers in Kansas City work with a buyer's agent. Those agents have a fiduciary duty to their buyers, which means they direct their clients toward houses where they'll get paid. If your FSBO listing offers no buyer-agent commission (also called BAC), buyer agents have a strong incentive to steer their clients elsewhere. To get any buyer-agent traffic at all, most FSBO sellers in KC end up offering a 2.5-3% buyer-agent commission. So instead of saving 6%, you save 3%. Real, but smaller.",
+      },
+      { type: "h2", text: "Marketing and listing costs" },
+      {
+        type: "p",
+        text: "To get on the MLS (the most powerful traffic source in real estate, by far), FSBO sellers in Kansas City pay a flat-fee MLS service — typically $300-$700. Without MLS, your house only shows up on Zillow's FSBO listings and some Facebook Marketplace posts. With MLS, your listing syndicates to Zillow, Realtor.com, Redfin, and dozens of other sites that buyers actually use. Add to this:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Professional listing photos: $200-$500 (essential — phone photos visibly hurt listings)",
+          "Yard sign and flyer box: $50-$150",
+          "Facebook/Zillow advertising: optional but $100-$500 if you go this route",
+          "Lockbox: $50-$150",
+        ],
+      },
+      {
+        type: "p",
+        text: "Total marketing spend for an effective FSBO listing in KC: $700-$1,500.",
+      },
+      { type: "h2", text: "Missouri attorney fees" },
+      {
+        type: "p",
+        text: "Missouri doesn't legally require an attorney for a residential sale, but FSBO sellers strongly should retain one. Without a realtor, you're navigating: the Missouri purchase contract (you can use the Missouri REALTORS contract for FSBO use), inspection responses, repair negotiations, title coordination, and closing logistics — all without representation. A flat-fee Missouri real estate attorney for an FSBO sale typically runs $750-$1,500. Skip this and you'll either: (a) sign whatever the buyer's agent puts in front of you, or (b) lose the deal because you don't know how to respond to a 12-page inspection objection. Either outcome costs more than the attorney fee.",
+      },
+      { type: "h2", text: "Showings, open houses, and your time" },
+      {
+        type: "p",
+        text: "A typical Kansas City FSBO sale runs 60-90 days from listing to closing. During that period, expect:",
+      },
+      {
+        type: "ul",
+        items: [
+          "15-25 individual showings (you'll need to leave the house each time, ~1.5 hours each)",
+          "1-2 open houses (3-4 hours each, plus prep)",
+          "30+ phone calls and texts from interested parties, agents, and looky-loos",
+          "Weekly listing maintenance (re-photos if seasons change, price adjustments, MLS updates)",
+        ],
+      },
+      {
+        type: "p",
+        text: "If you value your time at $50/hour (most KC sellers should value it higher), that's 60-100 hours of your time over the listing period — roughly $3,000-$5,000 of seller labor. This doesn't show up in any commission calculation but it's real.",
+      },
+      { type: "h2", text: "Buyer financing complications" },
+      {
+        type: "p",
+        text: "Most FSBO buyers are using FHA, VA, or conventional loans. Each of these comes with appraisal contingencies, financing contingencies, and inspection objections that an experienced realtor handles routinely but an FSBO seller learns the hard way. Common scenarios:",
+      },
+      {
+        type: "ol",
+        items: [
+          "Appraisal comes in below contract price. Buyer can either bring extra cash, you reduce price, or the deal dies. FSBO sellers without an agent often don't know they can negotiate this.",
+          "Inspection objection list with 30+ items. Buyer's agent uses this to extract concessions; FSBO seller without representation often gives up too much or kills the deal entirely.",
+          "Buyer's loan falls through at week 6. You've been off the market for 6 weeks, lost 6 weeks of carrying costs, and start over.",
+          "Title issue surfaces during closing prep. FSBO sellers don't know how to coordinate quitclaim deeds, lien payoffs, or quiet-title actions.",
+        ],
+      },
+      { type: "h2", text: "Pricing mistakes" },
+      {
+        type: "p",
+        text: "FSBO sellers in Kansas City consistently misprice their houses — usually too high (because emotional attachment) or too low (because they don't know neighborhood comps deeply). NAR data has historically shown FSBO sales close at 5-15% below MLS-listed sales. That's a real number that exists for real reasons: less buyer competition, less negotiation leverage, less professional marketing.",
+      },
+      { type: "h2", text: "When FSBO actually works in Kansas City" },
+      {
+        type: "ul",
+        items: [
+          "You already have a buyer (family member, neighbor, tenant). FSBO is just paperwork in this case — saves the commission cleanly. Hire an attorney for the contract; you don't need a realtor.",
+          "The house is in a hyper-strong neighborhood (Brookside, Waldo, Hyde Park, parts of Plaza). Multiple offers on day 1 is common; the listing agent's marketing isn't doing much.",
+          "You have substantial real-estate experience yourself.",
+          "You have 60-90 days of patience and the right personality for negotiating.",
+        ],
+      },
+      { type: "h2", text: "When FSBO costs more than it saves" },
+      {
+        type: "ul",
+        items: [
+          "House needs repairs or condition adjustments — buyers will use FSBO seller's lack of representation against you.",
+          "You're emotionally attached or stressed (divorce, foreclosure, inherited estate). FSBO requires arm's-length negotiation that's hard under emotional pressure.",
+          "You don't have time for showings, calls, and 60-day timelines.",
+          "The KC neighborhood has slower turnover (parts of Independence, Raytown, Grandview).",
+          "You've never sold a house before.",
+        ],
+      },
+      { type: "h2", text: "How a cash sale compares" },
+      {
+        type: "p",
+        text: "Cash sales like the ones we do at Heartland Acquisitions skip every cost listed in this post. No commission (yours or the buyer's agent), no MLS fees, no marketing, no attorney needed (we coordinate through the title company), no showings, no buyer financing risk, no inspection objections. Our offer is typically 70-85% of retail ARV; FSBO at full effort might net 90-95% of retail. Whether that 5-15% delta is worth the time, stress, and risk is a decision only you can make.",
+      },
+      { type: "h2", text: "Getting both numbers" },
+      {
+        type: "p",
+        text: "Before deciding FSBO vs cash, get both numbers in writing. We'll send you a written cash offer in 24 hours, no obligation. Then talk to a Kansas City realtor about a comparative market analysis (free, also no obligation) — even ask them to estimate what an FSBO listing might net you specifically. Run the numbers honestly, including your own time, and pick whichever wins.",
+      },
+    ],
+  },
+
+  // -------------------------------------------------------------------------
+  {
+    slug: "relocating-from-kansas-city-sell-house-30-days",
+    title: "Relocating From Kansas City: How to Sell Your House in 30 Days",
+    description:
+      "Job relocation moving you out of Kansas City fast? Here's the realistic 30-day path from listing decision to wired funds — cash buyer vs MLS vs iBuyer compared on a tight timeline.",
+    excerpt:
+      "Got 30 days to sell your KC house and move? Here's the calendar walked backward — what's possible, what's not, and which path makes the most sense based on your specific window.",
+    author: CHASE_AUTHOR,
+    publishedAt: "2026-04-26",
+    readTimeMin: 7,
+    tags: ["relocation", "selling fast", "process"],
+    relatedSituations: ["divorce"],
+    relatedCities: ["overland-park-ks", "olathe-ks", "lenexa-ks", "lees-summit-mo"],
+    body: [
+      {
+        type: "p",
+        text: "Job relocations move fast. The new employer wants you onsite in 30 days, the spouse needs to enroll the kids in the new school district, and somewhere in the middle of all that you have to sell a Kansas City house. We work with relocation sellers from the corporate corridor (Cerner/Oracle, Garmin, T-Mobile, Sprint, Black & Veatch, Hallmark) constantly. Here's the realistic 30-day playbook.",
+      },
+      { type: "h2", text: "The calendar walked backward" },
+      {
+        type: "p",
+        text: "Start with your move-out date and walk backward. A typical 30-day relocation timeline looks like:",
+      },
+      {
+        type: "ol",
+        items: [
+          "Day 30 (move-out): Closing should ideally be within a week of move-out, or you're paying double housing costs.",
+          "Day 22-25 (target close date): Title work needs to be substantially complete by this point.",
+          "Day 15-18 (under contract): Need a signed contract by mid-month to make day-25 closing realistic.",
+          "Day 7-10 (offer accepted): Need a serious offer by week 1-2 to give title work enough runway.",
+          "Day 1 (decision day): Pick your sale path. Every day you wait compresses the timeline downstream.",
+        ],
+      },
+      { type: "h2", text: "Path 1: Cash buyer (5-14 days from address-to-close)" },
+      {
+        type: "p",
+        text: "Cash sales are the default relocation path because the timeline math just works. Submit your address day 1, walkthrough day 2-3, accepted offer day 3-4, title opens day 4, close day 7-14. That gives you 16+ days of buffer in a 30-day relocation. We've closed corporate-relocation deals on a 7-day timeline when the move-out was tight; we've also stretched closings to day 28 when the seller wanted to time the move precisely. Flexibility on the closing date is one of the biggest wins for relocation sellers.",
+      },
+      { type: "h2", text: "Path 2: Aggressive MLS listing (30 days, risky)" },
+      {
+        type: "p",
+        text: "Listing on the MLS in 30 days is technically possible but compressed. The math:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Days 1-2: Hire a realtor, professional photos, listing prep",
+          "Day 3-4: Listing goes live",
+          "Days 5-12: Showings and (hopefully) offers — KC days-on-market median is in the 25-40 day range, so this is faster than typical",
+          "Days 12-15: Negotiate, accept, go under contract",
+          "Days 15-30: Inspection, appraisal, financing approval, closing",
+        ],
+      },
+      {
+        type: "p",
+        text: "The risk: financed buyers (most MLS buyers) need ~30 days from contract-to-close on average for FHA/conventional loans. If you're already 12-15 days into your 30-day window when you go under contract, you're betting on the buyer's lender to move at the speed of light. About 15-20% of KC purchase contracts fall through; if your contract is the one that falls through at day 22, you have 8 days to find another buyer. That's where relocation sellers get crushed and end up paying duplicate housing for months.",
+      },
+      { type: "h2", text: "Path 3: iBuyer (Opendoor, Offerpad)" },
+      {
+        type: "p",
+        text: "Theoretically a 30-day-friendly option. Reality: iBuyer offers come with inspection-based deductions that don't show up until day 14-21, by which point you have less leverage to walk if the final number is bad. Service fees (typically 5-10%) plus deductions often produce a final net to seller similar to or below a cash buyer's number. We've had multiple relocation sellers come to us at day 25 because their iBuyer deal fell apart over inspection deductions. Workable but riskier than it sounds upfront.",
+      },
+      { type: "h2", text: "Setting the right price for speed" },
+      {
+        type: "p",
+        text: "If you go the MLS route in a relocation situation, price 3-5% below your retail target. Speed is your friend when relocation pressure is real; pricing for 'top dollar' assumes time you don't have. KC realtors who specialize in relocations (most major brokerages have a relocation specialist) understand this trade-off and will help you price for a 7-14 day market response, not a 60-90 day market response.",
+      },
+      { type: "h2", text: "Prepping the house if you're listing" },
+      {
+        type: "ul",
+        items: [
+          "Skip cosmetic projects unless they're essential. New paint = ROI. Replacing a kitchen for a 30-day sale = burning money.",
+          "Deep clean is essential. Use a service ($300-500) so you don't have to manage it yourself.",
+          "Declutter aggressively. Boxes for the move can do double duty: pack what you'll bring, donate or trash what you won't, and the house staging takes care of itself.",
+          "Yard work matters. Curb appeal drives showing engagement.",
+        ],
+      },
+      { type: "h2", text: "Coordinating closing with the new city" },
+      {
+        type: "p",
+        text: "If you're closing in KC and immediately moving to another metro, talk to the buyer's title company about wiring the proceeds to your destination bank account (most can wire interstate same-day). For sellers buying a new house in the destination city, the wire from the KC closing typically lands within 4-6 hours and can fund the destination closing the next day if timing is tight. We've coordinated relocation closings where the seller flew out the morning of closing in KC and showed up to a destination closing 48 hours later.",
+      },
+      { type: "h2", text: "Common 30-day relocation mistakes" },
+      {
+        type: "ol",
+        items: [
+          "Underestimating how long MLS takes. If your move-out is 28-32 days away, listing without aggressive pricing is high-risk.",
+          "Trying to time it perfectly. Target a closing 5-7 days BEFORE your move-out, not on the same day. The buffer matters.",
+          "Skipping the inspection-objection negotiation. Relocation sellers sometimes accept buyer's repair list wholesale to keep the deal alive; that money comes out of your net.",
+          "Not asking the employer about relocation packages. Many KC corporate employers have relocation broker programs that will buy your house at market value (or guarantee a buyer at a discounted price). Worth asking before going FSBO or cash.",
+        ],
+      },
+      { type: "h2", text: "Corporate relocation specifics" },
+      {
+        type: "p",
+        text: "If your employer has a relocation broker (Cartus, Sirva, Brookfield are common), they may offer a Guaranteed Buyout or Guaranteed Offer Program: the broker buys the house at appraised value and resells it themselves. Pros: certainty, employer handles logistics. Cons: appraised value is often 5-10% below market and you're locked into their timeline. Worth comparing to a direct cash offer — sometimes the cash route nets the seller more after factoring everything.",
+      },
+      { type: "h2", text: "Getting started" },
+      {
+        type: "p",
+        text: "For tight relocation timelines, the fastest path is almost always a cash sale. Submit your address through the homepage. We'll respond within 24 hours with a written offer and a closing date that works for your move-out. If you want to compare against an MLS listing, we'll be honest about which one wins for your specific situation — sometimes it's the realtor, sometimes it's us.",
+      },
+    ],
+  },
+
+  // -------------------------------------------------------------------------
+  {
+    slug: "inside-missouri-trustee-sale-foreclosure-auction",
+    title: "Inside a Missouri Trustee Sale: What Actually Happens at the Foreclosure Auction",
+    description:
+      "Step-by-step walkthrough of a Missouri trustee sale — where it happens, who shows up, the bidding process, the minimum-bid math, and what happens to the homeowner after.",
+    excerpt:
+      "If your Kansas City foreclosure sale is scheduled, you should know exactly what will happen on auction day. Here's the start-to-finish breakdown most homeowners never get.",
+    author: CHASE_AUTHOR,
+    publishedAt: "2026-05-01",
+    readTimeMin: 8,
+    tags: ["foreclosure", "missouri", "process"],
+    relatedSituations: ["foreclosure"],
+    relatedCities: ["kansas-city-mo", "independence-mo", "raytown-mo"],
+    body: [
+      {
+        type: "p",
+        text: "If a Missouri trustee sale is scheduled for your Kansas City house, you're at the bottom of an emotional curve that's been building for months. The lender has filed paperwork, the trustee has sent notices, and the sale date is on a public list at the Jackson County (or Clay/Cass/Platte) courthouse. Most homeowners I've worked with at this stage know the auction is coming but have no idea what actually happens. This post is the walkthrough — start to finish — of what your trustee sale will look like if nothing is done to stop it.",
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        text: "If your sale is scheduled within the next 7-21 days, you have very limited options remaining. This post is informational; the companion post 'Behind on Mortgage Payments in Kansas City' covers the options ranked by impact. Reach out to a HUD-approved housing counselor immediately if you haven't already.",
+      },
+      { type: "h2", text: "Quick recap: how you got here" },
+      {
+        type: "p",
+        text: "Missouri uses non-judicial foreclosure, which means the lender doesn't need to file a lawsuit. The process: you missed payments (typically 90-120+ days), the lender filed a Notice of Default with the trustee, the trustee filed a Notice of Trustee Sale (typically 21 days before the auction date), and now we're on the auction day. The whole sequence from first missed payment to auction is usually 6-8 months in Missouri.",
+      },
+      { type: "h2", text: "Where the sale actually happens" },
+      {
+        type: "p",
+        text: "Missouri trustee sales happen in person at the county courthouse where the property is located. For Jackson County properties (most of Kansas City, MO and surrounding suburbs), that's the Jackson County Courthouse at 415 East 12th Street, downtown KC. Clay County sales are at the Clay County Courthouse in Liberty. Cass County in Harrisonville. Platte County in Platte City. The auction is held at a specific location within the courthouse — often a designated foreclosure auction area or main lobby — at a specified time, almost always weekday business hours (typically 10am-2pm range).",
+      },
+      { type: "h2", text: "Who shows up" },
+      {
+        type: "p",
+        text: "On a typical Jackson County trustee sale day, the courthouse foreclosure area has:",
+      },
+      {
+        type: "ul",
+        items: [
+          "The trustee or substitute trustee (usually an attorney from a foreclosure law firm) — they conduct the auction",
+          "Representatives from the lender — usually an attorney from the lender's foreclosure counsel",
+          "Real estate investors — anywhere from 5-30 individual investors and small companies bid on properties at trustee sales",
+          "Cash investors and hedge fund acquisition firms — for higher-value properties, larger players show up",
+          "Occasionally the homeowner themselves (rare, but happens — usually as observers)",
+          "Other random people: title researchers, lender representatives observing for portfolio reporting, occasionally journalists",
+        ],
+      },
+      { type: "h2", text: "The auction process" },
+      {
+        type: "p",
+        text: "Trustee sales are quick. Each property usually takes 2-5 minutes from announcement to gavel:",
+      },
+      {
+        type: "ol",
+        items: [
+          "The trustee announces the property by legal description and address.",
+          "The trustee reads the terms of sale (cash or certified funds, immediate payment, sale 'as-is, where-is' with no warranties).",
+          "The trustee opens bidding at the lender's minimum bid (more on this below).",
+          "Bidders raise hands or call out bids. Increments are typically $100-$1,000 depending on the property.",
+          "The trustee calls 'going once, going twice, sold' and gavels the sale to the high bidder.",
+          "The high bidder must pay in certified funds (cashier's check or wire) immediately — usually within hours of the sale.",
+        ],
+      },
+      { type: "h2", text: "The minimum bid math" },
+      {
+        type: "p",
+        text: "The lender's minimum bid is the most important number at a trustee sale. It's calculated as: total mortgage payoff balance + accrued interest + foreclosure costs (attorney fees, trustee fees, advertising) - any servicing-related credits. The lender wants to recover what they're owed; they'll bid up to (but rarely above) this amount. If the property is worth more than the minimum bid, third-party bidders (investors) bid against the lender and against each other up to a number that makes economic sense for them. If the property is worth LESS than the minimum bid, no third party bids; the lender 'buys' the property at the minimum bid and takes it onto their books as REO (real estate owned).",
+      },
+      { type: "h2", text: "The high bidder pays — what happens next" },
+      {
+        type: "p",
+        text: "The winning bidder hands certified funds to the trustee within hours of the sale. The trustee files a Trustee's Deed at the county recorder's office, transferring ownership to the new owner. Title is delivered subject to whatever liens existed at the time of the sale (junior mortgages, mechanic's liens, IRS liens — these may or may not survive depending on lien priority). The new owner now owns the house, and the homeowner has lost the property.",
+      },
+      { type: "h2", text: "When no third party bids: REO" },
+      {
+        type: "p",
+        text: "If the lender's minimum bid is higher than the property's market value (i.e., you're underwater), no real-money investor will bid. The lender 'wins' the auction at their minimum bid and the property becomes REO. The lender lists the house with a real estate agent and tries to sell it at retail. This often happens with houses that need significant repairs or are in markets where retail buyers are scarce.",
+      },
+      { type: "h2", text: "Your rights after the sale" },
+      {
+        type: "p",
+        text: "Missouri's right of redemption is limited. After a non-judicial foreclosure, you generally do NOT have a statutory right to redeem the property by paying the full debt. (Compare to states like Iowa or Kansas which have post-sale redemption rights.) Once the trustee's deed is filed, the sale is final. The new owner can begin eviction proceedings if you're still in the property — typically a 30-day notice followed by an unlawful detainer filing if you don't leave.",
+      },
+      { type: "h2", text: "Deficiency judgments" },
+      {
+        type: "p",
+        text: "If the trustee sale generates less than the total mortgage debt, the lender CAN pursue a deficiency judgment against the homeowner in Missouri (within strict statutory time limits and procedural requirements). In practice, lenders pursue deficiency judgments inconsistently — for owner-occupied residential foreclosures, deficiency judgments are uncommon; for investment properties or when the deficiency is large, lenders are more aggressive. Consult a Missouri attorney about your specific risk if your sale produced a deficiency.",
+      },
+      { type: "h2", text: "Stopping the sale before it happens" },
+      {
+        type: "p",
+        text: "Up until the moment the gavel falls, the sale can be stopped by:",
+      },
+      {
+        type: "ol",
+        items: [
+          "Reinstatement: paying everything you owe in full by certified funds before the sale",
+          "Loan modification: signed and recorded, agreed by lender. Usually requires negotiation 30-60+ days before sale",
+          "Bankruptcy filing: Chapter 7 or 13 stops the sale via automatic stay (this delays, not eliminates, the foreclosure — but buys time)",
+          "Cash sale before the auction: paying the lender's full payoff with sale proceeds. We've closed this 5 days before scheduled trustee sales when the seller had equity",
+        ],
+      },
+      { type: "h2", text: "If a cash sale before auction makes sense for you" },
+      {
+        type: "p",
+        text: "If you have equity (house worth more than the mortgage payoff), a cash sale to a buyer like Heartland Acquisitions before the auction date stops the foreclosure cleanly. The mortgage payoff goes directly to the lender at closing, the foreclosure proceedings stop, and any leftover equity goes to you. The property never goes to auction; the foreclosure never appears on your credit as a forced sale (only the missed payments leading up to it). We've closed Missouri foreclosure deals in 5 business days when the auction was within the week. Don't wait until the day of the sale.",
+      },
+      { type: "h2", text: "Free help" },
+      {
+        type: "p",
+        text: "HUD-approved housing counselors offer free foreclosure prevention counseling. In Kansas City: Catholic Charities of KC-St. Joseph (816-399-2020), Operation Breakthrough (816-329-3070). They do not sell anything; they help you evaluate options. Call before signing anything if you have time.",
+      },
+      { type: "h2", text: "Getting an offer" },
+      {
+        type: "p",
+        text: "If you're considering a cash sale before the trustee sale, submit your address through our homepage. Tell us in the form notes that there's a foreclosure timeline; we'll prioritize the response. We've handled enough Missouri foreclosure timelines to know what's realistic, what isn't, and how to coordinate with the lender's loss-mitigation team to make a 5-day close happen if that's what you need.",
+      },
+    ],
+  },
+
+  // -------------------------------------------------------------------------
+  {
+    slug: "how-to-verify-cash-home-buyer-legit-kansas-city",
+    title: "How to Verify a Cash Home Buyer Is Legit (Kansas City Edition)",
+    description:
+      "Practical checklist for verifying that a Kansas City cash home buyer is real, funded, and ethical — proof of funds, business registration, past closings, contract red flags, and what scammers won't do.",
+    excerpt:
+      "Most cash home buyer scams in KC follow the same pattern. Here's the verification checklist that catches them — and what reputable buyers do that scammers won't.",
+    author: CHASE_AUTHOR,
+    publishedAt: "2026-05-05",
+    readTimeMin: 7,
+    tags: ["due-diligence", "trust", "process"],
+    relatedSituations: ["foreclosure", "inherited"],
+    relatedCities: ["kansas-city-mo", "independence-mo"],
+    body: [
+      {
+        type: "p",
+        text: "Most cash home buyer scams in Kansas City follow the same pattern: pressure you to sign quickly, low-ball the offer, lock you into a long contract period, then either assign the contract to someone else for a fee or walk away if a better deal comes along. Reputable cash buyers operate completely differently. This post is the verification checklist I'd give my own family member if they were considering selling a KC house to a cash buyer they didn't know.",
+      },
+      { type: "h2", text: "The basic legitimacy checklist" },
+      {
+        type: "p",
+        text: "Before signing anything, confirm:",
+      },
+      {
+        type: "ol",
+        items: [
+          "The buyer is a real registered business, not just a name",
+          "They can show proof of funds for the offer amount",
+          "They have closed deals before — check the public record",
+          "Their contract has a specific named buyer (not 'and/or assigns')",
+          "They commit real earnest money to escrow at a real title company",
+          "They give you the contract before requesting your signature, not after",
+        ],
+      },
+      { type: "h2", text: "1. Check the LLC / company registration" },
+      {
+        type: "p",
+        text: "Every legitimate Kansas City cash home buyer is a registered business. Missouri's secretary of state has a free business search at sos.mo.gov/business. Search the company name and confirm: the entity exists, is in 'Good Standing,' has been registered for more than 6-12 months (longer is better), and the registered agent has a real Missouri address (not a virtual mailbox in Las Vegas). For Kansas-side buyers, the equivalent is the Kansas secretary of state business search. Anyone serious about buying houses in this metro is registered in at least one of these states.",
+      },
+      { type: "h2", text: "2. Verify proof of funds" },
+      {
+        type: "p",
+        text: "A real cash buyer can show proof that they actually have cash. Acceptable forms:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Bank statement showing liquid funds equal to or greater than the offer amount, dated within 30 days",
+          "Letter from a private lender or hard money lender confirming approved funding for the property",
+          "Verification of deposit (VOD) from their bank",
+          "For larger buyers: proof-of-funds letter on letterhead from their banking partner",
+        ],
+      },
+      {
+        type: "p",
+        text: "A buyer who refuses to show any proof of funds is not actually a cash buyer. They may be a wholesaler hoping to assign your contract to someone else who actually has the money — a practice that's legal but usually bad for sellers (more on this below).",
+      },
+      { type: "h2", text: "3. Look up their past closings" },
+      {
+        type: "p",
+        text: "Real estate transactions are public record. The Jackson County Recorder of Deeds (and Clay/Cass/Platte equivalents) lets you search by buyer name to see what they've actually closed on. Search the LLC name. A legitimate Kansas City cash buyer should have multiple recorded purchases over the past 1-2 years; deeds will show purchase price, address, and dates. If the company name produces zero results, they haven't closed anything — at least not in their own name. Could mean they're new (legitimate but inexperienced) or that they're operating under a different entity (often a sign of a wholesaler).",
+      },
+      { type: "h2", text: "4. Read the contract for 'and/or assigns'" },
+      {
+        type: "p",
+        text: "The single biggest red flag in cash home buyer contracts: 'Buyer: [Their LLC] and/or its assigns.' This phrase means the buyer can transfer (assign) the purchase contract to someone else — usually for a fee they collect for finding you. The actual person who closes on the house is whoever the assignor sells the contract to. Problems:",
+      },
+      {
+        type: "ul",
+        items: [
+          "You don't know who's actually buying your house until closing day",
+          "If the assignor can't find a buyer, the deal falls through and you've lost weeks",
+          "The assignor's incentive is to lock you in cheap and shop the contract; they don't care about closing if they can't find a profitable assignee",
+          "Reputable buyers don't operate this way — they buy in their own name with their own money",
+        ],
+      },
+      {
+        type: "p",
+        text: "Strike 'and/or assigns' from any contract you sign. If the buyer refuses to remove it, walk away.",
+      },
+      { type: "h2", text: "5. Earnest money to a real title company" },
+      {
+        type: "p",
+        text: "Within 1-3 days of signing, a serious buyer puts earnest money into escrow at an established title company in Kansas City — typically $1,000-$5,000. Earnest money signals: the buyer is committed, they have the funds, and they're working with a real title company that will hold the funds in escrow. Red flags:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Buyer wants to send earnest money to YOU directly (not to title company escrow)",
+          "Earnest money is unusually small ($100, $500) for a real estate transaction",
+          "Buyer 'forgets' to send earnest money for weeks",
+          "Buyer uses a title company you've never heard of with no Google reviews",
+        ],
+      },
+      { type: "h2", text: "6. Sane closing timelines" },
+      {
+        type: "p",
+        text: "A reasonable cash buyer's contract has a closing date in writing — typically 7-30 days from signing. Watch out for:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Closing dates 60-90+ days out for 'cash' deals (this is wholesaler language — they need time to find an end buyer)",
+          "Open-ended closing dates ('within 90 days' or 'TBD')",
+          "Long inspection or contingency periods (cash buyers don't need 30 days for inspection — we inspect during the offer phase)",
+        ],
+      },
+      { type: "h2", text: "7. Real reviews, real local presence" },
+      {
+        type: "p",
+        text: "Search the company name on Google. A legitimate Kansas City cash buyer should have:",
+      },
+      {
+        type: "ul",
+        items: [
+          "A Google Business Profile with reviews (not just 5 perfect reviews; some 4-stars and detailed complaints are normal)",
+          "A BBB profile (Kansas City Better Business Bureau covers most of the metro)",
+          "Local presence — physical office, KC-area phone number, KC-area address",
+          "Past press, social media, or community involvement",
+        ],
+      },
+      {
+        type: "p",
+        text: "Be cautious of buyers with no online presence whatsoever, or whose only reviews are obviously fake (5 reviews all from accounts with one review each, no detail).",
+      },
+      { type: "h2", text: "What scammers won't do" },
+      {
+        type: "ul",
+        items: [
+          "Send you a written contract before requesting your signature",
+          "Use an established Kansas City title company you can independently verify",
+          "Show recent bank statements as proof of funds",
+          "Have multiple recorded deeds in their LLC name",
+          "Strike 'and/or assigns' from the contract",
+          "Put $5,000+ in actual earnest money into escrow",
+          "Give you their attorney's contact info if you have questions",
+        ],
+      },
+      {
+        type: "p",
+        text: "If you can verify all 7 of these, you're working with a real cash buyer. Whether their offer is the right offer for your situation is a separate question — but at least the basic legitimacy is there.",
+      },
+      { type: "h2", text: "How to verify Heartland Acquisitions specifically" },
+      {
+        type: "p",
+        text: "We're a DBA of Ivarix Capital LLC, registered in Missouri. You can verify us by:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Missouri SOS business search at sos.mo.gov/business — search 'Ivarix Capital'",
+          "Jackson County Recorder of Deeds search for our recent closings",
+          "Calling our office: (816) 973-5420 — we'll answer or call back the same business day",
+          "Visiting our office: 2107 Grand Boulevard, Kansas City, MO 64108",
+          "Asking for proof of funds, recent bank statement, or our title company contact info — all available on request",
+        ],
+      },
+      { type: "h2", text: "Getting started safely" },
+      {
+        type: "p",
+        text: "When you submit your address through our homepage for an offer, you're not committing to anything. You can verify everything in this post before signing. We'd rather have a seller who took 48 hours to verify us and then signed with confidence than a seller who signed in 10 minutes and regretted it. Take the time. If the offer wins for your situation, we'll still be here.",
+      },
+    ],
+  },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
