@@ -1,46 +1,68 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { getPostsSorted } from "@/lib/blog-posts"
 
 export const metadata: Metadata = {
   title: "Blog — Heartland Acquisitions",
-  description: "Honest writing on selling a Kansas City house for cash — process, market data, and seller stories from your KC neighbors.",
+  description:
+    "Honest writing on selling a Kansas City house for cash — process, market data, probate timelines, foreclosure options, and seller stories from your KC neighbors.",
+}
+
+function formatDate(iso: string): string {
+  const d = new Date(iso + "T12:00:00Z")
+  return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
 }
 
 export default function BlogIndexPage() {
+  const posts = getPostsSorted()
+
   return (
-    <article className="bg-brand-bg-warm py-24">
-      <div className="mx-auto max-w-[1280px] px-8">
-        <header className="flex flex-col items-center text-center gap-6 mb-16 max-w-[880px] mx-auto">
+    <article className="bg-brand-bg-warm py-20 md:py-24">
+      <div className="mx-auto max-w-[1100px] px-8">
+        <header className="flex flex-col items-center text-center gap-6 mb-14 max-w-[880px] mx-auto">
           <p className="font-mono text-[13px] text-brand-primary uppercase tracking-[0.08em] font-medium">Heartland blog</p>
           <h1 className="font-sans text-[44px] md:text-[64px] leading-none tracking-[-0.035em] font-extrabold text-brand-text">
             Honest writing<br />
             <em className="not-italic text-brand-primary">about selling a house.</em>
           </h1>
           <p className="text-lg text-[#3a3d33] leading-[1.5] max-w-[680px]">
-            Real Kansas City market data, plain-English explanations of probate, foreclosure, and inherited-house sales, and stories from sellers who&apos;ve worked with us.
+            Real Kansas City market data, plain-English explanations of probate, foreclosure, and inherited-house sales, and seller stories from people who&apos;ve worked with us.
           </p>
         </header>
 
-        <div className="bg-brand-surface border border-brand-border rounded-[20px] p-16 px-12 text-center max-w-[720px] mx-auto flex flex-col items-center gap-4">
-          <div className="w-16 h-16 rounded-2xl bg-[#f1ede1] text-brand-primary grid place-items-center mb-2">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-              <polyline points="14 2 14 8 20 8" />
-              <line x1="16" y1="13" x2="8" y2="13" />
-              <line x1="16" y1="17" x2="8" y2="17" />
-              <line x1="10" y1="9" x2="8" y2="9" />
-            </svg>
-          </div>
-          <h3 className="text-[32px] font-bold tracking-[-0.025em]">First posts coming soon.</h3>
-          <p className="text-[16.5px] leading-[1.55] max-w-[520px] text-[#4a4d42]">
-            We&apos;re putting together our first guides on selling inherited houses, the cash-vs-traditional sale math for KC neighborhoods, and what to do if you&apos;re facing foreclosure. In the meantime, the FAQ on our homepage covers the most common questions.
-          </p>
-          <Link
-            href="/#faq"
-            className="mt-3.5 inline-flex items-center gap-2 px-[22px] py-3 rounded-[10px] bg-brand-primary text-brand-bg-warm font-semibold text-[15px] transition-all hover:bg-brand-primary-soft hover:-translate-y-px"
-          >
-            Read the FAQ
-          </Link>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {posts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="group block bg-brand-surface border border-brand-border rounded-[18px] p-7 transition-all hover:-translate-y-[3px] hover:shadow-[var(--shadow-card-lift)]"
+            >
+              <div className="flex items-center gap-2 flex-wrap">
+                {post.tags.slice(0, 2).map((t) => (
+                  <span key={t} className="px-2.5 py-1 rounded-full bg-brand-bg-card text-[11px] font-mono uppercase tracking-[0.06em] text-brand-primary font-medium">
+                    {t}
+                  </span>
+                ))}
+                <span className="text-[13px] text-[#7a7d70] ml-auto">{post.readTimeMin} min</span>
+              </div>
+
+              <h2 className="mt-4 font-sans text-[24px] md:text-[26px] leading-[1.15] tracking-[-0.02em] font-bold text-brand-text group-hover:text-brand-primary transition-colors">
+                {post.title}
+              </h2>
+
+              <p className="mt-3 text-[15.5px] leading-[1.55] text-[#3a3d33]">{post.excerpt}</p>
+
+              <div className="mt-5 pt-5 border-t border-brand-border flex items-center justify-between text-[13px] text-[#7a7d70]">
+                <span className="flex items-center gap-2">
+                  <span aria-hidden className="w-6 h-6 rounded-full bg-brand-primary text-brand-bg-warm grid place-items-center font-bold text-[10px]">
+                    {post.author.name.split(" ").map((n) => n[0]).join("")}
+                  </span>
+                  <span>{post.author.name}</span>
+                </span>
+                <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </article>
