@@ -237,7 +237,7 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
             Get My Offer
           </Button>
           {error ? <p className="text-sm text-red-600">{error}</p> : null}
-          <p className="text-xs text-brand-text/70">
+          <p className="text-xs text-brand-text/70 text-center">
             By continuing you agree to our privacy policy. No obligation.
           </p>
         </form>
