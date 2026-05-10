@@ -13,7 +13,10 @@ export function MobileCallBar({ visible = true }: MobileCallBarProps) {
       <div className="grid grid-cols-2 gap-2 p-2">
         <a
           href={siteConfig.phone.hrefTel}
-          className="flex items-center justify-center gap-2 rounded-md border border-brand-primary text-brand-primary py-3 text-sm font-semibold"
+          // ph-no-capture opts out of PostHog autocapture so iOS Safari
+          // doesn't show the "blocked from automatically starting a call"
+          // warning before dialing. Tracked via the explicit click handler.
+          className="ph-no-capture flex items-center justify-center gap-2 rounded-md border border-brand-primary text-brand-primary py-3 text-sm font-semibold"
         >
           <Phone className="h-4 w-4" aria-hidden />
           Call Now

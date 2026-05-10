@@ -85,7 +85,11 @@ export function HomepageHero() {
             Call or text{" "}
             <a
               href={siteConfig.phone.hrefTel}
-              className="text-brand-text font-bold underline-offset-4 hover:underline focus-visible:underline"
+              // PostHog autocapture-on-click can disrupt iOS Safari's
+              // user-gesture detection for tel: links and trigger the
+              // "blocked from automatically starting a call" prompt.
+              // ph-no-capture opts this single anchor out of autocapture.
+              className="ph-no-capture text-brand-text font-bold underline-offset-4 hover:underline focus-visible:underline"
             >
               {siteConfig.phone.display}
             </a>
