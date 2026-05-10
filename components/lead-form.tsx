@@ -208,8 +208,15 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
       ) : null}
 
       {/* Turnstile container — always mounted so the widget can render before
-          the user reaches the contact step. Invisible mode has no visible UI. */}
-      <div ref={turnstileRef} />
+          the user reaches the contact step. Positioned off-screen rather than
+          display:none so Cloudflare's iframe still has real dimensions to
+          render its challenge into; users never see the "Verifying..." or
+          "Success!" UI. */}
+      <div
+        ref={turnstileRef}
+        aria-hidden="true"
+        className="absolute left-[-10000px] top-0 h-px w-px overflow-hidden"
+      />
 
 
       {step === "address" ? (
