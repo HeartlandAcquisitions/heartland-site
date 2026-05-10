@@ -70,18 +70,11 @@
   --shadow-card-lift: 0 24px 40px -24px rgba(0,0,0,0.18);
 }
 
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.animate-marquee {
-  animation: marquee 25s linear infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none;
-  }
-}
+/* Marquee no longer uses CSS @keyframes — the animation is rAF-driven
+   in components/marquee.tsx. CSS animations pause when the tab is
+   backgrounded and snap forward on resume; rAF naturally pauses with
+   the tab and resumes from the same frame. prefers-reduced-motion is
+   honored inline in the component (early-return from useEffect). */
 
 :root {
   --background: oklch(1 0 0);
