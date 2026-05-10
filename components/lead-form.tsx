@@ -6,6 +6,7 @@ import { submitLead, type SubmitLeadInput } from "@/app/actions/submit-lead"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { AddressAutocomplete } from "@/components/address-autocomplete"
 
 type Step = "address" | "contact" | "success" | "error"
 
@@ -224,12 +225,11 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
           <Label htmlFor="address" className="sr-only">
             Property address
           </Label>
-          <Input
+          <AddressAutocomplete
             id="address"
-            autoComplete="street-address"
             placeholder="123 Main St, Kansas City, MO"
             value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            onChange={setAddress}
             required
             className={FIELD_CLASS}
           />
