@@ -62,14 +62,13 @@ export function HomepageHero() {
           className="self-start bg-brand-surface rounded-[18px] p-8 mt-2"
           style={{ boxShadow: "var(--shadow-offer)" }}
         >
-          <div className="flex items-center gap-2 text-xs font-bold tracking-[0.08em] uppercase text-brand-primary">
-            <span aria-hidden className="w-1.5 h-1.5 rounded-full bg-brand-primary" />
-            Get your offer
-          </div>
-          <h2 className="mt-3.5 text-[34px] leading-[1.08] tracking-[-0.025em] font-extrabold">
+          <h2 className="text-[34px] leading-[1.08] tracking-[-0.025em] font-extrabold">
             Get Your Free<br />Cash Offer <span className="text-brand-primary">Today</span>
           </h2>
-          <p className="mt-2.5 text-brand-text-muted text-[14.5px]">Takes 30 seconds. No obligation, ever.</p>
+          <p className="mt-2.5 text-brand-text-muted text-[14.5px]">
+            Takes <strong className="font-bold text-brand-text">30 seconds</strong>.{" "}
+            <strong className="font-bold text-brand-text">No obligation</strong>, ever.
+          </p>
 
           <div className="mt-5">
             <label htmlFor="address" className="block text-[11px] font-bold tracking-[0.08em] uppercase text-[#3a3d33] mb-1.5">
@@ -80,11 +79,16 @@ export function HomepageHero() {
 
           <div className="mt-3.5 text-center text-[13px] text-[#3a3d33] font-semibold">
             No spam · No agents · Cancel anytime
-            <span className="block mt-1 font-normal text-[#7a7d70]">By continuing you agree to our privacy policy.</span>
           </div>
 
           <div className="mt-[18px] pt-[18px] border-t border-dashed border-brand-border-strong text-center text-sm text-brand-text-muted">
-            Call or text <b className="text-brand-text font-bold">{siteConfig.phone.display}</b>
+            Call or text{" "}
+            <a
+              href={siteConfig.phone.hrefTel}
+              className="text-brand-text font-bold underline-offset-4 hover:underline focus-visible:underline"
+            >
+              {siteConfig.phone.display}
+            </a>
           </div>
         </div>
 
