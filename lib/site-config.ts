@@ -4,7 +4,7 @@ export const siteConfig = {
   domain: "heartlandacquisitions.com",
   url: "https://heartlandacquisitions.com",
   description:
-    "Sell your house fast in Kansas City. Cash offers, no fees, close in as little as 7 days. We buy houses in any condition — divorce, foreclosure, inherited, landlord, tax liens.",
+    "Local Kansas City cash buyers for distressed off-market deals. We close in 7 to 14 days on flip projects, pocket listings, and rehabs. Listing agent keeps full commission.",
 
   phone: {
     e164: "+18169735420",
@@ -20,19 +20,9 @@ export const siteConfig = {
   },
 
   nav: [
-    { label: "Process", href: "/process" },
-    { label: "Why Us", href: "/why-us" },
-    { label: "Reviews", href: "/reviews" },
-    { label: "FAQ", href: "/faq" },
-    { label: "Blog", href: "/blog" },
-  ],
-
-  verticals: [
-    { label: "Divorce", href: "/divorce" },
-    { label: "Foreclosure", href: "/foreclosure" },
-    { label: "Inherited", href: "/inherited" },
-    { label: "Landlord", href: "/landlord" },
-    { label: "Tax Liens", href: "/tax-liens" },
+    { label: "Process", href: "/#process" },
+    { label: "Why Us", href: "/#why" },
+    { label: "FAQ", href: "/#faq" },
   ],
 } as const
 

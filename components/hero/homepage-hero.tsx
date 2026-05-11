@@ -2,7 +2,7 @@ import Image from "next/image"
 import { LeadForm } from "@/components/lead-form"
 import { siteConfig } from "@/lib/site-config"
 
-const STATS = ["No Fees", "No Commissions", "No Repairs", "No Closing Costs"] as const
+const STATS = ["Cash Close", "7-14 Day Close", "No Contingencies", "Full Commission"] as const
 
 export function HomepageHero() {
   return (
@@ -33,15 +33,15 @@ export function HomepageHero() {
         <div className="flex flex-col">
           <span className="inline-flex items-center gap-2.5 self-start bg-brand-bg-warm/10 backdrop-blur-md border border-brand-bg-warm/20 text-brand-bg-warm px-4 py-2 rounded-full text-xs font-semibold tracking-[0.08em] uppercase">
             <span aria-hidden className="w-[7px] h-[7px] rounded-full bg-brand-accent shadow-[0_0_0_4px_rgba(138,166,106,0.25)]" />
-            Locally Owned · Kansas City, MO
+            For KC Agents · Pocket Listings & Off-Market Deals
           </span>
 
           <h1 className="mt-7 font-sans text-[60px] md:text-[88px] leading-[0.96] tracking-[-0.035em] font-extrabold text-brand-bg-warm">
-            Sell your home<span className="block text-brand-accent">on your terms.</span>
+            Off-market deals,<span className="block text-brand-accent">closed fast.</span>
           </h1>
 
           <p className="mt-7 text-[19px] leading-[1.5] text-brand-bg-warm/[0.78] max-w-[540px]">
-            No agents, no repairs, no showings. A fair cash offer from your Kansas City neighbors, with a closing date you choose.
+            We&apos;re local Kansas City cash buyers. Bring us your distressed flip projects and pocket listings — we underwrite in 24-48 hours and close in 7 to 14 days. You keep your full commission.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-2.5 max-w-[600px]">
@@ -57,17 +57,16 @@ export function HomepageHero() {
           </div>
         </div>
 
-        {/* RIGHT — offer card */}
+        {/* RIGHT — submit-a-deal card */}
         <div
           className="self-start bg-brand-surface rounded-[18px] p-8 mt-2"
           style={{ boxShadow: "var(--shadow-offer)" }}
         >
           <h2 className="text-[34px] leading-[1.08] tracking-[-0.025em] font-extrabold">
-            Get Your Free<br />Cash Offer <span className="text-brand-primary">Today</span>
+            Submit a deal.<br />Hear back in <span className="text-brand-primary">24 hours.</span>
           </h2>
           <p className="mt-2.5 text-brand-text-muted text-[14.5px]">
-            Takes <strong className="font-bold text-brand-text">30 seconds</strong>.{" "}
-            <strong className="font-bold text-brand-text">No obligation</strong>, ever.
+            <strong className="font-bold text-brand-text">Cash close</strong>, no financing contingency, no inspection contingency.
           </p>
 
           <div className="mt-5">
@@ -78,17 +77,13 @@ export function HomepageHero() {
           </div>
 
           <div className="mt-3.5 text-center text-[13px] text-[#3a3d33] font-semibold">
-            No spam · No agents · Cancel anytime
+            Confidential · No assignment · You stay listing agent
           </div>
 
           <div className="mt-[18px] pt-[18px] border-t border-dashed border-brand-border-strong text-center text-sm text-brand-text-muted">
-            Call or text{" "}
+            Or call us directly{" "}
             <a
               href={siteConfig.phone.hrefTel}
-              // PostHog autocapture-on-click can disrupt iOS Safari's
-              // user-gesture detection for tel: links and trigger the
-              // "blocked from automatically starting a call" prompt.
-              // ph-no-capture opts this single anchor out of autocapture.
               className="ph-no-capture text-brand-text font-bold underline-offset-4 hover:underline focus-visible:underline"
             >
               {siteConfig.phone.display}
