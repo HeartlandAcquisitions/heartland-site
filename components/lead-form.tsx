@@ -54,6 +54,9 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
   const [lastName, setLastName] = useState("")
   const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
+  const [brokerage, setBrokerage] = useState("")
+  const [askingPrice, setAskingPrice] = useState("")
+  const [conditionNotes, setConditionNotes] = useState("")
   const [error, setError] = useState<string | null>(null)
   const [isPending, startTransition] = useTransition()
 
@@ -128,6 +131,10 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
       setError("Please add your phone number.")
       return
     }
+    if (!brokerage.trim()) {
+      setError("Please add your brokerage.")
+      return
+    }
 
     startTransition(async () => {
       // Ask Turnstile for a fresh token (invisible mode). If the widget isn't ready,
@@ -159,6 +166,9 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
         first_name: firstName,
         last_name: lastName,
         email: email || undefined,
+        brokerage: brokerage || undefined,
+        asking_price: askingPrice || undefined,
+        condition_notes: conditionNotes || undefined,
         source_detail: landingPage,
         landing_page: typeof window !== "undefined" ? window.location.pathname : undefined,
         utm_source: params.get("utm_source") ?? undefined,
@@ -191,7 +201,7 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
       <div className="text-center">
         <h3 className="text-2xl font-bold text-brand-text">Got it — we&apos;ll be in touch.</h3>
         <p className="mt-2 text-brand-text-muted">
-          A member of our team will reach out within 24 hours with your offer.
+          We&apos;ll review the deal and reach out within 24 hours with our underwriting take.
         </p>
       </div>
     )
@@ -227,18 +237,18 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
           </Label>
           <AddressAutocomplete
             id="address"
-            placeholder="123 Main St, Kansas City, MO"
+            placeholder="Deal address — 123 Main St, Kansas City, MO"
             value={address}
             onChange={setAddress}
             required
             className={FIELD_CLASS}
           />
           <Button type="submit" size="lg" className="w-full">
-            Get My Offer
+            Continue
           </Button>
           {error ? <p className="text-sm text-red-600">{error}</p> : null}
           <p className="text-xs text-brand-text/70 text-center">
-            By continuing you agree to our privacy policy. No obligation.
+            We&apos;ll review your deal and respond within 24 hours.
           </p>
         </form>
       ) : null}
@@ -246,42 +256,44 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
       {step === "contact" || step === "error" ? (
         <form onSubmit={onFinalSubmit} className="flex flex-col gap-4">
           <div>
-            <div className="text-sm text-slate-500">Offer on: {address}</div>
+            <div className="text-sm text-slate-500">Deal on: {address}</div>
             <Label htmlFor="first_name" className="mt-3 block text-base font-semibold">
-              Almost done — how should we reach you?
+              Tell us about the deal and how to reach you.
             </Label>
           </div>
-          <div>
-            <Label htmlFor="first_name" className="sr-only">First name</Label>
-            <Input
-              id="first_name"
-              autoComplete="given-name"
-              placeholder="First name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-              className={FIELD_CLASS}
-            />
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <Label htmlFor="first_name" className="sr-only">First name</Label>
+              <Input
+                id="first_name"
+                autoComplete="given-name"
+                placeholder="First name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+                className={FIELD_CLASS}
+              />
+            </div>
+            <div>
+              <Label htmlFor="last_name" className="sr-only">Last name</Label>
+              <Input
+                id="last_name"
+                autoComplete="family-name"
+                placeholder="Last name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                required
+                className={FIELD_CLASS}
+              />
+            </div>
           </div>
           <div>
-            <Label htmlFor="last_name" className="sr-only">Last name</Label>
-            <Input
-              id="last_name"
-              autoComplete="family-name"
-              placeholder="Last name"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-              className={FIELD_CLASS}
-            />
-          </div>
-          <div>
-            <Label htmlFor="phone" className="sr-only">Phone</Label>
+            <Label htmlFor="phone" className="sr-only">Phone (agent)</Label>
             <Input
               id="phone"
               type="tel"
               autoComplete="tel"
-              placeholder="Phone number"
+              placeholder="Your phone (agent)"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               required
@@ -289,7 +301,40 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
             />
           </div>
           <div>
-            <Label htmlFor="email" className="sr-only">Email</Label>
+            <Label htmlFor="brokerage" className="sr-only">Brokerage</Label>
+            <Input
+              id="brokerage"
+              placeholder="Brokerage"
+              value={brokerage}
+              onChange={(e) => setBrokerage(e.target.value)}
+              required
+              className={FIELD_CLASS}
+            />
+          </div>
+          <div>
+            <Label htmlFor="asking_price" className="sr-only">Asking price (optional)</Label>
+            <Input
+              id="asking_price"
+              placeholder="Asking price (optional) — e.g. $185k"
+              value={askingPrice}
+              onChange={(e) => setAskingPrice(e.target.value)}
+              className={FIELD_CLASS}
+            />
+          </div>
+          <div>
+            <Label htmlFor="condition_notes" className="sr-only">Condition notes (optional)</Label>
+            <textarea
+              id="condition_notes"
+              placeholder="Condition notes (optional) — roof, foundation, occupancy, anything we should know"
+              value={conditionNotes}
+              onChange={(e) => setConditionNotes(e.target.value)}
+              maxLength={2000}
+              rows={3}
+              className="w-full rounded-md border border-brand-text/25 bg-white/85 px-3 py-2 text-base placeholder:text-brand-text/50 focus-visible:border-brand-primary focus-visible:outline-none"
+            />
+          </div>
+          <div>
+            <Label htmlFor="email" className="sr-only">Email (optional)</Label>
             <Input
               id="email"
               type="email"
@@ -302,7 +347,7 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
           </div>
 
           <Button type="submit" size="lg" disabled={isPending}>
-            {isPending ? "Sending…" : "Get my cash offer"}
+            {isPending ? "Sending…" : "Submit deal"}
           </Button>
 
           <button

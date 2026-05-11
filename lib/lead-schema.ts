@@ -16,6 +16,12 @@ export const leadInputSchema = z.object({
   motivation_type: z.string().optional(),
   source_detail: z.string().optional(),
   notes: z.string().optional(),
+  // Agent submission fields. All optional so the schema stays additive for any
+  // legacy seller submissions that still flow through.
+  brokerage: z.string().trim().min(1).optional(),
+  asking_price: z.string().trim().optional(),
+  condition_notes: z.string().trim().max(2000).optional(),
+  agent_email: optionalEmail.optional(),
   // Attribution context (kept in schema for client-side analytics; NOT forwarded to CRM for v1)
   utm_source: z.string().optional(),
   utm_medium: z.string().optional(),

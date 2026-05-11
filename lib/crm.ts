@@ -15,6 +15,10 @@ export interface IntakePayload {
   last_name: string
   email?: string
   source_detail?: string
+  // Free-text notes appended on the CRM side. Used to carry agent-submission
+  // metadata (brokerage, asking price, condition) while the CRM Lead model
+  // doesn't have structured agent fields yet.
+  notes?: string
   utm_source?: string
   utm_medium?: string
   utm_campaign?: string
