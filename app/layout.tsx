@@ -27,7 +27,7 @@ const localBusinessJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Heartland Acquisitions",
-  description: "Cash home buyers serving the Kansas City metro. We buy houses as-is in any condition with no fees, no commissions, and no repairs.",
+  description: "Local Kansas City cash buyers for distressed off-market deals from real estate agents. 24-48 hour underwriting, 7-14 day close, full commission to listing agent.",
   telephone: "+18169735420",
   email: "hello@heartlandacq.com",
   areaServed: [
@@ -38,10 +38,13 @@ const localBusinessJsonLd = JSON.stringify({
   priceRange: "$$",
 })
 
+const HOMEPAGE_TITLE = `${siteConfig.name} — Cash Buyers for KC Agents' Off-Market Deals`
+const OG_ALT = "Heartland Acquisitions — Local KC cash buyers. 7-14 day close on agents' distressed off-market deals."
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Sell Your Kansas City House Fast for Cash`,
+    default: HOMEPAGE_TITLE,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -50,7 +53,7 @@ export const metadata: Metadata = {
     apple: "/brand/apple-touch-icon.png",
   },
   openGraph: {
-    title: `${siteConfig.name} — Sell Your Kansas City House Fast for Cash`,
+    title: HOMEPAGE_TITLE,
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -59,7 +62,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Heartland Acquisitions — Sell your KC home for cash. 24-hour offer. 7-day close.",
+        alt: OG_ALT,
       },
     ],
     locale: "en_US",
@@ -67,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Sell Your Kansas City House Fast for Cash`,
+    title: HOMEPAGE_TITLE,
     description: siteConfig.description,
     images: ["/og.png"],
   },
