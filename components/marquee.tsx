@@ -3,14 +3,14 @@
 import { useEffect, useRef } from "react"
 
 const ITEMS = [
-  "NO COMMISSIONS",
-  "CASH IN 7 DAYS",
+  "CASH CLOSE",
+  "NO FINANCING CONTINGENCY",
+  "7-14 DAY CLOSE",
+  "LOCAL KC BUYERS",
+  "FULL COMMISSION TO LISTING AGENT",
   "WE BUY AS-IS",
-  "PRIVATE SALE",
-  "YOU CHOOSE CLOSING DATE",
-  "NO REPAIRS NEEDED",
-  "ZERO FEES",
-  "LOCAL TO KC",
+  "NO INSPECTION CONTINGENCY",
+  "CONFIDENTIAL · OFF-MARKET",
 ] as const
 
 // Pixels per second. The old CSS animation was 25s for one full loop of

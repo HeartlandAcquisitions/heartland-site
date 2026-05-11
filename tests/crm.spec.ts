@@ -65,14 +65,14 @@ describe("postIntakeToCrm", () => {
       utm_source: "google",
       utm_campaign: "kc-cash",
       referrer: "https://google.com",
-      landing_page: "/situations/foreclosure",
+      landing_page: "/",
     })
 
     const body = JSON.parse(calls[0]!.init.body as string)
     expect(body.utm_source).toBe("google")
     expect(body.utm_campaign).toBe("kc-cash")
     expect(body.referrer).toBe("https://google.com")
-    expect(body.landing_page).toBe("/situations/foreclosure")
+    expect(body.landing_page).toBe("/")
   })
 
   it("retries on 5xx, succeeds on 3rd try", async () => {

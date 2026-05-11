@@ -7,9 +7,7 @@ import { siteConfig } from "@/lib/site-config"
 const NAV_LINKS = [
   { href: "#process", label: "Process" },
   { href: "#why", label: "Why Us" },
-  { href: "#reviews", label: "Reviews" },
   { href: "#faq", label: "FAQ" },
-  { href: "/blog", label: "Blog" },
 ]
 
 export function Nav() {

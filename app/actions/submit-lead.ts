@@ -14,6 +14,11 @@ export type SubmitLeadInput = {
   motivation_type?: string
   source_detail?: string
   notes?: string
+  // Agent submission metadata. Composed into the CRM `notes` field server-side.
+  brokerage?: string
+  asking_price?: string
+  condition_notes?: string
+  agent_email?: string
   utm_source?: string
   utm_medium?: string
   utm_campaign?: string
@@ -24,6 +29,25 @@ export type SubmitLeadInput = {
   session_id?: string
   device?: string
   turnstile_token: string
+}
+
+// Compose the agent metadata into a single free-text notes block for the CRM.
+// Returns undefined if no agent fields are present so we don't send empty
+// notes on the off chance the CRM serializer is strict about empty strings.
+function composeAgentNotes(input: {
+  brokerage?: string
+  asking_price?: string
+  condition_notes?: string
+  agent_email?: string
+  notes?: string
+}): string | undefined {
+  const lines: string[] = []
+  if (input.brokerage) lines.push(`Brokerage: ${input.brokerage}`)
+  if (input.asking_price) lines.push(`Asking: ${input.asking_price}`)
+  if (input.agent_email) lines.push(`Agent email: ${input.agent_email}`)
+  if (input.condition_notes) lines.push(`Condition: ${input.condition_notes}`)
+  if (input.notes) lines.push(input.notes)
+  return lines.length > 0 ? lines.join("\n") : undefined
 }
 
 export type SubmitLeadResult =
@@ -59,13 +83,25 @@ export async function submitLead(
 
   // 4) Build CRM payload. Attribution flows through to Lead.attribution JSONB
   //    on the CRM side (Lead-first workflow — see lib/crm.ts).
+  //    Agent meta (brokerage, asking_price, condition_notes, agent_email) is
+  //    composed into the `notes` string since the CRM Lead model doesn't have
+  //    structured agent fields yet. Tracked as follow-up in the pivot plan.
+  const notes = composeAgentNotes({
+    brokerage: normalized.brokerage,
+    asking_price: normalized.asking_price,
+    condition_notes: normalized.condition_notes,
+    agent_email: normalized.agent_email,
+    notes: normalized.notes,
+  })
+
   const payload: IntakePayload = {
     phone: normalized.phone!,
     property_address: normalized.property_address,
     first_name: normalized.first_name,
     last_name: normalized.last_name,
     email: normalized.email,
-    source_detail: normalized.source_detail,
+    source_detail: normalized.source_detail ?? "agent_submission",
+    notes,
     utm_source: normalized.utm_source,
     utm_medium: normalized.utm_medium,
     utm_campaign: normalized.utm_campaign,

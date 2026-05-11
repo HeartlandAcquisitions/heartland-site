@@ -21,12 +21,12 @@ export type FaqProps = {
 }
 
 const DEFAULT_SUB =
-  "Everything you need to know about selling your Kansas City home for cash. Don't see your question? Call or text us at (816) 973-5420."
+  "What KC agents ask before they send us their first deal. Don't see your question? Call or text us at (816) 973-5420."
 
 export function Faq(props: FaqProps = {}) {
   const id = props.id ?? "faq"
   const faqs = props.faqs ?? FAQS
-  const headlinePre = props.headlinePre ?? "Things people"
+  const headlinePre = props.headlinePre ?? "Questions agents"
   const headlineHighlight = props.headlineHighlight ?? "actually ask."
   const sub = props.sub ?? DEFAULT_SUB
   const jsonLdId = props.jsonLdId ?? "ld-faq"

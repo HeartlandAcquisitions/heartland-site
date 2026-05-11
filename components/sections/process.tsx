@@ -6,10 +6,10 @@ type Step = {
   icon: React.ReactNode
 }
 
-const HOUSE_ICON = (
+const SEND_ICON = (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
-    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-    <polyline points="9 22 9 12 15 12 15 22" />
+    <path d="M22 2L11 13" />
+    <path d="M22 2l-7 20-4-9-9-4 20-7z" />
   </svg>
 )
 
@@ -29,23 +29,23 @@ const CHECK_ICON = (
 const STEPS: Step[] = [
   {
     num: "STEP 01",
-    title: "Tell us about your home",
-    body: "Share your address and a few quick details. Takes about 30 seconds, no contractor visits, no obligation.",
-    tag: "~ 30 SECONDS",
-    icon: HOUSE_ICON,
+    title: "Send us the deal",
+    body: "Submit the address, asking price, and what you know about condition. Or just call us — pictures and a quick description by text work too.",
+    tag: "~ 1 MINUTE",
+    icon: SEND_ICON,
   },
   {
     num: "STEP 02",
-    title: "Get a fair cash offer",
-    body: "We look at comparable properties in your neighborhood, factor in your home's condition, and can present a no-obligation offer within 1 hour of the walkthrough. Take your time deciding.",
-    tag: "~ 1 HOUR AFTER WALKTHROUGH",
+    title: "We underwrite in 24-48 hours",
+    body: "We run comps, build a rehab scope, and come back with a cash offer that pencils for us and works for your seller. No back-and-forth, no week-long stalls.",
+    tag: "24 - 48 HOURS",
     icon: CLOCK_ICON,
   },
   {
     num: "STEP 03",
-    title: "Pick your closing day",
-    body: "Want to close in 7 days? Need 60 to find a new place? You set the timeline. We close at a local title company. Clean and simple.",
-    tag: "7 TO 60 DAYS",
+    title: "Close in 7 to 14 days",
+    body: "Cash close at a local title company. No financing contingency, no appraisal hangups, no inspection-period renegotiation. You stay the listing agent and collect your full commission at closing.",
+    tag: "7 - 14 DAYS",
     icon: CHECK_ICON,
   },
 ]
@@ -56,11 +56,11 @@ export function Process() {
       <div className="mx-auto max-w-[1280px] px-8">
         <header className="flex flex-col items-center text-center gap-6 mb-16 max-w-[880px] mx-auto">
           <h2 id="process-heading" className="font-sans text-[44px] md:text-[64px] leading-none tracking-[-0.035em] font-extrabold text-brand-text">
-            Three steps.<br />
-            <em className="not-italic text-brand-primary">That&apos;s it.</em>
+            How we work<br />
+            <em className="not-italic text-brand-primary">with agents.</em>
           </h2>
           <p className="text-lg text-[#3a3d33] leading-[1.5] max-w-[680px]">
-            We&apos;ve stripped the home-selling process down to what actually matters. No listings, no open houses, no waiting for a buyer who might back out.
+            Three steps from your inbox to a closed deal. No assignment fees, no daisy-chain investors, no surprise faces at closing.
           </p>
         </header>
 
