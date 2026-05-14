@@ -2,8 +2,6 @@ import Image from "next/image"
 import { LeadForm } from "@/components/lead-form"
 import { siteConfig } from "@/lib/site-config"
 
-const STATS = ["Cash Close", "7-14 Day Close", "No Contingencies", "Full Commission"] as const
-
 export function HomepageHero() {
   return (
     <section id="offer" className="relative overflow-hidden bg-brand-ink-soft scroll-mt-20">
@@ -31,30 +29,13 @@ export function HomepageHero() {
 
         {/* LEFT — copy column */}
         <div className="flex flex-col">
-          <span className="inline-flex items-center gap-2.5 self-start bg-brand-bg-warm/10 backdrop-blur-md border border-brand-bg-warm/20 text-brand-bg-warm px-4 py-2 rounded-full text-xs font-semibold tracking-[0.08em] uppercase">
-            <span aria-hidden className="w-[7px] h-[7px] rounded-full bg-brand-accent shadow-[0_0_0_4px_rgba(138,166,106,0.25)]" />
-            For KC Agents · Pocket Listings & Off-Market Deals
-          </span>
-
-          <h1 className="mt-7 font-sans text-[60px] md:text-[88px] leading-[0.96] tracking-[-0.035em] font-extrabold text-brand-bg-warm">
+          <h1 className="font-sans text-[60px] md:text-[88px] leading-[0.96] tracking-[-0.035em] font-extrabold text-brand-bg-warm">
             Off-market deals,<span className="block text-brand-accent">closed fast.</span>
           </h1>
 
           <p className="mt-7 text-[19px] leading-[1.5] text-brand-bg-warm/[0.78] max-w-[540px]">
-            We&apos;re local Kansas City cash buyers. Bring us your distressed flip projects and pocket listings — we underwrite in 24-48 hours and close in 7 to 14 days. You keep your full commission.
+            We&apos;re local Kansas City Investors. Bring us your distressed/ off-market projects, we will offer in under 24 hours, and close in under 14 days.
           </p>
-
-          <div className="mt-9 flex flex-wrap gap-2.5 max-w-[600px]">
-            {STATS.map((s) => (
-              <span
-                key={s}
-                className="inline-flex items-center gap-2.5 px-4 py-2.5 bg-brand-accent/[0.12] border border-brand-accent/35 rounded-full whitespace-nowrap"
-              >
-                <span aria-hidden className="w-[7px] h-[7px] rounded-full bg-brand-accent shadow-[0_0_0_4px_rgba(138,166,106,0.18)]" />
-                <span className="text-brand-bg-warm font-bold text-sm">{s}</span>
-              </span>
-            ))}
-          </div>
         </div>
 
         {/* RIGHT — submit-a-deal card */}
@@ -77,7 +58,7 @@ export function HomepageHero() {
           </div>
 
           <div className="mt-3.5 text-center text-[13px] text-[#3a3d33] font-semibold">
-            Confidential · No assignment · You stay listing agent
+            100% Confidential — No Obligation
           </div>
 
           <div className="mt-[18px] pt-[18px] border-t border-dashed border-brand-border-strong text-center text-sm text-brand-text-muted">
