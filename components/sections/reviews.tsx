@@ -29,6 +29,11 @@ const REVIEW_COUNT = REVIEWS.length
 // Leave null to render the badge without a link.
 const GBP_URL: string | null = null
 
+// BBB profile — Accredited since 2026-05-12, A- rating, BBB of Midwest Plains.
+const BBB_PROFILE_URL =
+  "https://www.bbb.org/us/mo/kansas-city/profile/home-buyers/heartland-acquisitions-0714-1000082080"
+const BBB_RATING = "A-"
+
 const STAR_FILLED = (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
     <polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9" />
@@ -46,7 +51,7 @@ function Stars({ count }: { count: number }) {
 }
 
 export function Reviews() {
-  const badge = (
+  const googleBadge = (
     <span className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-brand-surface border border-brand-border">
       <Stars count={Math.round(AVERAGE_RATING)} />
       <span className="font-bold text-[15px] text-brand-text">
@@ -55,6 +60,21 @@ export function Reviews() {
       <span className="text-[13px] text-brand-text-muted">
         · {REVIEW_COUNT} review{REVIEW_COUNT === 1 ? "" : "s"}
       </span>
+    </span>
+  )
+
+  const bbbBadge = (
+    <span className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-brand-surface border border-brand-border">
+      <span
+        aria-hidden
+        className="inline-flex items-center justify-center w-7 h-7 rounded-md bg-[#005A9C] text-white font-mono font-extrabold text-[11px] tracking-[0.04em]"
+      >
+        BBB
+      </span>
+      <span className="font-bold text-[15px] text-brand-text">
+        Accredited Business
+      </span>
+      <span className="text-[13px] text-brand-text-muted">· {BBB_RATING} Rating</span>
     </span>
   )
 
@@ -75,18 +95,28 @@ export function Reviews() {
           >
             What clients say.
           </h2>
-          {GBP_URL ? (
+          <div className="flex flex-wrap gap-3 justify-center items-center">
+            {GBP_URL ? (
+              <a
+                href={GBP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                {googleBadge}
+              </a>
+            ) : (
+              googleBadge
+            )}
             <a
-              href={GBP_URL}
+              href={BBB_PROFILE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity"
             >
-              {badge}
+              {bbbBadge}
             </a>
-          ) : (
-            badge
-          )}
+          </div>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-[920px] mx-auto">
