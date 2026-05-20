@@ -67,7 +67,7 @@ export function Reviews() {
     <span className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-brand-surface border border-brand-border">
       <span
         aria-hidden
-        className="inline-flex items-center justify-center w-7 h-7 rounded-md bg-[#005A9C] text-white font-mono font-extrabold text-[11px] tracking-[0.04em]"
+        className="inline-flex items-center justify-center w-7 h-7 rounded-md bg-[#005A9C] text-white font-extrabold text-[11px] tracking-[0.04em]"
       >
         BBB
       </span>
@@ -86,7 +86,7 @@ export function Reviews() {
     >
       <div className="mx-auto max-w-[1080px] px-8">
         <header className="flex flex-col items-center text-center gap-6 mb-12 max-w-[880px] mx-auto">
-          <p className="font-mono text-[13px] text-brand-primary uppercase tracking-[0.08em] font-medium">
+          <p className="text-[13px] text-brand-primary uppercase tracking-[0.08em] font-medium">
             Reviews
           </p>
           <h2
@@ -129,7 +129,7 @@ export function Reviews() {
               <p className="text-[16.5px] leading-[1.55] text-brand-text">{r.text}</p>
               <footer className="mt-2 flex items-baseline justify-between gap-3 border-t border-brand-border pt-3">
                 <span className="text-[14.5px] font-bold text-brand-text">{r.author}</span>
-                <span className="text-[12.5px] font-mono uppercase tracking-[0.06em] text-brand-text-muted">
+                <span className="text-[12.5px] uppercase tracking-[0.06em] text-brand-text-muted">
                   via Google · {r.date}
                 </span>
               </footer>

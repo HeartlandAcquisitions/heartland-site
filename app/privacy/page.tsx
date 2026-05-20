@@ -9,7 +9,7 @@ export default function PrivacyPage() {
   return (
     <article className="bg-brand-bg-warm py-24">
       <div className="mx-auto max-w-[760px] px-8">
-        <p className="font-mono text-[13px] text-brand-primary uppercase tracking-[0.08em] font-medium">Last updated: 2026-05-07</p>
+        <p className="text-[13px] text-brand-primary uppercase tracking-[0.08em] font-medium">Last updated: 2026-05-07</p>
         <h1 className="mt-4 font-sans text-[44px] md:text-[56px] leading-[1.05] tracking-[-0.03em] font-extrabold text-brand-text">Privacy Policy</h1>
 
         <div className="mt-8 space-y-6 text-[16.5px] leading-[1.6] text-[#3a3d33]">

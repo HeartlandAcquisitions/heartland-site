@@ -33,7 +33,7 @@ export function Nav() {
           <Link href="/" className="flex items-center gap-3 font-bold tracking-[-0.01em] text-[17px]">
             <span
               aria-hidden
-              className="w-[34px] h-[34px] rounded-lg bg-brand-primary text-brand-bg-warm grid place-items-center font-mono font-extrabold text-[18px]"
+              className="w-[34px] h-[34px] rounded-lg bg-brand-primary text-brand-bg-warm grid place-items-center font-extrabold text-[18px]"
             >
               H
             </span>

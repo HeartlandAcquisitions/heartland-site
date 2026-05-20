@@ -9,12 +9,8 @@ import { Label } from "@/components/ui/label"
 import { AddressAutocomplete } from "@/components/address-autocomplete"
 
 type Step = "address" | "contact" | "success" | "error"
+export type LeadRole = "homeowner" | "agent" | "wholesaler"
 
-// Cloudflare Turnstile types — invisibility is configured on the site key
-// in the Cloudflare dashboard (Managed / Invisible / Non-interactive mode),
-// NOT via the JS render params. Valid `size` values per Cloudflare's current
-// API are "normal" | "flexible" | "compact". Passing "invisible" produces
-// a runtime parameter-validation error.
 type TurnstileAPI = {
   render: (
     el: HTMLElement,
@@ -42,21 +38,27 @@ declare global {
 
 interface LeadFormProps {
   landingPage?: string
+  /** Audience role from the segmented control in the hero card.
+   *  Drives the CRM source_detail tag so leads can be filtered. */
+  role?: LeadRole
+  /** Override the submit button label on the address step (defaults to "Get my offer →") */
+  ctaLabel?: string
 }
 
 const FIELD_CLASS =
   "h-12 border-brand-text/25 bg-white/85 text-base placeholder:text-brand-text/50 focus-visible:border-brand-primary"
 
-export function LeadForm({ landingPage = "home" }: LeadFormProps) {
+export function LeadForm({
+  landingPage = "home",
+  role = "homeowner",
+  ctaLabel = "Get my offer →",
+}: LeadFormProps) {
   const [step, setStep] = useState<Step>("address")
   const [address, setAddress] = useState("")
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
-  const [brokerage, setBrokerage] = useState("")
-  const [askingPrice, setAskingPrice] = useState("")
-  const [conditionNotes, setConditionNotes] = useState("")
   const [error, setError] = useState<string | null>(null)
   const [isPending, startTransition] = useTransition()
 
@@ -66,19 +68,12 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
 
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ""
 
-  // Render Turnstile once the script loads + the container mounts.
-  // No polling timeout — keep trying until the widget is rendered.
   useEffect(() => {
     if (!siteKey) return
     const tryRender = () => {
       if (!window.turnstile || !turnstileRef.current || turnstileWidgetId.current) return
       turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
         sitekey: siteKey,
-        // Invisibility is configured on the site key itself in the Cloudflare
-        // dashboard (Widget mode → Invisible). The JS render call should NOT
-        // pass size="invisible" — that throws a parameter-validation error.
-        // We hide the widget container via CSS instead and rely on
-        // appearance="execute" so the challenge only runs when we call execute().
         appearance: "execute",
         callback: (token) => {
           tokenRef.current = token
@@ -94,13 +89,9 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
     e.preventDefault()
     setError(null)
     if (address.trim().length < 4) {
-      setError("Please enter your property address.")
+      setError("Please enter the property address.")
       return
     }
-    // Fire retargeting signals — users who reach step 2 but abandon the form
-    // can still be re-targeted via Meta / Google ads. Optional-chained so
-    // missing scripts no-op cleanly. Plan 3.5 will pair these with a
-    // server-side `Lead` event on successful submit (deduped via event_id).
     window.fbq?.("trackCustom", "AddressEntered", {
       content_name: "lead_form_address_step",
       value: 0,
@@ -111,6 +102,7 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
       event_label: "address_entered",
     })
     window.posthog?.capture?.("address_entered", {
+      role,
       landing_page: typeof window !== "undefined" ? window.location.pathname : undefined,
     })
     setStep("contact")
@@ -131,14 +123,8 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
       setError("Please add your phone number.")
       return
     }
-    if (!brokerage.trim()) {
-      setError("Please add your brokerage.")
-      return
-    }
 
     startTransition(async () => {
-      // Ask Turnstile for a fresh token (invisible mode). If the widget isn't ready,
-      // wait up to 8s for it to register + solve. Poll for the callback-set token.
       if (siteKey) {
         tokenRef.current = ""
         const deadline = Date.now() + 8000
@@ -166,10 +152,9 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
         first_name: firstName,
         last_name: lastName,
         email: email || undefined,
-        brokerage: brokerage || undefined,
-        asking_price: askingPrice || undefined,
-        condition_notes: conditionNotes || undefined,
-        source_detail: landingPage,
+        // Tag the lead with the audience role so CRM can route/segment.
+        // Falls through to lib/lead-schema's stamping path on the server.
+        source_detail: `${role}_submission`,
         landing_page: typeof window !== "undefined" ? window.location.pathname : undefined,
         utm_source: params.get("utm_source") ?? undefined,
         utm_medium: params.get("utm_medium") ?? undefined,
@@ -201,7 +186,7 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
       <div className="text-center">
         <h3 className="text-2xl font-bold text-brand-text">Got it — we&apos;ll be in touch.</h3>
         <p className="mt-2 text-brand-text-muted">
-          We&apos;ll review the deal and reach out within 24 hours with our underwriting take.
+          We&apos;ll review your property and reach out within 24 hours with our offer.
         </p>
       </div>
     )
@@ -218,47 +203,38 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
         />
       ) : null}
 
-      {/* Turnstile container — always mounted so the widget can render before
-          the user reaches the contact step. Positioned off-screen rather than
-          display:none so Cloudflare's iframe still has real dimensions to
-          render its challenge into; users never see the "Verifying..." or
-          "Success!" UI. */}
       <div
         ref={turnstileRef}
         aria-hidden="true"
         className="absolute left-[-10000px] top-0 h-px w-px overflow-hidden"
       />
 
-
       {step === "address" ? (
-        <form onSubmit={onAddressContinue} className="flex flex-col gap-4">
+        <form onSubmit={onAddressContinue} className="flex flex-col gap-3">
           <Label htmlFor="address" className="sr-only">
             Property address
           </Label>
           <AddressAutocomplete
             id="address"
-            placeholder="Deal address — 123 Main St, Kansas City, MO"
+            placeholder="123 Main St, Kansas City, MO"
             value={address}
             onChange={setAddress}
             required
             className={FIELD_CLASS}
           />
           <Button type="submit" size="lg" className="w-full">
-            Continue
+            {ctaLabel}
           </Button>
           {error ? <p className="text-sm text-red-600">{error}</p> : null}
-          <p className="text-xs text-brand-text/70 text-center">
-            We&apos;ll review your deal and respond within 24 hours.
-          </p>
         </form>
       ) : null}
 
       {step === "contact" || step === "error" ? (
-        <form onSubmit={onFinalSubmit} className="flex flex-col gap-4">
+        <form onSubmit={onFinalSubmit} className="flex flex-col gap-3">
           <div>
-            <div className="text-sm text-slate-500">Deal on: {address}</div>
+            <div className="text-sm text-slate-500">Property: {address}</div>
             <Label htmlFor="first_name" className="mt-3 block text-base font-semibold">
-              Tell us about the deal and how to reach you.
+              How should we reach you?
             </Label>
           </div>
           <div className="grid grid-cols-2 gap-3">
@@ -288,49 +264,16 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
             </div>
           </div>
           <div>
-            <Label htmlFor="phone" className="sr-only">Phone (agent)</Label>
+            <Label htmlFor="phone" className="sr-only">Phone</Label>
             <Input
               id="phone"
               type="tel"
               autoComplete="tel"
-              placeholder="Your phone (agent)"
+              placeholder="Phone number"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               required
               className={FIELD_CLASS}
-            />
-          </div>
-          <div>
-            <Label htmlFor="brokerage" className="sr-only">Brokerage</Label>
-            <Input
-              id="brokerage"
-              placeholder="Brokerage"
-              value={brokerage}
-              onChange={(e) => setBrokerage(e.target.value)}
-              required
-              className={FIELD_CLASS}
-            />
-          </div>
-          <div>
-            <Label htmlFor="asking_price" className="sr-only">Asking price (optional)</Label>
-            <Input
-              id="asking_price"
-              placeholder="Asking price (optional) — e.g. $185k"
-              value={askingPrice}
-              onChange={(e) => setAskingPrice(e.target.value)}
-              className={FIELD_CLASS}
-            />
-          </div>
-          <div>
-            <Label htmlFor="condition_notes" className="sr-only">Condition notes (optional)</Label>
-            <textarea
-              id="condition_notes"
-              placeholder="Condition notes (optional) — roof, foundation, occupancy, anything we should know"
-              value={conditionNotes}
-              onChange={(e) => setConditionNotes(e.target.value)}
-              maxLength={2000}
-              rows={3}
-              className="w-full rounded-md border border-brand-text/25 bg-white/85 px-3 py-2 text-base placeholder:text-brand-text/50 focus-visible:border-brand-primary focus-visible:outline-none"
             />
           </div>
           <div>
@@ -347,7 +290,7 @@ export function LeadForm({ landingPage = "home" }: LeadFormProps) {
           </div>
 
           <Button type="submit" size="lg" disabled={isPending}>
-            {isPending ? "Sending…" : "Submit deal"}
+            {isPending ? "Sending…" : "Send my property"}
           </Button>
 
           <button

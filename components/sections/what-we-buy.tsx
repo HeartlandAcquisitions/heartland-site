@@ -21,7 +21,7 @@ export function WhatWeBuy() {
     >
       <div className="mx-auto max-w-[1280px] px-8">
         <header className="flex flex-col items-center text-center gap-6 mb-14 max-w-[880px] mx-auto">
-          <p className="font-mono text-[13px] text-brand-primary uppercase tracking-[0.08em] font-medium">Buy box</p>
+          <p className="text-[13px] text-brand-primary uppercase tracking-[0.08em] font-medium">Buy box</p>
           <h2 id="buy-box-heading" className="font-sans text-[44px] md:text-[64px] leading-none tracking-[-0.035em] font-extrabold text-brand-text">
             What we buy.
           </h2>
@@ -36,7 +36,7 @@ export function WhatWeBuy() {
               key={c.label}
               className="bg-brand-surface border border-brand-border rounded-[14px] p-6 flex flex-col gap-2"
             >
-              <span className="font-mono text-[12px] text-brand-primary uppercase tracking-[0.08em] font-medium">
+              <span className="text-[12px] text-brand-primary uppercase tracking-[0.08em] font-medium">
                 {c.label}
               </span>
               <span className="text-[16.5px] text-brand-text leading-[1.45]">{c.value}</span>

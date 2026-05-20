@@ -42,7 +42,7 @@ export function WhyUs() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 rounded-[20px] overflow-hidden border border-brand-bg-warm/10">
           <div className="p-10 px-9 bg-brand-bg-warm/[0.03]">
-            <h4 className="text-[13px] tracking-[0.1em] uppercase font-mono font-medium text-brand-bg-warm/50">Listing it on the MLS</h4>
+            <h4 className="text-[13px] tracking-[0.1em] uppercase font-medium text-brand-bg-warm/50">Listing it on the MLS</h4>
             <h3 className="mt-2 text-[30px] font-bold tracking-[-0.025em]">The retail route</h3>
             <ul className="mt-7 flex flex-col gap-3.5 list-none p-0">
               {THEM.map((item) => (
@@ -57,7 +57,7 @@ export function WhyUs() {
           </div>
 
           <div className="p-10 px-9 bg-[linear-gradient(180deg,rgba(138,166,106,.16),rgba(138,166,106,.04))] border-l border-brand-accent/40">
-            <h4 className="text-[13px] tracking-[0.1em] uppercase font-mono font-medium text-brand-accent">Selling to Heartland</h4>
+            <h4 className="text-[13px] tracking-[0.1em] uppercase font-medium text-brand-accent">Selling to Heartland</h4>
             <h3 className="mt-2 text-[30px] font-bold tracking-[-0.025em]">The direct route</h3>
             <ul className="mt-7 flex flex-col gap-3.5 list-none p-0">
               {US.map((item, i) => (
