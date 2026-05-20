@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, JetBrains_Mono } from "next/font/google";
+import { Manrope } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { Analytics } from "@/components/analytics";
@@ -14,13 +14,6 @@ const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500"],
 });
 
 const localBusinessJsonLd = JSON.stringify({
@@ -84,7 +77,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${jetbrainsMono.variable}`}
+      className={manrope.variable}
     >
       <body className="bg-brand-bg-warm text-brand-text font-sans antialiased min-h-screen flex flex-col">
         <Script id="ld-localbusiness" type="application/ld+json" strategy="beforeInteractive">

@@ -40,7 +40,7 @@ export function CoverageGrid({ headline, sub }: CoverageGridProps) {
         </header>
 
         <div className="bg-brand-surface border border-brand-border rounded-[18px] p-8 max-w-[880px] mx-auto">
-          <h3 className="font-mono text-[13px] uppercase tracking-[0.08em] text-brand-primary font-medium mb-5">Cities we actively buy in</h3>
+          <h3 className="text-[13px] uppercase tracking-[0.08em] text-brand-primary font-medium mb-5">Cities we actively buy in</h3>
           <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2 list-none p-0">
             {COVERAGE_CITIES.map((city) => (
               <li key={city} className="py-2 px-3 text-[15px] font-medium text-brand-text">{city}</li>

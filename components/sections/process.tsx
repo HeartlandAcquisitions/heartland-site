@@ -73,10 +73,10 @@ export function Process() {
               <div className="w-[52px] h-[52px] rounded-xl bg-[#f1ede1] grid place-items-center text-brand-primary mb-2">
                 {s.icon}
               </div>
-              <div className="font-mono text-[13px] text-brand-primary font-medium tracking-[0.08em]">{s.num}</div>
+              <div className="text-[13px] text-brand-primary font-medium tracking-[0.08em]">{s.num}</div>
               <h3 className="mt-[18px] text-[28px] font-bold tracking-[-0.02em] leading-[1.15]">{s.title}</h3>
               <p className="mt-3 text-[15.5px] leading-[1.55] text-[#4a4d42]">{s.body}</p>
-              <span className="mt-6 inline-flex px-3 py-1.5 rounded-full bg-[#f1ede1] text-brand-primary text-xs font-semibold font-mono tracking-[0.04em]">
+              <span className="mt-6 inline-flex px-3 py-1.5 rounded-full bg-[#f1ede1] text-brand-primary text-xs font-semibold tracking-[0.04em]">
                 {s.tag}
               </span>
             </article>

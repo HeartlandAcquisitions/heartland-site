@@ -10,7 +10,7 @@ export function Footer() {
             <div className="flex items-center gap-3 font-bold text-[18px] text-brand-bg-warm">
               <span
                 aria-hidden
-                className="w-[34px] h-[34px] rounded-lg bg-brand-primary text-brand-bg-warm grid place-items-center font-mono font-extrabold text-[18px]"
+                className="w-[34px] h-[34px] rounded-lg bg-brand-primary text-brand-bg-warm grid place-items-center font-extrabold text-[18px]"
               >
                 H
               </span>
@@ -26,7 +26,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h5 className="text-xs font-semibold uppercase tracking-[0.1em] text-brand-bg-warm font-mono mb-[18px]">Company</h5>
+            <h5 className="text-xs font-semibold uppercase tracking-[0.1em] text-brand-bg-warm mb-[18px]">Company</h5>
             <ul className="flex flex-col gap-[11px] text-[14.5px] list-none p-0">
               <li><Link href="/#process" className="hover:text-brand-bg-warm">Our process</Link></li>
               <li><Link href="/#why" className="hover:text-brand-bg-warm">Why us</Link></li>
@@ -35,7 +35,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h5 className="text-xs font-semibold uppercase tracking-[0.1em] text-brand-bg-warm font-mono mb-[18px]">Get in touch</h5>
+            <h5 className="text-xs font-semibold uppercase tracking-[0.1em] text-brand-bg-warm mb-[18px]">Get in touch</h5>
             <ul className="flex flex-col gap-[11px] text-[14.5px] list-none p-0">
               <li><a href={siteConfig.phone.hrefTel} className="ph-no-capture hover:text-brand-bg-warm">{siteConfig.phone.display}</a></li>
               <li><a href="mailto:hello@heartlandacq.com" className="hover:text-brand-bg-warm">hello@heartlandacq.com</a></li>
